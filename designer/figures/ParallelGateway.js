@@ -1,22 +1,3 @@
-/**
- * Activiti5 Designer 0.0.1
- * 
- * Copyright (c) 2014 RanJi All rights reserved.
- * 
- * This program is free software, and you can follow the Free Software Foundation's GNU General Public License as published by the terms used to modify and redistribute the program. 
- * Or a second license, or (at your option) any later version.
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY. 
- * Without even the implied warranty for a particular purpose. More detailed information, please refer to the GNU General Public License.
- * You should have received a copy of the GNU General Public License along with the program. If not,
- * Visit the WebSite:
- *	 Licensed under the GPL license: http://www.gnu.org/licenses/gpl.txt
- * 
- * To use it on other projects please contact me at jiran1221@163.com
- * Thanks for your using. Good Luck!
- * 
- */
-
-
 org.ranji.activiti.ParallelGatewayICON = draw2d.shape.icon.Plus.extend({
 	NAME: "ParallelGatewayICON",
 	
@@ -42,14 +23,17 @@ org.ranji.activiti.ParallelGateway = draw2d.shape.basic.Diamond.extend({
 		var ParallelGatewayICONLocation = new draw2d.layout.locator.CenterLocator();
 		
 		
-		this.add(ParallelGatewayICON,ParallelGatewayICONLocation,0);
+		this.add(ParallelGatewayICON, ParallelGatewayICONLocation,0);
 		
 		var leftLocator = new draw2d.layout.locator.InputPortLocator();
-		this.createPort("input",leftLocator);
+		this.createPort("input", leftLocator);
 		
 		
 		var rightLocator = new draw2d.layout.locator.OutputPortLocator();
-		this.createPort("output",rightLocator);
+		this.createPort("output", rightLocator);
+
+        var bottomLocator = new draw2d.layout.locator.ExtendPortLocator();
+        this.createPort("output", bottomLocator);
 	},
 	
 	 /**

@@ -61,8 +61,8 @@
 				  if(e.isPostChangeEvent()){
 					  updatePreview(app.canvas);
 				   }
-				});*/ 
-				
+				});
+				*/
 				
 				displayJSON(app.canvas);
 				// JSON2Canvas(app.canvas);
@@ -76,7 +76,7 @@
 				
 			});
 			
-			/*
+
 			function updatePreview(canvas){
 			
 				//-- convert the canvas into a PNG IMage source string
@@ -97,7 +97,7 @@
 				writer.marshal(canvas,function(png){
 				   $("#preview").attr("src",png);
 				},new draw2d.geo.Rectangle(minX,minY,width,height));
-			};*/
+			};
 			
 			function displayJSON(canvas){
 				//-- test code
@@ -153,12 +153,13 @@
 		</div>
 		<div data-options="region:'center'" title="工作区">
 			<div id="activitiCanvas" style="position:relative;width:2500px;height:2500px;background-image:url(styles/images/grid.png);"></div>
+
 			<!-- 暂时注释掉预览图的功能
 			<div style="border-radius:5px;overflow:auto;position:absolute; top:30px; right:20px; width:350px; height:250px; border:3px solid gray;background-color:#dceffd;opacity:0.8">
 				<img id="preview" style="width:350px; height:250px;"/>
 			</div>
 
-			
+
 			<pre id="json" style="border-radius:5px;overflow:auto;position:absolute; top:30px; right:20px; width:350px; height:500px; border:3px solid gray;background-color:#dceffd;opacity:0.8">
 			</pre>
 			-->
