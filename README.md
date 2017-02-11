@@ -24,6 +24,6 @@
 
 ### 图示：
 
-![./demo/demo.png](./demo/demo.png)
+![](https://raw.githubusercontent.com/hitdavid/workflow-designer-web/master/demo/demo.png)
 
 
