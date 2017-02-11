@@ -71,8 +71,8 @@ org.ranji.activiti.Application = Class.extend({
 		conn.setTargetDecorator(targetDecorator);
 		
 		//-- 3. 设置路由
-	    conn.setRouter(new draw2d.layout.connection.VertexRouter());
-		//conn.setRouter(new draw2d.layout.connection.InteractiveManhattanConnectionRouter());
+	    //conn.setRouter(new draw2d.layout.connection.VertexRouter());
+		conn.setRouter(new draw2d.layout.connection.SplineConnectionRouter());
 		
 		conn.installEditPolicy(new draw2d.policy.line.VertexSelectionFeedbackPolicy());
 		

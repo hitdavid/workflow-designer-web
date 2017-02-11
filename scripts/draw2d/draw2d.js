@@ -13737,6 +13737,8 @@ draw2d.policy.line.OrthogonalSelectionFeedbackPolicy = draw2d.policy.line.LineSe
         }
     	
         this.moved(canvas, connection);
+        console.log("selected");
+
     },
     
     
@@ -14064,6 +14066,7 @@ draw2d.policy.port.PortFeedbackPolicy = draw2d.policy.figure.DragDropEditPolicy.
      * @param {draw2d.Figure} hoverFigure
      */
     onHoverEnter: function(canvas, draggedFigure, hoverFigure){
+
     },
     
     onHoverLeave: function(canvas, draggedFigure, hoverFigure){
