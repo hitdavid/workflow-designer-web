@@ -22,8 +22,13 @@
 - 全部完成型
 - 任意完成型
 
+
+### TODO:
+
+- 流程合法性检查
+- 属性面板
+- json生成优化
+
 ### 图示：
 
 ![](https://raw.githubusercontent.com/hitdavid/workflow-designer-web/master/demo/demo.png)
-
-
