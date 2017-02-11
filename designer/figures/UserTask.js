@@ -1,23 +1,5 @@
-/**
- * Activiti5 Designer 0.0.1
- * 
- * Copyright (c) 2014 RanJi All rights reserved.
- * 
- * This program is free software, and you can follow the Free Software Foundation's GNU General Public License as published by the terms used to modify and redistribute the program. 
- * Or a second license, or (at your option) any later version.
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY. 
- * Without even the implied warranty for a particular purpose. More detailed information, please refer to the GNU General Public License.
- * You should have received a copy of the GNU General Public License along with the program. If not,
- * Visit the WebSite:
- *	 Licensed under the GPL license: http://www.gnu.org/licenses/gpl.txt
- * 
- * To use it on other projects please contact me at jiran1221@163.com
- * Thanks for your using. Good Luck!
- * 
- */
-
 /*
-org.ranji.activiti.UserTaskICON = draw2d.shape.icon.User.extend({
+com.chanjet.gzq.aflowUserTaskICON = draw2d.shape.icon.User.extend({
 	NAME: "UserTaskICON",
 	
 	init: function(){
@@ -27,7 +9,7 @@ org.ranji.activiti.UserTaskICON = draw2d.shape.icon.User.extend({
 });
 */
 
-org.ranji.activiti.UserTaskICON = draw2d.SetFigure.extend({
+com.chanjet.gzq.aflowUserTaskICON = draw2d.SetFigure.extend({
 	NAME: "UserTaskICON",
 	
 	
@@ -91,7 +73,7 @@ org.ranji.activiti.UserTaskICON = draw2d.SetFigure.extend({
     }
 });
 
-org.ranji.activiti.UserTaskText = draw2d.shape.basic.Text.extend({
+com.chanjet.gzq.aflowUserTaskText = draw2d.shape.basic.Text.extend({
 	NAME: "UserTaskText",
 	
 	init: function(text){
@@ -119,8 +101,8 @@ org.ranji.activiti.UserTaskText = draw2d.shape.basic.Text.extend({
 	}
 });
 
-org.ranji.activiti.UserTask = draw2d.shape.basic.Rectangle.extend({
-	NAME: "org.ranji.activiti.UserTask",
+com.chanjet.gzq.aflowUserTask = draw2d.shape.basic.Rectangle.extend({
+	NAME: "com.chanjet.gzq.aflowUserTask",
 	init: function(){
 		this._super();
 		
@@ -129,8 +111,8 @@ org.ranji.activiti.UserTask = draw2d.shape.basic.Rectangle.extend({
 		this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
 		this.setRadius(5);
 		
-		var userTaskICON = new org.ranji.activiti.UserTaskICON();
-		var userTaskText = new org.ranji.activiti.UserTaskText("人工任务");
+		var userTaskICON = new com.chanjet.gzq.aflowUserTaskICON();
+		var userTaskText = new com.chanjet.gzq.aflowUserTaskText("固定人员");
 		
 		var userTaskICONLocation = new draw2d.layout.locator.XYRelPortLocator(5,5);
 		var userTaskTextLocation = new draw2d.layout.locator.CenterLocator();

@@ -49,7 +49,7 @@
 				//-- 2. activiti-designer的连接器(全局)
 		
 			
-				var app = new org.ranji.activiti.Application();
+				var app = new com.chanjet.gzq.aflowApplication();
 			
 				
 				app.loadFigure();
@@ -137,7 +137,7 @@
 				</div>
 				<div id="task" title="节点" iconCls="bpm-menu-icon" selected="true" class="bpm-menu">
 					<a href="#" class="easyui-linkbutton" plain="true" iconCls="user-task-icon" nodeType="UserTask">固定人员</a><br>
-					<a href="#" class="easyui-linkbutton" plain="true" iconCls="manual-task-icon" nodeType="ManualTask">上级角色</a><br>
+					<a href="#" class="easyui-linkbutton" plain="true" iconCls="manual-task-icon" nodeType="ManualTask">上级主管</a><br>
 					<a href="#" class="easyui-linkbutton" plain="true" iconCls="service-task-icon" nodeType="ServiceTask">自由选择</a><br>
 				</div>
 				<div id="gateway" title="会签" iconCls="bpm-menu-icon" class="bpm-menu">
@@ -146,8 +146,10 @@
 				</div>
 				<div id="boundary-event" title="条件" iconCls="bpm-menu-icon" class="bpm-menu">
 					<a href="##" class="easyui-linkbutton" plain="true" iconCls="branch-task-icon" nodeType="BranchTask">分支条件</a><br>
-					<a href="##" class="easyui-linkbutton" plain="true" iconCls="timer-boundary-event-icon" nodeType="TimerBoundaryEvent">TimerBoundaryEvent</a><br>
-					<a href="##" class="easyui-linkbutton" plain="true" iconCls="error-boundary-event-icon" nodeType="ErrorBoundaryEvent">ErrorBoundaryEvent</a><br>
+				</div>
+				<div id="notify" title="通知" iconCls="bpm-menu-icon" class="bpm-menu">
+					<a href="##" class="easyui-linkbutton" plain="true" iconCls="branch-task-icon" nodeType="BranchTask">邮件通知</a><br>
+					<a href="##" class="easyui-linkbutton" plain="true" iconCls="branch-task-icon" nodeType="BranchTask">消息通知</a><br>
 				</div>
 			</div>
 		</div>

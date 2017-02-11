@@ -1,23 +1,4 @@
-/**
- * Activiti5 Designer 0.0.1
- * 
- * Copyright (c) 2014 RanJi All rights reserved.
- * 
- * This program is free software, and you can follow the Free Software Foundation's GNU General Public License as published by the terms used to modify and redistribute the program. 
- * Or a second license, or (at your option) any later version.
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY. 
- * Without even the implied warranty for a particular purpose. More detailed information, please refer to the GNU General Public License.
- * You should have received a copy of the GNU General Public License along with the program. If not,
- * Visit the WebSite:
- *	 Licensed under the GPL license: http://www.gnu.org/licenses/gpl.txt
- * 
- * To use it on other projects please contact me at jiran1221@163.com
- * Thanks for your using. Good Luck!
- * 
- */
-
-
-org.ranji.activiti.MailTaskICON = draw2d.shape.icon.Mail.extend({
+com.chanjet.gzq.aflowMailTaskICON = draw2d.shape.icon.Mail.extend({
 	NAME: "MailTaskICON",
 	
 	init: function(){
@@ -26,7 +7,7 @@ org.ranji.activiti.MailTaskICON = draw2d.shape.icon.Mail.extend({
 	}
 });
 
-org.ranji.activiti.MailTaskText = draw2d.shape.basic.Text.extend({
+com.chanjet.gzq.aflowMailTaskText = draw2d.shape.basic.Text.extend({
 	NAME: "MailTaskText",
 	
 	init: function(text){
@@ -50,8 +31,8 @@ org.ranji.activiti.MailTaskText = draw2d.shape.basic.Text.extend({
 	}
 });
 
-org.ranji.activiti.MailTask = draw2d.shape.basic.Rectangle.extend({
-	NAME: "org.ranji.activiti.MailTask",
+com.chanjet.gzq.aflowMailTask = draw2d.shape.basic.Rectangle.extend({
+	NAME: "com.chanjet.gzq.aflowMailTask",
 	init: function(){
 		this._super();
 		
@@ -60,8 +41,8 @@ org.ranji.activiti.MailTask = draw2d.shape.basic.Rectangle.extend({
 		this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
 		this.setRadius(10);
 		
-		var MailTaskICON = new org.ranji.activiti.MailTaskICON();
-		var MailTaskText = new org.ranji.activiti.MailTaskText("邮件任务");
+		var MailTaskICON = new com.chanjet.gzq.aflowMailTaskICON();
+		var MailTaskText = new com.chanjet.gzq.aflowMailTaskText("邮件任务");
 		
 		var MailTaskICONLocation = new draw2d.layout.locator.XYRelPortLocator(5,5);
 		var MailTaskTextLocation = new draw2d.layout.locator.CenterLocator();

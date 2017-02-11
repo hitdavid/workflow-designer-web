@@ -1,4 +1,4 @@
-org.ranji.activiti.ParallelGatewayICON = draw2d.shape.icon.Plus.extend({
+com.chanjet.gzq.aflowParallelGatewayICON = draw2d.shape.icon.Plus.extend({
 	NAME: "ParallelGatewayICON",
 	
 	init: function(){
@@ -9,8 +9,8 @@ org.ranji.activiti.ParallelGatewayICON = draw2d.shape.icon.Plus.extend({
 });
 
 
-org.ranji.activiti.ParallelGateway = draw2d.shape.basic.Diamond.extend({
-	NAME: "org.ranji.activiti.ParallelGateway",
+com.chanjet.gzq.aflowParallelGateway = draw2d.shape.basic.Diamond.extend({
+	NAME: "com.chanjet.gzq.aflowParallelGateway",
 	init: function(){
 		this._super();
 		
@@ -19,7 +19,7 @@ org.ranji.activiti.ParallelGateway = draw2d.shape.basic.Diamond.extend({
 		this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
 		this.setRadius(2);
 		
-		var ParallelGatewayICON = new org.ranji.activiti.ParallelGatewayICON();
+		var ParallelGatewayICON = new com.chanjet.gzq.aflowParallelGatewayICON();
 		var ParallelGatewayICONLocation = new draw2d.layout.locator.CenterLocator();
 		
 		

@@ -1,8 +1,4 @@
-/**
- * Created by David on 17/2/11.
- */
-
-org.ranji.activiti.BranchTaskICON = draw2d.shape.icon.Check.extend({
+com.chanjet.gzq.aflowBranchTaskICON = draw2d.shape.icon.Check.extend({
     NAME: "BranchTaskICON",
 
     init: function(){
@@ -11,7 +7,7 @@ org.ranji.activiti.BranchTaskICON = draw2d.shape.icon.Check.extend({
     }
 });
 
-org.ranji.activiti.BranchTaskText = draw2d.shape.basic.Text.extend({
+com.chanjet.gzq.aflowBranchTaskText = draw2d.shape.basic.Text.extend({
     NAME: "BranchTaskText",
 
     init: function(text){
@@ -35,8 +31,8 @@ org.ranji.activiti.BranchTaskText = draw2d.shape.basic.Text.extend({
     }
 });
 
-org.ranji.activiti.BranchTask = draw2d.shape.basic.Rectangle.extend({
-    NAME: "org.ranji.activiti.BranchTask",
+com.chanjet.gzq.aflowBranchTask = draw2d.shape.basic.Rectangle.extend({
+    NAME: "com.chanjet.gzq.aflowBranchTask",
     init: function(){
         this._super();
 
@@ -45,8 +41,8 @@ org.ranji.activiti.BranchTask = draw2d.shape.basic.Rectangle.extend({
         this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
         this.setRadius(10);
 
-        var BranchTaskICON = new org.ranji.activiti.BranchTaskICON();
-        var BranchTaskText = new org.ranji.activiti.BranchTaskText("条件分支");
+        var BranchTaskICON = new com.chanjet.gzq.aflowBranchTaskICON();
+        var BranchTaskText = new com.chanjet.gzq.aflowBranchTaskText("条件分支");
 
         var BranchTaskICONLocation = new draw2d.layout.locator.XYRelPortLocator(5,5);
         var BranchTaskTextLocation = new draw2d.layout.locator.CenterLocator();

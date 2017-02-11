@@ -17,7 +17,7 @@
  */
 
 /*
-org.ranji.activiti.ManualTaskICON = draw2d.shape.icon.User.extend({
+com.chanjet.gzq.aflowManualTaskICON = draw2d.shape.icon.User.extend({
 	NAME: "ManualTaskICON",
 	
 	init: function(){
@@ -27,7 +27,7 @@ org.ranji.activiti.ManualTaskICON = draw2d.shape.icon.User.extend({
 });
 */
 
-org.ranji.activiti.ManualTaskICON = draw2d.SetFigure.extend({
+com.chanjet.gzq.aflowManualTaskICON = draw2d.SetFigure.extend({
 	NAME: "ManualTaskICON",
 	
 	
@@ -55,7 +55,7 @@ org.ranji.activiti.ManualTaskICON = draw2d.SetFigure.extend({
     }
 });
 
-org.ranji.activiti.ManualTaskText = draw2d.shape.basic.Text.extend({
+com.chanjet.gzq.aflowManualTaskText = draw2d.shape.basic.Text.extend({
 	NAME: "ManualTaskText",
 	
 	init: function(text){
@@ -83,8 +83,8 @@ org.ranji.activiti.ManualTaskText = draw2d.shape.basic.Text.extend({
 	}
 });
 
-org.ranji.activiti.ManualTask = draw2d.shape.basic.Rectangle.extend({
-	NAME: "org.ranji.activiti.ManualTask",
+com.chanjet.gzq.aflowManualTask = draw2d.shape.basic.Rectangle.extend({
+	NAME: "com.chanjet.gzq.aflowManualTask",
 	init: function(){
 		this._super();
 		
@@ -93,8 +93,8 @@ org.ranji.activiti.ManualTask = draw2d.shape.basic.Rectangle.extend({
 		this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
 		this.setRadius(5);
 		
-		var manualTaskICON = new org.ranji.activiti.ManualTaskICON();
-		var manualTaskText = new org.ranji.activiti.ManualTaskText("手工任务");
+		var manualTaskICON = new com.chanjet.gzq.aflowManualTaskICON();
+		var manualTaskText = new com.chanjet.gzq.aflowManualTaskText("上级主管");
 		
 		var manualTaskICONLocation = new draw2d.layout.locator.XYRelPortLocator(5,5);
 		var manualTaskTextLocation = new draw2d.layout.locator.CenterLocator();

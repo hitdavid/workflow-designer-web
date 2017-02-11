@@ -1,22 +1,4 @@
-/**
- * Activiti5 Designer 0.0.1
- * 
- * Copyright (c) 2014 RanJi All rights reserved.
- * 
- * This program is free software, and you can follow the Free Software Foundation's GNU General Public License as published by the terms used to modify and redistribute the program. 
- * Or a second license, or (at your option) any later version.
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY. 
- * Without even the implied warranty for a particular purpose. More detailed information, please refer to the GNU General Public License.
- * You should have received a copy of the GNU General Public License along with the program. If not,
- * Visit the WebSite:
- *	 Licensed under the GPL license: http://www.gnu.org/licenses/gpl.txt
- * 
- * To use it on other projects please contact me at jiran1221@163.com
- * Thanks for your using. Good Luck!
- * 
- */
-
-org.ranji.activiti.ScriptTaskICON = draw2d.SetFigure.extend({
+com.chanjet.gzq.aflowScriptTaskICON = draw2d.SetFigure.extend({
 	NAME: "ScriptTaskICON",
 	
 	
@@ -44,7 +26,7 @@ org.ranji.activiti.ScriptTaskICON = draw2d.SetFigure.extend({
     }
 });
 
-org.ranji.activiti.ScriptTaskText = draw2d.shape.basic.Text.extend({
+com.chanjet.gzq.aflowScriptTaskText = draw2d.shape.basic.Text.extend({
 	NAME: "ScriptTaskText",
 	
 	init: function(text){
@@ -72,8 +54,8 @@ org.ranji.activiti.ScriptTaskText = draw2d.shape.basic.Text.extend({
 	}
 });
 
-org.ranji.activiti.ScriptTask = draw2d.shape.basic.Rectangle.extend({
-	NAME: "org.ranji.activiti.ScriptTask",
+com.chanjet.gzq.aflowScriptTask = draw2d.shape.basic.Rectangle.extend({
+	NAME: "com.chanjet.gzq.aflowScriptTask",
 	init: function(){
 		this._super();
 		
@@ -82,8 +64,8 @@ org.ranji.activiti.ScriptTask = draw2d.shape.basic.Rectangle.extend({
 		this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
 		this.setRadius(5);
 		
-		var scriptTaskICON = new org.ranji.activiti.ScriptTaskICON();
-		var scriptTaskText = new org.ranji.activiti.ScriptTaskText("脚本任务");
+		var scriptTaskICON = new com.chanjet.gzq.aflowScriptTaskICON();
+		var scriptTaskText = new com.chanjet.gzq.aflowScriptTaskText("脚本任务");
 		
 		var scriptTaskICONLocation = new draw2d.layout.locator.XYRelPortLocator(5,5);
 		var scriptTaskTextLocation = new draw2d.layout.locator.CenterLocator();

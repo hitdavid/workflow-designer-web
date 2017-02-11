@@ -1,23 +1,4 @@
-/**
- * Activiti5 Designer 0.0.1
- * 
- * Copyright (c) 2014 RanJi All rights reserved.
- * 
- * This program is free software, and you can follow the Free Software Foundation's GNU General Public License as published by the terms used to modify and redistribute the program. 
- * Or a second license, or (at your option) any later version.
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY. 
- * Without even the implied warranty for a particular purpose. More detailed information, please refer to the GNU General Public License.
- * You should have received a copy of the GNU General Public License along with the program. If not,
- * Visit the WebSite:
- *	 Licensed under the GPL license: http://www.gnu.org/licenses/gpl.txt
- * 
- * To use it on other projects please contact me at jiran1221@163.com
- * Thanks for your using. Good Luck!
- * 
- */
-
-
-org.ranji.activiti.ExclusiveGatewayICON = draw2d.shape.icon.Cross.extend({
+com.chanjet.gzq.aflowExclusiveGatewayICON = draw2d.shape.icon.Cross.extend({
 	NAME: "ExclusiveGatewayICON",
 	
 	init: function(){
@@ -28,8 +9,8 @@ org.ranji.activiti.ExclusiveGatewayICON = draw2d.shape.icon.Cross.extend({
 });
 
 
-org.ranji.activiti.ExclusiveGateway = draw2d.shape.basic.Diamond.extend({
-	NAME: "org.ranji.activiti.ExclusiveGateway",
+com.chanjet.gzq.aflowExclusiveGateway = draw2d.shape.basic.Diamond.extend({
+	NAME: "com.chanjet.gzq.aflowExclusiveGateway",
 	init: function(){
 		this._super();
 		
@@ -38,7 +19,7 @@ org.ranji.activiti.ExclusiveGateway = draw2d.shape.basic.Diamond.extend({
 		this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
 		this.setRadius(2);
 		
-		var ExclusiveGatewayICON = new org.ranji.activiti.ExclusiveGatewayICON();
+		var ExclusiveGatewayICON = new com.chanjet.gzq.aflowExclusiveGatewayICON();
 		var ExclusiveGatewayICONLocation = new draw2d.layout.locator.CenterLocator();
 		
 		

@@ -1,23 +1,4 @@
-/**
- * Activiti5 Designer 0.0.1
- * 
- * Copyright (c) 2014 RanJi All rights reserved.
- * 
- * This program is free software, and you can follow the Free Software Foundation's GNU General Public License as published by the terms used to modify and redistribute the program. 
- * Or a second license, or (at your option) any later version.
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY. 
- * Without even the implied warranty for a particular purpose. More detailed information, please refer to the GNU General Public License.
- * You should have received a copy of the GNU General Public License along with the program. If not,
- * Visit the WebSite:
- *	 Licensed under the GPL license: http://www.gnu.org/licenses/gpl.txt
- * 
- * To use it on other projects please contact me at jiran1221@163.com
- * Thanks for your using. Good Luck!
- * 
- */
-
-
-org.ranji.activiti.ManualTaskICON = draw2d.shape.icon.Palm.extend({
+com.chanjet.gzq.aflowManualTaskICON = draw2d.shape.icon.Palm.extend({
 	NAME: "ManualTaskICON",
 	
 	init: function(){
@@ -26,7 +7,7 @@ org.ranji.activiti.ManualTaskICON = draw2d.shape.icon.Palm.extend({
 	}
 });
 
-org.ranji.activiti.ManualTaskText = draw2d.shape.basic.Text.extend({
+com.chanjet.gzq.aflowManualTaskText = draw2d.shape.basic.Text.extend({
 	NAME: "ManualTaskText",
 	
 	init: function(text){
@@ -50,8 +31,8 @@ org.ranji.activiti.ManualTaskText = draw2d.shape.basic.Text.extend({
 	}
 });
 
-org.ranji.activiti.ManualTask = draw2d.shape.basic.Rectangle.extend({
-	NAME: "org.ranji.activiti.ManualTask",
+com.chanjet.gzq.aflowManualTask = draw2d.shape.basic.Rectangle.extend({
+	NAME: "com.chanjet.gzq.aflowManualTask",
 	init: function(){
 		this._super();
 		
@@ -60,8 +41,8 @@ org.ranji.activiti.ManualTask = draw2d.shape.basic.Rectangle.extend({
 		this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
 		this.setRadius(10);
 		
-		var ManualTaskICON = new org.ranji.activiti.ManualTaskICON();
-		var ManualTaskText = new org.ranji.activiti.ManualTaskText("手工任务");
+		var ManualTaskICON = new com.chanjet.gzq.aflowManualTaskICON();
+		var ManualTaskText = new com.chanjet.gzq.aflowManualTaskText("手工任务");
 		
 		var ManualTaskICONLocation = new draw2d.layout.locator.XYRelPortLocator(5,5);
 		var ManualTaskTextLocation = new draw2d.layout.locator.CenterLocator();

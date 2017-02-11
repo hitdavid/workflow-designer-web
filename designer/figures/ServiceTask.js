@@ -1,23 +1,4 @@
-/**
- * Activiti5 Designer 0.0.1
- * 
- * Copyright (c) 2014 RanJi All rights reserved.
- * 
- * This program is free software, and you can follow the Free Software Foundation's GNU General Public License as published by the terms used to modify and redistribute the program. 
- * Or a second license, or (at your option) any later version.
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY. 
- * Without even the implied warranty for a particular purpose. More detailed information, please refer to the GNU General Public License.
- * You should have received a copy of the GNU General Public License along with the program. If not,
- * Visit the WebSite:
- *	 Licensed under the GPL license: http://www.gnu.org/licenses/gpl.txt
- * 
- * To use it on other projects please contact me at jiran1221@163.com
- * Thanks for your using. Good Luck!
- * 
- */
-
-
-org.ranji.activiti.ServiceTaskICON = draw2d.shape.icon.Run.extend({
+com.chanjet.gzq.aflowServiceTaskICON = draw2d.shape.icon.Run.extend({
 	NAME: "ServiceTaskICON",
 	
 	init: function(){
@@ -26,7 +7,7 @@ org.ranji.activiti.ServiceTaskICON = draw2d.shape.icon.Run.extend({
 	}
 });
 
-org.ranji.activiti.ServiceTaskText = draw2d.shape.basic.Text.extend({
+com.chanjet.gzq.aflowServiceTaskText = draw2d.shape.basic.Text.extend({
 	NAME: "ServiceTaskText",
 	
 	init: function(text){
@@ -50,8 +31,8 @@ org.ranji.activiti.ServiceTaskText = draw2d.shape.basic.Text.extend({
 	}
 });
 
-org.ranji.activiti.ServiceTask = draw2d.shape.basic.Rectangle.extend({
-	NAME: "org.ranji.activiti.ServiceTask",
+com.chanjet.gzq.aflowServiceTask = draw2d.shape.basic.Rectangle.extend({
+	NAME: "com.chanjet.gzq.aflowServiceTask",
 	init: function(){
 		this._super();
 		
@@ -60,8 +41,8 @@ org.ranji.activiti.ServiceTask = draw2d.shape.basic.Rectangle.extend({
 		this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
 		this.setRadius(10);
 		
-		var ServiceTaskICON = new org.ranji.activiti.ServiceTaskICON();
-		var ServiceTaskText = new org.ranji.activiti.ServiceTaskText("服务任务");
+		var ServiceTaskICON = new com.chanjet.gzq.aflowServiceTaskICON();
+		var ServiceTaskText = new com.chanjet.gzq.aflowServiceTaskText("自由选择");
 		
 		var ServiceTaskICONLocation = new draw2d.layout.locator.XYRelPortLocator(5,5);
 		var ServiceTaskTextLocation = new draw2d.layout.locator.CenterLocator();
