@@ -17,7 +17,7 @@
  */
 
 /*
-com.chanjet.gzq.aflowManualTaskICON = draw2d.shape.icon.User.extend({
+com.chanjet.gzq.aflowRoleTaskICON = draw2d.shape.icon.User.extend({
 	NAME: "ManualTaskICON",
 	
 	init: function(){
@@ -27,7 +27,7 @@ com.chanjet.gzq.aflowManualTaskICON = draw2d.shape.icon.User.extend({
 });
 */
 
-com.chanjet.gzq.aflowManualTaskICON = draw2d.SetFigure.extend({
+com.chanjet.gzq.aflowRoleTaskICON = draw2d.SetFigure.extend({
 	NAME: "ManualTaskICON",
 	
 	
@@ -55,7 +55,7 @@ com.chanjet.gzq.aflowManualTaskICON = draw2d.SetFigure.extend({
     }
 });
 
-com.chanjet.gzq.aflowManualTaskText = draw2d.shape.basic.Text.extend({
+com.chanjet.gzq.aflowRoleTaskText = draw2d.shape.basic.Text.extend({
 	NAME: "ManualTaskText",
 	
 	init: function(text){
@@ -83,7 +83,7 @@ com.chanjet.gzq.aflowManualTaskText = draw2d.shape.basic.Text.extend({
 	}
 });
 
-com.chanjet.gzq.aflowManualTask = draw2d.shape.basic.Rectangle.extend({
+com.chanjet.gzq.aflowRoleTask = draw2d.shape.basic.Rectangle.extend({
 	NAME: "com.chanjet.gzq.aflowManualTask",
 	init: function(){
 		this._super();
@@ -93,15 +93,15 @@ com.chanjet.gzq.aflowManualTask = draw2d.shape.basic.Rectangle.extend({
 		this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
 		this.setRadius(5);
 		
-		var manualTaskICON = new com.chanjet.gzq.aflowManualTaskICON();
-		var manualTaskText = new com.chanjet.gzq.aflowManualTaskText("上级主管");
+		var roleTaskICON = new com.chanjet.gzq.aflowRoleTaskICON();
+		var roleTaskText = new com.chanjet.gzq.aflowRoleTaskText("上级主管");
 		
-		var manualTaskICONLocation = new draw2d.layout.locator.XYRelPortLocator(5,5);
-		var manualTaskTextLocation = new draw2d.layout.locator.CenterLocator();
+		var roleTaskICONLocation = new draw2d.layout.locator.XYRelPortLocator(5,5);
+		var roleTaskTextLocation = new draw2d.layout.locator.CenterLocator();
 		
 		
-		this.add(manualTaskICON,manualTaskICONLocation,0);
-		this.add(manualTaskText,manualTaskTextLocation,1);
+		this.add(roleTaskICON, roleTaskICONLocation,0);
+		this.add(roleTaskText, roleTaskTextLocation,1);
 		
 		var leftLocator = new draw2d.layout.locator.InputPortLocator();
 		this.createPort("input",leftLocator);
@@ -110,7 +110,7 @@ com.chanjet.gzq.aflowManualTask = draw2d.shape.basic.Rectangle.extend({
 		var rightLocator = new draw2d.layout.locator.OutputPortLocator();
 		this.createPort("output",rightLocator);
 		
-		this.userData = {name:"手工任务"};
+		this.userData = {name:"上级主管"};
 	},
 	
 	 /**

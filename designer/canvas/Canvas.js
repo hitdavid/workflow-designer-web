@@ -1,9 +1,3 @@
-/**
- * Define WorkSpace's Canvas For ProcessDesigner
- *
- * @author RanJi (����Ҳ����)
- * @date 2014-12-09
- */
 com.chanjet.gzq.aflowCanvas = draw2d.Canvas.extend({
 	canvasName: "com.chanjet.gzq.aflowCanvas",
 
@@ -11,8 +5,7 @@ com.chanjet.gzq.aflowCanvas = draw2d.Canvas.extend({
 		this._super(id);
 		this.setScrollArea("#"+id);
 		this.id = id;
-		
-		//-- �����������м�����һ�������ڵ��ı༭����
+
 		var MyInterceptorPolicy = draw2d.policy.canvas.ConnectionInterceptorPolicy.extend({
 
 			init : function()

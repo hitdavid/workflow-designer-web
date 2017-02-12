@@ -2,7 +2,7 @@
 	<head>
 		<meta charset="utf-8"/>
 		<!-- saved from url=(0014)about:internet-->
-		<title>Process Designer-RanJi</title>
+		<title>审批流编辑器</title>
 		
 		<link rel="stylesheet" type="text/css" href="../scripts/easyui/themes/gray/easyui.css">
 		<link rel="stylesheet" type="text/css" href="../scripts/easyui/themes/icon.css">
@@ -34,10 +34,15 @@
 		
 		<!-- 以下JS为各个节点的JS -->
 		<script src="figures/Start.js"></script>	
-		<script src="figures/End.js"></script>	
+		<script src="figures/End.js"></script>
+
+		<!-- 固定人 -->
 		<script src="figures/UserTask.js"></script>
+        <!-- 自由流 -->
 		<script src="figures/MailTask.js"></script>
-		<script src="figures/ManualTask.js"></script>
+		<!-- 角色 -->
+		<script src="figures/RoleTask.js"></script>
+
 		<script src="figures/ServiceTask.js"></script>
 		<script src="figures/ScriptTask.js"></script>
 		<script src="figures/ExclusiveGateway.js"></script>	
@@ -137,7 +142,7 @@
 				</div>
 				<div id="task" title="节点" iconCls="bpm-menu-icon" selected="true" class="bpm-menu">
 					<a href="#" class="easyui-linkbutton" plain="true" iconCls="user-task-icon" nodeType="UserTask">固定人员</a><br>
-					<a href="#" class="easyui-linkbutton" plain="true" iconCls="manual-task-icon" nodeType="ManualTask">上级主管</a><br>
+					<a href="#" class="easyui-linkbutton" plain="true" iconCls="manual-task-icon" nodeType="RoleTask">上级主管</a><br>
 					<a href="#" class="easyui-linkbutton" plain="true" iconCls="service-task-icon" nodeType="ServiceTask">自由选择</a><br>
 				</div>
 				<div id="gateway" title="会签" iconCls="bpm-menu-icon" class="bpm-menu">
