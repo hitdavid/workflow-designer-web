@@ -47,10 +47,10 @@ com.chanjet.gzq.aflowApplication = Class.extend({
                         return;
                     }
                     else if (k == "ports") {
-                        if (e.type == "com.chanjet.gzq.BranchTask") {
+                        if (e.type == "com.chanjet.gzq.aflowBranchTask") {
                             //分支条件，需要初始化多个ports
-                            if (e[k].length() > 2) {
-                                for (var i = e[k].length() - 2; i >= 0; i--) {
+                            if (e[k].length > 2) {
+                                for (var i = e[k].length - 3; i >= 0; i--) {
                                     var rightLocator = new draw2d.layout.locator.OutputPortLocator();
                                     element.createPort("output",rightLocator);
                                 }

@@ -55,9 +55,254 @@
 		
 			
 				var app = new com.chanjet.gzq.aflowApplication();
+
+				var json = [
+                    {
+                        "type": "com.chanjet.gzq.aflowStart",
+                        "id": "0c5fcb40-5f47-46a2-0cb5-dadea5685f43",
+                        "x": 60,
+                        "y": 218,
+                        "width": 30,
+                        "height": 30,
+                        "alpha": 1,
+                        "userData": {},
+                        "cssClass": "com_chanjet_gzq_aflowStart",
+                        "ports": [
+                            {
+                                "name": "output0",
+                                "port": "draw2d.OutputPort",
+                                "locator": "draw2d.layout.locator.OutputPortLocator"
+                            }
+                        ],
+                        "bgColor": "#FFFFFF",
+                        "color": "#1B1B1B",
+                        "stroke": 1
+                    },
+                    {
+                        "type": "com.chanjet.gzq.aflowUserTask",
+                        "id": "9a588d77-9af2-e1a4-5cd5-1df513d7b6a5",
+                        "x": 310,
+                        "y": 290,
+                        "width": 201,
+                        "height": 64,
+                        "alpha": 1,
+                        "userData": {
+                            "name": "人工任务"
+                        },
+                        "cssClass": "com_chanjet_gzq_aflowUserTask",
+                        "ports": [
+                            {
+                                "name": "input0",
+                                "port": "draw2d.InputPort",
+                                "locator": "draw2d.layout.locator.InputPortLocator"
+                            },
+                            {
+                                "name": "output0",
+                                "port": "draw2d.OutputPort",
+                                "locator": "draw2d.layout.locator.OutputPortLocator"
+                            }
+                        ],
+                        "bgColor": "#FFFFCC",
+                        "color": "#1B1B1B",
+                        "stroke": 1,
+                        "radius": 5
+                    },
+                    {
+                        "type": "com.chanjet.gzq.aflowEnd",
+                        "id": "2593262b-6e1d-f4d9-77e8-b539b8b21aa4",
+                        "x": 1015,
+                        "y": 127,
+                        "width": 28,
+                        "height": 28.000000000000004,
+                        "alpha": 1,
+                        "userData": {},
+                        "cssClass": "com_chanjet_gzq_aflowEnd",
+                        "ports": [
+                            {
+                                "name": "input0",
+                                "port": "draw2d.InputPort",
+                                "locator": "draw2d.layout.locator.InputPortLocator"
+                            }
+                        ],
+                        "bgColor": "#FFFFFF",
+                        "color": "#1B1B1B",
+                        "stroke": 3
+                    },
+                    {
+                        "type": "com.chanjet.gzq.aflowBranchTask",
+                        "id": "f74b5eb8-0500-54af-cf17-bc6a7332aec1",
+                        "x": 549,
+                        "y": 81,
+                        "width": 96,
+                        "height": 64,
+                        "alpha": 1,
+                        "userData": {},
+                        "cssClass": "com_chanjet_gzq_aflowBranchTask",
+                        "ports": [
+                            {
+                                "name": "input0",
+                                "port": "draw2d.InputPort",
+                                "locator": "draw2d.layout.locator.InputPortLocator"
+                            },
+                            {
+                                "name": "output0",
+                                "port": "draw2d.OutputPort",
+                                "locator": "draw2d.layout.locator.OutputPortLocator"
+                            },
+                            {
+                                "name": "output1",
+                                "port": "draw2d.OutputPort",
+                                "locator": "draw2d.layout.locator.OutputPortLocator"
+                            }
+                        ],
+                        "bgColor": "#FFFFCC",
+                        "color": "#1B1B1B",
+                        "stroke": 1,
+                        "radius": 10
+                    },
+                    {
+                        "type": "com.chanjet.gzq.aflowUserTask",
+                        "id": "43c5a9f0-3220-a03b-4813-5af6ad05e2f0",
+                        "x": 843,
+                        "y": 445,
+                        "width": 96,
+                        "height": 64,
+                        "alpha": 1,
+                        "userData": {
+                            "name": "人工任务"
+                        },
+                        "cssClass": "com_chanjet_gzq_aflowUserTask",
+                        "ports": [
+                            {
+                                "name": "input0",
+                                "port": "draw2d.InputPort",
+                                "locator": "draw2d.layout.locator.InputPortLocator"
+                            },
+                            {
+                                "name": "output0",
+                                "port": "draw2d.OutputPort",
+                                "locator": "draw2d.layout.locator.OutputPortLocator"
+                            }
+                        ],
+                        "bgColor": "#FFFFCC",
+                        "color": "#1B1B1B",
+                        "stroke": 1,
+                        "radius": 5
+                    },
+                    {
+                        "type": "draw2d.Connection",
+                        "id": "99f81b27-9092-9e3b-c078-73626f04e726",
+                        "alpha": 1,
+                        "userData": {},
+                        "cssClass": "draw2d_Connection",
+                        "stroke": 1,
+                        "color": "#1B1B1B",
+                        "outlineStroke": 0,
+                        "outlineColor": "none",
+                        "policy": "draw2d.policy.line.LineSelectionFeedbackPolicy",
+                        "router": "draw2d.layout.connection.SplineConnectionRouter",
+                        "radius": 2,
+                        "source": {
+                            "node": "0c5fcb40-5f47-46a2-0cb5-dadea5685f43",
+                            "port": "output0"
+                        },
+                        "target": {
+                            "node": "9a588d77-9af2-e1a4-5cd5-1df513d7b6a5",
+                            "port": "input0"
+                        }
+                    },
+                    {
+                        "type": "draw2d.Connection",
+                        "id": "5a4a7dd1-ce35-bda5-2ab4-584d45818f77",
+                        "alpha": 1,
+                        "userData": {},
+                        "cssClass": "draw2d_Connection",
+                        "stroke": 1,
+                        "color": "#1B1B1B",
+                        "outlineStroke": 0,
+                        "outlineColor": "none",
+                        "policy": "draw2d.policy.line.LineSelectionFeedbackPolicy",
+                        "router": "draw2d.layout.connection.SplineConnectionRouter",
+                        "radius": 2,
+                        "source": {
+                            "node": "9a588d77-9af2-e1a4-5cd5-1df513d7b6a5",
+                            "port": "output0"
+                        },
+                        "target": {
+                            "node": "f74b5eb8-0500-54af-cf17-bc6a7332aec1",
+                            "port": "input0"
+                        }
+                    },
+                    {
+                        "type": "draw2d.Connection",
+                        "id": "44bc55c1-9e26-ab2c-3ee1-3a809cb19188",
+                        "alpha": 1,
+                        "userData": {},
+                        "cssClass": "draw2d_Connection",
+                        "stroke": 1,
+                        "color": "#1B1B1B",
+                        "outlineStroke": 0,
+                        "outlineColor": "none",
+                        "policy": "draw2d.policy.line.LineSelectionFeedbackPolicy",
+                        "router": "draw2d.layout.connection.SplineConnectionRouter",
+                        "radius": 2,
+                        "source": {
+                            "node": "f74b5eb8-0500-54af-cf17-bc6a7332aec1",
+                            "port": "output0"
+                        },
+                        "target": {
+                            "node": "2593262b-6e1d-f4d9-77e8-b539b8b21aa4",
+                            "port": "input0"
+                        }
+                    },
+                    {
+                        "type": "draw2d.Connection",
+                        "id": "88c7d87f-7ac7-ec3e-cc05-00ddf2a30bc6",
+                        "alpha": 1,
+                        "userData": {},
+                        "cssClass": "draw2d_Connection",
+                        "stroke": 1,
+                        "color": "#1B1B1B",
+                        "outlineStroke": 0,
+                        "outlineColor": "none",
+                        "policy": "draw2d.policy.line.LineSelectionFeedbackPolicy",
+                        "router": "draw2d.layout.connection.SplineConnectionRouter",
+                        "radius": 2,
+                        "source": {
+                            "node": "f74b5eb8-0500-54af-cf17-bc6a7332aec1",
+                            "port": "output1"
+                        },
+                        "target": {
+                            "node": "43c5a9f0-3220-a03b-4813-5af6ad05e2f0",
+                            "port": "input0"
+                        }
+                    },
+                    {
+                        "type": "draw2d.Connection",
+                        "id": "834dc284-c075-89bd-a5a2-9bf9bbe3be3a",
+                        "alpha": 1,
+                        "userData": {},
+                        "cssClass": "draw2d_Connection",
+                        "stroke": 1,
+                        "color": "#1B1B1B",
+                        "outlineStroke": 0,
+                        "outlineColor": "none",
+                        "policy": "draw2d.policy.line.LineSelectionFeedbackPolicy",
+                        "router": "draw2d.layout.connection.SplineConnectionRouter",
+                        "radius": 2,
+                        "source": {
+                            "node": "43c5a9f0-3220-a03b-4813-5af6ad05e2f0",
+                            "port": "output0"
+                        },
+                        "target": {
+                            "node": "2593262b-6e1d-f4d9-77e8-b539b8b21aa4",
+                            "port": "input0"
+                        }
+                    }
+                ];
 			
 				
-				app.loadFigure();
+				app.loadFigure(json);
 				
 				/*
 				updatePreview(app.canvas);
@@ -116,7 +361,7 @@
 				//-- test code
 				
 				var writer = new draw2d.io.json.Writer();
-				writer.marshal(canvas,function(json){
+				writer.marshal(canvas, function(json){
 					$("#json").text(JSON.stringify(json, null, 2));
 				});
 			}
@@ -165,12 +410,12 @@
 			<div style="border-radius:5px;overflow:auto;position:absolute; top:30px; right:20px; width:350px; height:250px; border:3px solid gray;background-color:#dceffd;opacity:0.8">
 				<img id="preview" style="width:350px; height:250px;"/>
 			</div>
-
+			-->
 
 			<pre id="json" style="border-radius:5px;overflow:auto;position:absolute; top:30px; right:20px; width:350px; height:500px; border:3px solid gray;background-color:#dceffd;opacity:0.8">
 			</pre>
-			-->
+
 		</div>
-		<div data-options="region:'east',width:300,collapsed:true" title="Properties"></div>
+		<div data-options="region:'east',width:300,collapsed:true" title="属性"></div>
 	</body>
 </html>
