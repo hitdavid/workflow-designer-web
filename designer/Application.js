@@ -119,15 +119,20 @@ com.chanjet.gzq.aflowApplication = Class.extend({
 		var policy = new draw2d.policy.line.VertexSelectionFeedbackPolicy();
 
         policy.__proto__.__proto__.onSelectCallBack = function (canvas, figure, isPrimarySelection) {
-            console.log("break");
+            console.log("conn selected: start from " +
+                figure.sourcePort.parent.type + "(id:" +
+                figure.sourcePort.parent.id + "), to " +
+                figure.targetPort.parent.type + "(id:" +
+                figure.targetPort.parent.id + ")"
+            );
         }
 
         if(sourcePort != null && sourcePort.parent != null) {
-            console.log("from :" + sourcePort.parent.cssClass)
+            console.log("from :" + sourcePort.parent.type + "(id:" + sourcePort.parent.id + ")");
         }
 
 		if(targetPort != null && targetPort.parent != null) {
-			console.log("end: " + targetPort.parent.cssClass)
+			console.log("end: " + targetPort.parent.type + "(id:" + targetPort.parent.id + ")");
 		}
 
         conn.installEditPolicy(policy);
