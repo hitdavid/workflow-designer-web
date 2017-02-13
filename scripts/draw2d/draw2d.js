@@ -11292,7 +11292,6 @@ draw2d.policy.figure.DragDropEditPolicy = draw2d.policy.figure.FigureEditPolicy.
         if (x instanceof draw2d.geo.Point) {
             return x;
         }
-
         return new draw2d.geo.Point(x, y);
     },
 
@@ -12595,22 +12594,10 @@ draw2d.policy.line.LineSelectionFeedbackPolicy = draw2d.policy.figure.SelectionF
         }
         this.moved(canvas, figure);
 
-        if (figure != null && figure.sourcePort != null && figure.sourcePort.parent != null) {
-            if (figure.sourcePort.parent.cssClass == "com_chanjet_gzq_aflowUserTask") {
-                console.log("start:com_chanjet_gzq_aflowUserTask");
-            }
-            else if(figure.sourcePort.parent.cssClass == "com_chanjet_gzq_aflowRoleTask") {
-                console.log("start:com_chanjet_gzq_aflowRoleTask");
-            }
+        if(this.onSelectCallBack != null) {
+            this.onSelectCallBack(canvas, figure, isPrimarySelection);
         }
-        if (figure != null && figure.targetPort != null && figure.targetPort.parent != null) {
-            if (figure.targetPort.parent.cssClass == "com_chanjet_gzq_aflowUserTask") {
-                console.log("end:com_chanjet_gzq_aflowUserTask");
-            }
-            else if(figure.targetPort.parent.cssClass == "com_chanjet_gzq_aflowRoleTask") {
-                console.log("end:com_chanjet_gzq_aflowRoleTask");
-            }
-        }
+
     },
 
     /**
@@ -12623,17 +12610,6 @@ draw2d.policy.line.LineSelectionFeedbackPolicy = draw2d.policy.figure.SelectionF
         figure.selectionHandles.each(function (i, e) {
             e.relocate();
         });
-
-        if (figure != null && figure.sourcePort != null && figure.sourcePort.parent != null) {
-            if (figure.sourcePort.parent.cssClass == "com_chanjet_gzq_aflowUserTask") {
-                console.log("start:com_chanjet_gzq_aflowUserTask");
-            }
-        }
-        if (figure != null && figure.targetPort != null && figure.targetPort.parent != null) {
-            if (figure.targetPort.parent.cssClass == "com_chanjet_gzq_aflowUserTask") {
-                console.log("end:com_chanjet_gzq_aflowUserTask");
-            }
-        }
     }
 
 });
@@ -12658,7 +12634,6 @@ draw2d.policy.line.VertexSelectionFeedbackPolicy = draw2d.policy.line.LineSelect
     init: function () {
         this._super();
     },
-
 
     /**
      * @method
@@ -12690,6 +12665,7 @@ draw2d.policy.line.VertexSelectionFeedbackPolicy = draw2d.policy.line.LineSelect
         });
 
         this.moved(canvas, figure);
+
     }
 
 });
