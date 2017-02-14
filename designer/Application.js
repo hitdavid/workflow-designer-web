@@ -5,6 +5,7 @@ com.chanjet = {};
 com.chanjet.gzq = {};
 com.chanjet.gzq.aflow = {};
 com.chanjet.gzq.aflowApplication = Class.extend({
+
 	appName: "com.chanjet.gzq.aflowApplication",
 
 	/**
@@ -44,6 +45,9 @@ com.chanjet.gzq.aflowApplication = Class.extend({
             else {
 		        keys.forEach ( function (k) {
                     if (k.toLowerCase().indexOf("color") >= 0) {
+
+                        // TODO: add a color deserializer here from json for color and bgColor fields
+
                         return;
                     }
                     else if (k == "ports") {
@@ -96,10 +100,7 @@ com.chanjet.gzq.aflowApplication = Class.extend({
 
         });
 
-		//this.canvas.add(new com.chanjet.gzq.aflowStart(),200,80);
-		// this.canvas.add(new com.chanjet.gzq.aflowEnd(),350,250);
-		
-		
+        this.checkGraph();
 	},	
 	createConnection: function(sourcePort, targetPort){
 		//-- 1. 连接
@@ -108,7 +109,7 @@ com.chanjet.gzq.aflowApplication = Class.extend({
 		conn.setStroke(1);
 		
 		//-- 2. 设置连接的锚
-		var targetDecorator = new draw2d.decoration.connection.ArrowDecorator(12,12);
+		var targetDecorator = new draw2d.decoration.connection.ArrowDecorator(5,5);
 		targetDecorator.setBackgroundColor("#000000");
 		conn.setTargetDecorator(targetDecorator);
 		
@@ -138,5 +139,52 @@ com.chanjet.gzq.aflowApplication = Class.extend({
         conn.installEditPolicy(policy);
 
 	    return conn;
-	}
+	},
+
+    checkGraph: function() {
+
+	    /*
+	    TODO: 规则检查算法：
+	    1，每个 port （ 无论 source 还是 target ）都必须有连接线连接。
+	    2，每个 sourcePort （不包含会签）只允许一条连接线连出。
+	    3，通知 节点不受上述 第2条 限制，允许从任意 sourcePort 引出。
+	    4，每个 会签 下方的 sourcePort 可以允许 1+ 个引出线。
+	    5，每个 条件分支 节点允许 1+ 个 targetPort 和 1+ 个 sourcePort， 并且每个 sourcePort 都有附加的条件表达式（userData）。
+	    6，每个图有且仅有 1 个 开始节点 和 1 个 结束节点。
+	    7，任意节点的 驳回，撤销 等业务操作都不在图中表现。
+	    8，一个完整的图中，任意一条路径都是起点到终点的路径的一部分，这张图一定是单向无环图。
+	    */
+
+        this.canvas;
+        //
+        // if(sourcePort != null && sourcePort.parent != null) {
+        //     console.log("from :" + sourcePort.parent.type + "(id:" + sourcePort.parent.id + ")");
+        //
+        //     if(sourcePort.parent.userData == null) {
+        //         sourcePort.parent.userData = {};
+        //     }
+        //     if (targetPort.parent.userData["source"] == null) {
+        //         targetPort.parent.userData["source"] = {};
+        //     }
+        //     if (sourcePort.parent.userData["source"][sourcePort.id] == null) {
+        //         sourcePort.parent.userData["source"][sourcePort.id] = [];
+        //     }
+        //     sourcePort.parent.userData["source"][sourcePort.id].push(conn.id);
+        // }
+        //
+        // if(targetPort != null && targetPort.parent != null) {
+        //     console.log("end: " + targetPort.parent.type + "(id:" + targetPort.parent.id + ")");
+        //
+        //     if (targetPort.parent.userData == null) {
+        //         targetPort.parent.userData = {};
+        //     }
+        //     if (targetPort.parent.userData["target"] == null) {
+        //         targetPort.parent.userData["target"] = {};
+        //     }
+        //     if (targetPort.parent.userData["target"][targetPort.id] == null) {
+        //         targetPort.parent.userData["target"][targetPort.id] = [];
+        //     }
+        //     targetPort.parent.userData["target"][targetPort.id].push(conn.id);
+        // }
+    }
 });

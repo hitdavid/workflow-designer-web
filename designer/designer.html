@@ -62,23 +62,20 @@
 
                 $.getJSON("http://localhost:8888/", function(result){
                     app.loadFigure(result);
+                    displayJSON(app.canvas);
+                    updatePreview(app.canvas);
                 });
 
-				//app.loadFigure(json);
-				
-				/*
-				updatePreview(app.canvas);
-				
+
+                updatePreview(app.canvas);
+
 				app.canvas.getCommandStack().addEventListener(function(e){
 				  if(e.isPostChangeEvent()){
 					  updatePreview(app.canvas);
 				   }
 				});
-				*/
 				
 				displayJSON(app.canvas);
-				// JSON2Canvas(app.canvas);
-				// PNG(app.canvas);
 				
 				app.canvas.getCommandStack().addEventListener(function(e){
 				  if(e.isPostChangeEvent()){
@@ -88,18 +85,10 @@
 				
 			});
 
-            $('#jsonInput').on('change input paste', function() {
-                var value = $(this).val();
-
-                if(value.length){
-                    app.loadFigure(value);
-                }
-            });
-
-
 			function updatePreview(canvas){
 			
 				//-- convert the canvas into a PNG IMage source string
+
 				var xCoords = [];
 				var yCoords = [];
 				canvas.getFigures().each(function(i,f){
@@ -108,15 +97,17 @@
 					yCoords.push(b.y,b.y+b.h);
 				});
 				
-				var minX = Math.min.apply(Math,xCoords);
-				var minY = Math.min.apply(Math,yCoords);
-				var width = Math.max.apply(Math,xCoords)-minX;
-				var height = Math.max.apply(Math,yCoords)-minY;
+				var minX = Math.min.apply(Math, xCoords);
+				var minY = Math.min.apply(Math, yCoords);
+				var width = Math.max.apply(Math, xCoords) - minX;
+				var height = Math.max.apply(Math, yCoords) - minY;
 			
 				var writer = new draw2d.io.png.Writer();
-				writer.marshal(canvas,function(png){
-				   $("#preview").attr("src",png);
-				},new draw2d.geo.Rectangle(minX,minY,width,height));
+
+				writer.marshal(canvas, function(png){
+				   $("#preview").attr("src", png);
+				}, new draw2d.geo.Rectangle(minX,minY,width,height));
+
 			};
 			
 			function displayJSON(canvas){
@@ -141,47 +132,52 @@
 		
 	</head>
 	<body id="bpm-layout" class="easyui-layout">
-		<div data-options="region:'north',height:36,border:false">
-			<div id="activitiToolBar" class="easyui-panel" border="0" style="padding:5px;background:#E1F0F2">
-				<a href="javascript:void(0)" class="easyui-splitbutton" menu="#edit-menu" iconCls="icon-edit">Edit</a>
-				<div id="edit-menu" style="width:300px;">
-					<div id="undoButton" iconCls="icon-undo" onclick="javascript:void(0)">Undo</div>
-					<div id="redoButton" iconCls="icon-redo" onclick="javascript:void(0)">Redo</div>
-				</div>
-			</div>
-		</div>
 		<div data-options="region:'west',width:150" iconCls="bpm-nav-icon" title="工具箱">
 			<div class="easyui-accordion" fit="true" border="1">
-				<div id="event" title="起止" iconCls="bpm-menu-icon" class="bpm-menu">
+				<div id="event" title="流程起止" iconCls="bpm-menu-icon" class="bpm-menu">
 					<a href="##" class="easyui-linkbutton" plain="true" iconCls="start-event-icon" nodeType="Start">开始</a><br>
 					<a href="##" class="easyui-linkbutton" plain="true" iconCls="end-event-icon" nodeType="End">结束</a><br>
 				</div>
-				<div id="task" title="节点" iconCls="bpm-menu-icon" selected="true" class="bpm-menu">
+				<div id="task" title="审批节点" iconCls="bpm-menu-icon" selected="true" class="bpm-menu">
 					<a href="#" class="easyui-linkbutton" plain="true" iconCls="user-task-icon" nodeType="UserTask">固定人员</a><br>
 					<a href="#" class="easyui-linkbutton" plain="true" iconCls="manual-task-icon" nodeType="RoleTask">上级主管</a><br>
 					<a href="#" class="easyui-linkbutton" plain="true" iconCls="service-task-icon" nodeType="ServiceTask">自由选择</a><br>
 				</div>
-				<div id="gateway" title="会签" iconCls="bpm-menu-icon" class="bpm-menu">
+				<div id="gateway" title="会签(开发中)" iconCls="bpm-menu-icon" class="bpm-menu">
 					<a href="##" class="easyui-linkbutton" plain="true" iconCls="parallel-gateway-icon" nodeType="ParallelGateway">必选会签</a><br>
 					<a href="##" class="easyui-linkbutton" plain="true" iconCls="exclusive-gateway-icon" nodeType="ExclusiveGateway">可选会签</a><br>
 				</div>
-				<div id="boundary-event" title="条件" iconCls="bpm-menu-icon" class="bpm-menu">
-					<a href="##" class="easyui-linkbutton" plain="true" iconCls="branch-task-icon" nodeType="BranchTask">分支条件</a><br>
+				<div id="boundary-event" title="条件分支" iconCls="bpm-menu-icon" class="bpm-menu">
+					<a href="##" class="easyui-linkbutton" plain="true" iconCls="branch-task-icon" nodeType="BranchTask">条件分支</a><br>
 				</div>
-				<div id="notify" title="通知" iconCls="bpm-menu-icon" class="bpm-menu">
+				<div id="notify" title="通知（开发中）" iconCls="bpm-menu-icon" class="bpm-menu">
 					<a href="##" class="easyui-linkbutton" plain="true" iconCls="branch-task-icon" nodeType="BranchTask">邮件通知</a><br>
 					<a href="##" class="easyui-linkbutton" plain="true" iconCls="branch-task-icon" nodeType="BranchTask">消息通知</a><br>
 				</div>
 			</div>
 		</div>
 		<div data-options="region:'center'" title="工作区">
+            <a href="javascript:void(0)" class="easyui-splitbutton" menu="#edit-menu" iconCls="icon-edit">编辑</a>
+            <div id="edit-menu" style="width:100px;">
+                <div id="undoButton" iconCls="icon-undo" onclick="javascript:void(0)">Undo</div>
+                <div id="redoButton" iconCls="icon-redo" onclick="javascript:void(0)">Redo</div>
+            </div>
+
 			<div id="activitiCanvas" style="position:relative;width:2500px;height:2500px;background-image:url(styles/images/grid.png);"></div>
 
-			<!-- 暂时注释掉预览图的功能
-			<div style="border-radius:5px;overflow:auto;position:absolute; top:30px; right:20px; width:350px; height:250px; border:3px solid gray;background-color:#dceffd;opacity:0.8">
-				<img id="preview" style="width:350px; height:250px;"/>
+			<div style="border-radius:5px;
+			            overflow:auto;
+			            position:absolute;
+			            top:380px;
+			            right:20px;
+			            width:350px;
+			            height:250px;
+			            border:3px solid gray;
+			            background-color:#dceffd;
+			            opacity:0.8">
+				<img id="preview" style="width:350px; height:auto;"/>
 			</div>
-			-->
+
 
 			<pre id="jsonOutput" style="border-radius:5px;
 								overflow:auto;
@@ -196,6 +192,6 @@
 			</pre>
 
 		</div>
-		<div data-options="region:'east',width:300,collapsed:true" title="属性"></div>
+		<div data-options="region:'east',width:300,collapsed:false" title="属性"></div>
 	</body>
 </html>
