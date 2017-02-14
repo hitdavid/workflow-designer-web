@@ -32,3 +32,5 @@
 ### 图示：
 
 ![](https://raw.githubusercontent.com/hitdavid/workflow-designer-web/master/demo/demo.png)
+
+demo folder includes a demo server, in server.js

@@ -50,16 +50,21 @@
 		<script src="figures/BranchTask.js"></script>
 
 		<script>
+
+            var json = [];
+
+            var app
+
 			$(window).load(function(){
 				//-- 2. activiti-designer的连接器(全局)
-		
-			
-				var app = new com.chanjet.gzq.aflowApplication();
 
-				var json = [];
-			
-				
-				app.loadFigure(json);
+				app = new com.chanjet.gzq.aflowApplication();
+
+                $.getJSON("http://localhost:8888/", function(result){
+                    app.loadFigure(result);
+                });
+
+				//app.loadFigure(json);
 				
 				/*
 				updatePreview(app.canvas);
@@ -82,7 +87,15 @@
 				}); 
 				
 			});
-			
+
+            $('#jsonInput').on('change input paste', function() {
+                var value = $(this).val();
+
+                if(value.length){
+                    app.loadFigure(value);
+                }
+            });
+
 
 			function updatePreview(canvas){
 			
@@ -119,9 +132,10 @@
 				
 				var writer = new draw2d.io.json.Writer();
 				writer.marshal(canvas, function(json){
-					$("#json").text(JSON.stringify(json, null, 2));
+					$("#jsonOutput").text(JSON.stringify(json, null, 2));
 				});
 			}
+
 			
 		</script>	
 		
@@ -169,7 +183,16 @@
 			</div>
 			-->
 
-			<pre id="json" style="border-radius:5px;overflow:auto;position:absolute; top:30px; right:20px; width:350px; height:500px; border:3px solid gray;background-color:#dceffd;opacity:0.8">
+			<pre id="jsonOutput" style="border-radius:5px;
+								overflow:auto;
+								position:absolute;
+								top:30px;
+								right:20px;
+								width:350px;
+								height:300px;
+								border:3px solid gray;
+								background-color:#dceffd;
+								opacity:0.8">
 			</pre>
 
 		</div>
