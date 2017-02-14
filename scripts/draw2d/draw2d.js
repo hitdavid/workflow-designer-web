@@ -11878,8 +11878,6 @@ draw2d.policy.figure.RectangleSelectionFeedbackPolicy = draw2d.policy.figure.Sel
             // call the box.show() at last to ensure that the resize handles are above the
             // rectangle. The rectangle did a toFront(parentShape);
             box.show(canvas);
-
-
         }
         this.moved(canvas, figure);
     },

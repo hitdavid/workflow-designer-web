@@ -1,9 +1,3 @@
-/**
- * Define Navigation Accordion Menu For ProcessDesigner
- *
- * @author RanJi (泥鳅也是鱼)
- * @date 2014-12-09
- */
 com.chanjet.gzq.aflowAccordion = Class.extend({
 	accordionName: "com.chanjet.gzq.aflowAccordion",
 

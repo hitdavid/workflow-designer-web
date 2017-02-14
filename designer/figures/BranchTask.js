@@ -37,7 +37,7 @@ com.chanjet.gzq.aflowBranchTask = draw2d.shape.basic.Rectangle.extend({
         this._super();
 
         this.setStroke(1);
-        this.setDimension(96,64);
+        this.setDimension(96, 64);
         this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
         this.setRadius(10);
 
@@ -47,16 +47,14 @@ com.chanjet.gzq.aflowBranchTask = draw2d.shape.basic.Rectangle.extend({
         var BranchTaskICONLocation = new draw2d.layout.locator.XYRelPortLocator(5,5);
         var BranchTaskTextLocation = new draw2d.layout.locator.CenterLocator();
 
-
         this.add(BranchTaskICON, BranchTaskICONLocation,0);
         this.add(BranchTaskText, BranchTaskTextLocation,1);
 
         var leftLocator = new draw2d.layout.locator.InputPortLocator();
-        this.createPort("input",leftLocator);
-
+        this.createPort("input", leftLocator);
 
         var rightLocator = new draw2d.layout.locator.OutputPortLocator();
-        this.createPort("output",rightLocator);
+        this.createPort("output", rightLocator);
     },
 
     /**
@@ -80,7 +78,6 @@ com.chanjet.gzq.aflowBranchTask = draw2d.shape.basic.Rectangle.extend({
             var oldSource = dropTarget.getSource();
 
             dropTarget.setSource(this.getOutputPort(0));
-
 
             //var additionalConnection = draw2d.Connection.createConnection();
             //this.getCanvas().add(additionalConnection);

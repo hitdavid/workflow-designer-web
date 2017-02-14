@@ -155,7 +155,12 @@ com.chanjet.gzq.aflowApplication = Class.extend({
 	    8，一个完整的图中，任意一条路径都是起点到终点的路径的一部分，这张图一定是单向无环图。
 	    */
 
-        this.canvas;
+	    this.canvas.on("select, click", function(e, i) {
+	        console.log("select, click" + i + e);
+
+            $('#propGrid').jqPropertyGrid(e.selection.primary, null);
+
+        });
         //
         // if(sourcePort != null && sourcePort.parent != null) {
         //     console.log("from :" + sourcePort.parent.type + "(id:" + sourcePort.parent.id + ")");
