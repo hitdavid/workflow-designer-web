@@ -8,10 +8,24 @@ com.chanjet.gzq.aflowStart = draw2d.shape.basic.Circle.extend({
 		this.setBackgroundColor(new draw2d.util.Color("#ffffff"));
 		
 		var rightLocator = new draw2d.layout.locator.OutputPortLocator();
-		
-		this.createPort("output",rightLocator);
-		
-		//this.getOutputPort(0).setAlpha(0.2);
-		
+		var p = this.createPort("output",rightLocator);
+        p.setMaxFanOut(1);
+
+        this.userData = {
+            name: "流程开始",
+            id: this.id,
+            type: "Start",
+            color: this.getColor().hex(),
+            label: '',
+            outputPort: [
+                {
+                    name: 'output0',
+                    port: 'draw2d.OutputPort',
+                    locator: 'draw2d.layout.locator.OutputPortLocator',
+                },
+            ],
+            inputPort: [
+            ],
+        };
 	}
 });

@@ -11,7 +11,8 @@
  */
 
 /* jshint -W089 */
-(function($) {// jscs:ignore requireNamedUnassignedFunctions
+
+(function($) { // jscs:ignore requireNamedUnassignedFunctions
 	var OTHER_GROUP_NAME = 'Other';
 	var GET_VALS_FUNC_KEY = 'pg.getValues';
 	var pgIdSequence = 0;
@@ -199,7 +200,10 @@
 			}
 
 			// Default is textbox
-		} else {
+		} else if (type == 'object') {
+            valueHTML = '<div id="' + displayName + '"></div>';
+		}
+		else {
 			valueHTML = '<input type="text" id="' + elemId + '" value="' + value + '"</input>';
 			if (getValueFuncs) {
 				getValueFuncs[name] = function() {

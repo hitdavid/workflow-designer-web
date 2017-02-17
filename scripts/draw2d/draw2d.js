@@ -18246,15 +18246,22 @@ draw2d.shape.node.Node = draw2d.Figure.extend({
         switch (type) {
             case "input":
                 newPort = new draw2d.InputPort();
+                newPort.setBackgroundColor('#f3546a');
                 count = this.inputPorts.getSize();
                 break;
             case "output":
                 newPort = new draw2d.OutputPort();
+                newPort.setBackgroundColor('#b9dd69');
                 count = this.outputPorts.getSize();
                 break;
             case "hybrid":
                 newPort = new draw2d.HybridPort();
+
                 count = this.hybridPorts.getSize();
+                break;
+            case "extend":
+                newPort = new draw2d.OutputPort();
+                count = this.outputPorts.getSize();
                 break;
             default:
                 throw "Unknown type [" + type + "] of port requested";
@@ -23414,6 +23421,51 @@ draw2d.shape.basic.Diamond = draw2d.shape.basic.Polygon.extend({
 
 
 });
+
+
+/**
+ * @class draw2d.shape.basic.Triangle
+ * A Triangle Figure.
+ *
+ * See the example:
+ *
+ *     @example preview small frame
+ *
+ * @author Andreas Herz
+ * @extends draw2d.VectorFigure
+ */
+draw2d.shape.basic.Triangle = draw2d.shape.basic.Polygon.extend({
+    NAME: "draw2d.shape.basic.Triangle",
+
+    /**
+     * @constructor
+     * Creates a new figure element which are not assigned to any canvas.
+     *
+     * @param {Object} [attr] the configuration of the shape
+     */
+    init: function (attr, setter, getter) {
+        this._super($.extend({bgColor: "#00a3f6", color: "#1B1B1B"}, attr), setter, getter);
+
+        var pos = this.getPosition();
+
+        this.resetVertices();
+
+        var box = this.getBoundingBox();
+
+        this.addVertex(0, box.h / 2);       // Go to the top center..
+        this.addVertex(box.w, 0); // ...draw line to the right middle
+        this.addVertex(box.w, box.h);   // ...bottom center...
+
+        // override the selection handler from the polygon. Because the vertices of
+        // the Triangle are not selectable and modifiable
+        //
+        this.installEditPolicy(new draw2d.policy.figure.RectangleSelectionFeedbackPolicy());
+
+        this.setPosition(pos);
+    }
+
+
+});
 /**
  * @class draw2d.shape.composite.Composite
  * Base interface for the compiste shapes
@@ -23433,7 +23485,6 @@ draw2d.shape.composite.Composite = draw2d.shape.basic.Rectangle.extend({
      */
     init: function (attr, setter, getter) {
         this._super(attr, setter, getter);
-
     },
 
     /**

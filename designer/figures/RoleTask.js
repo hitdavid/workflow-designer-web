@@ -28,7 +28,7 @@ com.chanjet.gzq.aflowRoleTaskICON = draw2d.shape.icon.User.extend({
 */
 
 com.chanjet.gzq.aflowRoleTaskICON = draw2d.SetFigure.extend({
-	NAME: "ManualTaskICON",
+	NAME: "aflowRoleTaskICON",
 	
 	
     init: function() {
@@ -56,7 +56,7 @@ com.chanjet.gzq.aflowRoleTaskICON = draw2d.SetFigure.extend({
 });
 
 com.chanjet.gzq.aflowRoleTaskText = draw2d.shape.basic.Text.extend({
-	NAME: "ManualTaskText",
+	NAME: "aflowRoleTaskText",
 	
 	init: function(text){
 		this._super();
@@ -84,7 +84,7 @@ com.chanjet.gzq.aflowRoleTaskText = draw2d.shape.basic.Text.extend({
 });
 
 com.chanjet.gzq.aflowRoleTask = draw2d.shape.basic.Rectangle.extend({
-	NAME: "com.chanjet.gzq.aflowManualTask",
+	NAME: "com.chanjet.gzq.aflowRoleTask",
 	init: function(){
 		this._super();
 		
@@ -108,7 +108,8 @@ com.chanjet.gzq.aflowRoleTask = draw2d.shape.basic.Rectangle.extend({
 		
 		
 		var rightLocator = new draw2d.layout.locator.OutputPortLocator();
-		this.createPort("output",rightLocator);
+		p = this.createPort("output",rightLocator);
+        p.setMaxFanOut(1);
 		
 		this.userData = {name:"上级主管"};
 	},

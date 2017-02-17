@@ -1,3 +1,342 @@
+var theMeta = {
+    _super: {
+        browsable: false
+    },
+    dasharray: {
+        browsable: false
+    },
+    glowIsActive: {
+        browsable: false
+    },
+    portRelayoutRequired: {
+        browsable: false
+    },
+    setterWhitelist: {
+        browsable: false
+    },
+    getterWhitelist: {
+        browsable: false
+    },
+    isResizeHandle: {
+        browsable: false
+    },
+    command: {
+        browsable: false
+    },
+    canvas: {
+        browsable: false
+    },
+    shape: {
+        browsable: false
+    },
+    children: {
+        browsable: false
+    },
+    canSnapToHelper: {
+        browsable: false
+    },
+    editPolicy: {
+        browsable: false
+    },
+    timerId: {
+        browsable: false
+    },
+    timerInterval: {
+        browsable: false
+    },
+    parent: {
+        browsable: false
+    },
+    composite: {
+        browsable: false
+    },
+    userData: {
+        browsable: false
+    },
+    cssClass: {
+        browsable: false
+    },
+    isInDragDrop: {
+        browsable: false
+    },
+    repaintBlocked: {
+        browsable: false
+    },
+    lastAppliedAttributes: {
+        browsable: false
+    },
+    selectionHandles: {
+        browsable: false
+    },
+    eventSubscriptions: {
+        browsable: false
+    },
+    _inEvent: {
+        browsable: false
+    },
+    lastAppliedRotation: {
+        browsable: false
+    },
+    originalAlpha: {
+        browsable: false
+    },
+    isMoving: {
+        browsable: false
+    },
+    oldPoint: {
+        browsable: false
+    },
+    sourceDecorator: {
+        browsable: false
+    },
+    targetDecorator: {
+        browsable: false
+    },
+    sourceDecoratorNode: {
+        browsable: false
+    },
+    targetDecoratorNode: {
+        browsable: false
+    },
+    svgPathString: {
+        browsable: false
+    },
+    router: {
+        browsable: false
+    },
+    routingRequired: {
+        browsable: false
+    },
+    lineSegments: {
+        browsable: false
+    },
+    corona: {
+        browsable: false
+    },
+    isGlowing: {
+        browsable: false
+    },
+    outlineVisible: {
+        browsable: false
+    },
+    vertices: {
+        browsable: false
+    },
+    snapToGridAnchor: {
+        browsable: false
+    },
+    strokeBeforeGlow: {
+        browsable: false
+    },
+    persistPorts: {
+        browsable: false
+    },
+
+
+
+    x: {
+        browsable: true,
+        group: "布局",
+        type: 'text'
+    },
+    y: {
+        browsable: true,
+        group: "布局",
+        type: 'text'
+    },
+    ox: {
+        browsable: true,
+        group: "布局",
+        type: 'text'
+    },
+    oy: {
+        browsable: true,
+        group: "布局",
+        type: 'text'
+    },
+    width: {
+        browsable: true,
+        group: "布局",
+        type: 'text'
+    },
+    height: {
+        browsable: true,
+        group: "布局",
+        type: 'text'
+    },
+    minHeight: {
+        browsable: true,
+        group: "布局",
+        type: 'text'
+    },
+    minWidth: {
+        browsable: true,
+        group: "布局",
+        type: 'text'
+    },
+    rotationAngle: {
+        browsable: true,
+        group: "布局",
+        type: 'text'
+    },
+    keepAspectRatio: {
+        browsable: true,
+        group: "布局",
+        type: 'boolean'
+    },
+    minX: {
+        browsable: true,
+        group: "布局",
+        type: 'text'
+    },
+    minY: {
+        browsable: true,
+        group: "布局",
+        type: 'text'
+    },
+    maxX: {
+        browsable: true,
+        group: "布局",
+        type: 'text'
+    },
+    maxY: {
+        browsable: true,
+        group: "布局",
+        type: 'text'
+    },
+
+
+
+
+
+    alpha: {
+        browsable: true,
+        group: "样式",
+        type: 'text'
+    },
+    visible: {
+        browsable: true,
+        group: "样式"
+    },
+    color: {
+        browsable: true,
+        group: "样式",
+        type: "color"
+    },
+    bgColor: {
+        browsable: true,
+        group: "样式",
+        type: "color"
+    },
+    lineColor: {
+        browsable: true,
+        group: "样式",
+        type: "color"
+    },
+    outlineColor: {
+        browsable: true,
+        group: "样式",
+        type: "color"
+    },
+    stroke: {
+        browsable: true,
+        group: "样式",
+        type: 'text'
+    },
+    outlineStroke: {
+        browsable: true,
+        group: "样式",
+        type: 'text'
+    },
+    radius: {
+        browsable: true,
+        group: "样式",
+        type: 'text'
+    },
+
+
+
+    type: {
+        browsable: true,
+        group: "基本属性",
+        type: 'text'
+    },
+    id: {
+        browsable: true,
+        group: "基本属性",
+        type: 'text'
+    },
+
+
+
+    selectable: {
+        browsable: true,
+        group: "行为"
+    },
+    deleteable: {
+        browsable: true,
+        group: "行为"
+    },
+    resizeable: {
+        browsable: true,
+        group: "行为"
+    },
+    draggable: {
+        browsable: true,
+        group: "行为"
+    },
+
+
+
+    inputPorts: {
+        browsable: true,
+        group: "连接",
+        type: 'object'
+    },
+    outputPorts: {
+        browsable: true,
+        group: "连接",
+        type: 'object'
+    },
+    hybridPorts: {
+        browsable: true,
+        group: "连接",
+        type: 'object'
+    },
+    cachedPorts: {
+        browsable: true,
+        group: "连接",
+        type: 'object'
+    },
+    sourcePort: {
+        browsable: true,
+        group: "连接",
+        type: 'object'
+    },
+    targetPort: {
+        browsable: true,
+        group: "连接",
+        type: 'object'
+    },
+    start: {
+        browsable: true,
+        group: "连接",
+        type: 'object'
+    },
+    end: {
+        browsable: true,
+        group: "连接",
+        type: 'object'
+    },
+
+
+};
+
+var options = {
+    meta: theMeta
+};
+
+
 
 if(typeof com == "undefined")
 	var com = {};
@@ -45,21 +384,30 @@ com.chanjet.gzq.aflowApplication = Class.extend({
             else {
 		        keys.forEach ( function (k) {
                     if (k.toLowerCase().indexOf("color") >= 0) {
-
+                        element[k] = new draw2d.util.Color(e[k]);
                         // TODO: add a color deserializer here from json for color and bgColor fields
+                        // element[k].red = element.bgColor.__proto__.hex2rgb(e[k])[0];
+                        // element[k].green = element.bgColor.__proto__.hex2rgb(e[k])[1];
+                        // element[k].blue = element.bgColor.__proto__.hex2rgb(e[k])[2];
+                        // element[k] = e[k];
 
-                        return;
+                        //return;
                     }
                     else if (k == "ports") {
                         if (e.type == "com.chanjet.gzq.aflowBranchTask") {
                             //分支条件，需要初始化多个ports
                             if (e[k].length > 2) {
-                                for (var i = e[k].length - 3; i >= 0; i--) {
+                                for (var i = e[k].length - 4; i >= 0; i--) {
                                     var rightLocator = new draw2d.layout.locator.OutputPortLocator();
-                                    element.createPort("output",rightLocator);
+                                    var p = element.createPort("output",rightLocator);
+                                    p.setBackgroundColor('#00A8F0');
+                                    p.setMaxFanOut(1);
                                 }
                             }
                         }
+                    }
+                    else if (k == 'vertices') {
+                        return;
                     }
                     else {
                         element[k] = e[k];
@@ -155,41 +503,5 @@ com.chanjet.gzq.aflowApplication = Class.extend({
 	    8，一个完整的图中，任意一条路径都是起点到终点的路径的一部分，这张图一定是单向无环图。
 	    */
 
-	    this.canvas.on("select, click", function(e, i) {
-	        console.log("select, click" + i + e);
-
-            $('#propGrid').jqPropertyGrid(e.selection.primary, null);
-
-        });
-        //
-        // if(sourcePort != null && sourcePort.parent != null) {
-        //     console.log("from :" + sourcePort.parent.type + "(id:" + sourcePort.parent.id + ")");
-        //
-        //     if(sourcePort.parent.userData == null) {
-        //         sourcePort.parent.userData = {};
-        //     }
-        //     if (targetPort.parent.userData["source"] == null) {
-        //         targetPort.parent.userData["source"] = {};
-        //     }
-        //     if (sourcePort.parent.userData["source"][sourcePort.id] == null) {
-        //         sourcePort.parent.userData["source"][sourcePort.id] = [];
-        //     }
-        //     sourcePort.parent.userData["source"][sourcePort.id].push(conn.id);
-        // }
-        //
-        // if(targetPort != null && targetPort.parent != null) {
-        //     console.log("end: " + targetPort.parent.type + "(id:" + targetPort.parent.id + ")");
-        //
-        //     if (targetPort.parent.userData == null) {
-        //         targetPort.parent.userData = {};
-        //     }
-        //     if (targetPort.parent.userData["target"] == null) {
-        //         targetPort.parent.userData["target"] = {};
-        //     }
-        //     if (targetPort.parent.userData["target"][targetPort.id] == null) {
-        //         targetPort.parent.userData["target"][targetPort.id] = [];
-        //     }
-        //     targetPort.parent.userData["target"][targetPort.id].push(conn.id);
-        // }
     }
 });

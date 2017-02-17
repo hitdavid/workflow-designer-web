@@ -9,31 +9,30 @@ com.chanjet.gzq.aflowParallelGatewayICON = draw2d.shape.icon.Plus.extend({
 });
 
 
-com.chanjet.gzq.aflowParallelGateway = draw2d.shape.basic.Diamond.extend({
+com.chanjet.gzq.aflowParallelGateway = draw2d.shape.basic.Triangle.extend({
 	NAME: "com.chanjet.gzq.aflowParallelGateway",
+
 	init: function(){
 		this._super();
 		
 		this.setStroke(1);
-		this.setDimension(48,48);
+		this.setDimension(48, 48);
 		this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
 		this.setRadius(2);
+		this.setRotationAngle(180);
 		
 		var ParallelGatewayICON = new com.chanjet.gzq.aflowParallelGatewayICON();
 		var ParallelGatewayICONLocation = new draw2d.layout.locator.CenterLocator();
 		
 		
-		this.add(ParallelGatewayICON, ParallelGatewayICONLocation,0);
+		this.add(ParallelGatewayICON, ParallelGatewayICONLocation, 0);
 		
 		var leftLocator = new draw2d.layout.locator.InputPortLocator();
 		this.createPort("input", leftLocator);
-		
-		
-		var rightLocator = new draw2d.layout.locator.OutputPortLocator();
-		this.createPort("output", rightLocator);
 
-        var bottomLocator = new draw2d.layout.locator.ExtendPortLocator();
-        this.createPort("output", bottomLocator);
+		var rightLocator = new draw2d.layout.locator.OutputPortLocator();
+		var p = this.createPort("output", rightLocator);
+        p.setMaxFanOut(1);
 	},
 	
 	 /**

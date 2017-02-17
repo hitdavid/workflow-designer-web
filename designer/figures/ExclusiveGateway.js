@@ -30,7 +30,8 @@ com.chanjet.gzq.aflowExclusiveGateway = draw2d.shape.basic.Diamond.extend({
 		
 		
 		var rightLocator = new draw2d.layout.locator.OutputPortLocator();
-		this.createPort("output",rightLocator);
+        var p = this.createPort("output",rightLocator);
+        p.setMaxFanOut(1);
 	},
 	
 	 /**

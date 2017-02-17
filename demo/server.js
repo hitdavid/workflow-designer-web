@@ -20,73 +20,19 @@ http.createServer(function (request, response) {
 
     var data = [
         {
-            "type": "com.chanjet.gzq.aflowStart",
-            "id": "93425d56-8d7b-bc6d-fe10-80e1a7beb973",
-            "x": 36,
-            "y": 130,
-            "width": 30,
-            "height": 30,
-            "alpha": 1,
-            "userData": {
-                "c35c8634-aae2-9406-8f62-fd46848da8da": [
-                    "f98679f6-09ef-476b-294c-cddbc03988d4"
-                ]
-            },
-            "cssClass": "com_chanjet_gzq_aflowStart",
-            "ports": [
-                {
-                    "name": "output0",
-                    "port": "draw2d.OutputPort",
-                    "locator": "draw2d.layout.locator.OutputPortLocator"
-                }
-            ],
-            "bgColor": "#FFFFFF",
-            "color": "#1B1B1B",
-            "stroke": 1
-        },
-        {
-            "type": "com.chanjet.gzq.aflowEnd",
-            "id": "4d1a79e0-7411-5c45-94dc-6c41f72537e0",
-            "x": 719,
-            "y": 116,
-            "width": 28,
-            "height": 28.000000000000004,
-            "alpha": 1,
-            "userData": {
-                "8f1309a5-cfe2-633a-11dc-392f53dfe56e": [
-                    "5f1057ee-f327-b7a8-445b-8dfa96711d3d",
-                    "eba353e0-0168-14a0-68a9-80ce6bea7a8b",
-                    "7fa5d3cf-31db-6d7f-b25e-a332083242fe"
-                ]
-            },
-            "cssClass": "com_chanjet_gzq_aflowEnd",
-            "ports": [
-                {
-                    "name": "input0",
-                    "port": "draw2d.InputPort",
-                    "locator": "draw2d.layout.locator.InputPortLocator"
-                }
-            ],
-            "bgColor": "#FFFFFF",
-            "color": "#1B1B1B",
-            "stroke": 3
-        },
-        {
             "type": "com.chanjet.gzq.aflowUserTask",
-            "id": "93802465-1122-fac0-9716-98c8fe9486f1",
-            "x": 99,
-            "y": 113,
+            "id": "c99891ff-6631-e92e-527a-f3872df86657",
+            "x": 598,
+            "y": 147,
             "width": 96,
             "height": 64,
             "alpha": 1,
             "userData": {
-                "name": "人工任务",
-                "cb5f8dd5-85c4-d3d7-1ad7-b237f17b0dbf": [
-                    "f98679f6-09ef-476b-294c-cddbc03988d4"
-                ],
-                "c6a8fc29-29b3-824d-a6b5-e73f51283f25": [
-                    "d5730861-382e-08dd-988e-235cbb5acebd"
-                ]
+                "name": "固定人员",
+                "id": "c99891ff-6631-e92e-527a-f3872df86657",
+                "type": "UserTask",
+                "color": "1B1B1B",
+                "label": "固定人员"
             },
             "cssClass": "com_chanjet_gzq_aflowUserTask",
             "ports": [
@@ -107,24 +53,65 @@ http.createServer(function (request, response) {
             "radius": 5
         },
         {
+            "type": "com.chanjet.gzq.aflowStart",
+            "id": "c451c7dc-2079-e32a-16e7-59329c6740e9",
+            "x": 31,
+            "y": 116,
+            "width": 30,
+            "height": 30,
+            "alpha": 1,
+            "userData": {},
+            "cssClass": "com_chanjet_gzq_aflowStart",
+            "ports": [
+                {
+                    "name": "output0",
+                    "port": "draw2d.OutputPort",
+                    "locator": "draw2d.layout.locator.OutputPortLocator"
+                }
+            ],
+            "bgColor": "#FFFFFF",
+            "color": "#1B1B1B",
+            "stroke": 1
+        },
+        {
+            "type": "com.chanjet.gzq.aflowEnd",
+            "id": "7cc30adb-18a0-e0b4-57e1-2c6844d54bde",
+            "x": 873,
+            "y": 151,
+            "width": 28,
+            "height": 28.000000000000004,
+            "alpha": 1,
+            "userData": {},
+            "cssClass": "com_chanjet_gzq_aflowEnd",
+            "ports": [
+                {
+                    "name": "input0",
+                    "port": "draw2d.InputPort",
+                    "locator": "draw2d.layout.locator.InputPortLocator"
+                }
+            ],
+            "bgColor": "#FFFFFF",
+            "color": "#1B1B1B",
+            "stroke": 3
+        },
+        {
             "type": "com.chanjet.gzq.aflowBranchTask",
-            "id": "4f95b94b-46b1-64b6-fa4f-27ecf0141775",
-            "x": 233,
-            "y": 113,
+            "id": "80f0e15a-08bb-36ae-17ae-49096b9cc49c",
+            "x": 274,
+            "y": 292,
             "width": 96,
-            "height": 64,
+            "height": 96,
             "alpha": 1,
             "userData": {
-                "0f6218c1-42cd-3103-5370-b204517d92d7": [
-                    "d5730861-382e-08dd-988e-235cbb5acebd"
-                ],
-                "666dd458-dd42-3a26-880a-13730493b5ec": [
-                    "11744897-4b4b-d6a6-0bac-c08237e53698"
-                ],
-                "ecf93dc9-6dd0-ef3c-cd1a-428693d63e66": [
-                    "50a9318f-4519-b905-6654-7bd17c8e4459",
-                    "7fa5d3cf-31db-6d7f-b25e-a332083242fe"
-                ]
+                "name": "条件分支",
+                "id": "80f0e15a-08bb-36ae-17ae-49096b9cc49c",
+                "type": "BranchTask",
+                "color": "1B1B1B",
+                "label": "条件",
+                "outputPort": {
+                    "case1": "outputPort0",
+                    "case2": "outputPort1"
+                }
             },
             "cssClass": "com_chanjet_gzq_aflowBranchTask",
             "ports": [
@@ -152,118 +139,36 @@ http.createServer(function (request, response) {
             "bgColor": "#FFFFCC",
             "color": "#1B1B1B",
             "stroke": 1,
-            "radius": 10
-        },
-        {
-            "type": "com.chanjet.gzq.aflowUserTask",
-            "id": "cbd87a51-f284-8c17-d154-86166490aef2",
-            "x": 451,
-            "y": 33,
-            "width": 96,
-            "height": 64,
-            "alpha": 1,
-            "userData": {
-                "name": "人工任务",
-                "0e5f801f-e910-fc45-00fc-7b9377f226ae": [
-                    "11744897-4b4b-d6a6-0bac-c08237e53698"
-                ],
-                "41af4972-1fc0-f660-992c-8cb07432bc93": [
-                    "5f1057ee-f327-b7a8-445b-8dfa96711d3d"
-                ]
-            },
-            "cssClass": "com_chanjet_gzq_aflowUserTask",
-            "ports": [
+            "radius": 2,
+            "vertices": [
                 {
-                    "name": "input0",
-                    "port": "draw2d.InputPort",
-                    "locator": "draw2d.layout.locator.InputPortLocator"
+                    "x": 274,
+                    "y": 340
                 },
                 {
-                    "name": "output0",
-                    "port": "draw2d.OutputPort",
-                    "locator": "draw2d.layout.locator.OutputPortLocator"
-                }
-            ],
-            "bgColor": "#FFFFCC",
-            "color": "#1B1B1B",
-            "stroke": 1,
-            "radius": 5
-        },
-        {
-            "type": "com.chanjet.gzq.aflowUserTask",
-            "id": "54b31e4d-0ff3-48ed-13e6-6a8b60f44a22",
-            "x": 451,
-            "y": 190,
-            "width": 96,
-            "height": 64,
-            "alpha": 1,
-            "userData": {
-                "name": "人工任务",
-                "35916a39-ed90-4dff-8d71-2d0eca656c06": [
-                    "50a9318f-4519-b905-6654-7bd17c8e4459"
-                ],
-                "830fe9f7-afd9-756a-7a69-0c87fd0fd231": [
-                    "eba353e0-0168-14a0-68a9-80ce6bea7a8b"
-                ]
-            },
-            "cssClass": "com_chanjet_gzq_aflowUserTask",
-            "ports": [
-                {
-                    "name": "input0",
-                    "port": "draw2d.InputPort",
-                    "locator": "draw2d.layout.locator.InputPortLocator"
+                    "x": 370,
+                    "y": 292
                 },
                 {
-                    "name": "output0",
-                    "port": "draw2d.OutputPort",
-                    "locator": "draw2d.layout.locator.OutputPortLocator"
+                    "x": 370,
+                    "y": 388
                 }
-            ],
-            "bgColor": "#FFFFCC",
-            "color": "#1B1B1B",
-            "stroke": 1,
-            "radius": 5
+            ]
         },
         {
             "type": "com.chanjet.gzq.aflowUserTask",
-            "id": "96915e45-b4d5-31e6-1279-cfb25ebc6e4d",
-            "x": 531,
-            "y": 322,
-            "width": 96,
-            "height": 64,
-            "alpha": 1,
-            "userData": {
-                "name": "人工任务"
-            },
-            "cssClass": "com_chanjet_gzq_aflowUserTask",
-            "ports": [
-                {
-                    "name": "input0",
-                    "port": "draw2d.InputPort",
-                    "locator": "draw2d.layout.locator.InputPortLocator"
-                },
-                {
-                    "name": "output0",
-                    "port": "draw2d.OutputPort",
-                    "locator": "draw2d.layout.locator.OutputPortLocator"
-                }
-            ],
-            "bgColor": "#FFFFCC",
-            "color": "#1B1B1B",
-            "stroke": 1,
-            "radius": 5
-        },
-        {
-            "type": "com.chanjet.gzq.aflowUserTask",
-            "id": "19e804cc-c854-e723-6b4d-7e038d1740af",
-            "x": 407,
-            "y": 322,
+            "id": "d54cc33a-4670-465f-6d26-63d22b3f363d",
+            "x": 378,
+            "y": 102,
             "width": 96,
             "height": 64,
             "alpha": 1,
             "userData": {
                 "name": "固定人员",
-                "id": 3
+                "id": "d54cc33a-4670-465f-6d26-63d22b3f363d",
+                "type": "UserTask",
+                "color": "1B1B1B",
+                "label": "固定人员"
             },
             "cssClass": "com_chanjet_gzq_aflowUserTask",
             "ports": [
@@ -284,8 +189,37 @@ http.createServer(function (request, response) {
             "radius": 5
         },
         {
+            "type": "com.chanjet.gzq.aflowRoleTask",
+            "id": "be97b5ac-d691-8f86-0174-de06afe90ac1",
+            "x": 663,
+            "y": 379,
+            "width": 96,
+            "height": 64,
+            "alpha": 1,
+            "userData": {
+                "name": "上级主管"
+            },
+            "cssClass": "com_chanjet_gzq_aflowRoleTask",
+            "ports": [
+                {
+                    "name": "input0",
+                    "port": "draw2d.InputPort",
+                    "locator": "draw2d.layout.locator.InputPortLocator"
+                },
+                {
+                    "name": "output0",
+                    "port": "draw2d.OutputPort",
+                    "locator": "draw2d.layout.locator.OutputPortLocator"
+                }
+            ],
+            "bgColor": "#FFFFCC",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "radius": 5
+        },
+        {
             "type": "draw2d.Connection",
-            "id": "d7a2da79-d3bb-17b5-b44f-cb4c81eb368f",
+            "id": "3a7767c6-e833-266a-80fa-9b4c1a8aaf66",
             "alpha": 1,
             "userData": {},
             "cssClass": "draw2d_Connection",
@@ -297,17 +231,17 @@ http.createServer(function (request, response) {
             "router": "draw2d.layout.connection.SplineConnectionRouter",
             "radius": 2,
             "source": {
-                "node": "93425d56-8d7b-bc6d-fe10-80e1a7beb973",
+                "node": "c451c7dc-2079-e32a-16e7-59329c6740e9",
                 "port": "output0"
             },
             "target": {
-                "node": "93802465-1122-fac0-9716-98c8fe9486f1",
+                "node": "80f0e15a-08bb-36ae-17ae-49096b9cc49c",
                 "port": "input0"
             }
         },
         {
             "type": "draw2d.Connection",
-            "id": "0891ef93-17ca-5159-22aa-cab1106bf6e0",
+            "id": "84a04374-35c0-51f6-df25-e4005c2eff27",
             "alpha": 1,
             "userData": {},
             "cssClass": "draw2d_Connection",
@@ -319,17 +253,17 @@ http.createServer(function (request, response) {
             "router": "draw2d.layout.connection.SplineConnectionRouter",
             "radius": 2,
             "source": {
-                "node": "93802465-1122-fac0-9716-98c8fe9486f1",
+                "node": "d54cc33a-4670-465f-6d26-63d22b3f363d",
                 "port": "output0"
             },
             "target": {
-                "node": "4f95b94b-46b1-64b6-fa4f-27ecf0141775",
+                "node": "c99891ff-6631-e92e-527a-f3872df86657",
                 "port": "input0"
             }
         },
         {
             "type": "draw2d.Connection",
-            "id": "2a93835d-4e86-b396-e46f-e87525f804ae",
+            "id": "ea2c8ef7-3796-ef83-e878-5e7cffba1a5f",
             "alpha": 1,
             "userData": {},
             "cssClass": "draw2d_Connection",
@@ -341,17 +275,17 @@ http.createServer(function (request, response) {
             "router": "draw2d.layout.connection.SplineConnectionRouter",
             "radius": 2,
             "source": {
-                "node": "4f95b94b-46b1-64b6-fa4f-27ecf0141775",
+                "node": "c99891ff-6631-e92e-527a-f3872df86657",
                 "port": "output0"
             },
             "target": {
-                "node": "cbd87a51-f284-8c17-d154-86166490aef2",
+                "node": "7cc30adb-18a0-e0b4-57e1-2c6844d54bde",
                 "port": "input0"
             }
         },
         {
             "type": "draw2d.Connection",
-            "id": "189f2a12-1afa-febd-5577-a0ac692636fd",
+            "id": "56fc42de-86d2-6d01-9614-5da5de55c31b",
             "alpha": 1,
             "userData": {},
             "cssClass": "draw2d_Connection",
@@ -363,17 +297,17 @@ http.createServer(function (request, response) {
             "router": "draw2d.layout.connection.SplineConnectionRouter",
             "radius": 2,
             "source": {
-                "node": "4f95b94b-46b1-64b6-fa4f-27ecf0141775",
+                "node": "80f0e15a-08bb-36ae-17ae-49096b9cc49c",
                 "port": "output1"
             },
             "target": {
-                "node": "54b31e4d-0ff3-48ed-13e6-6a8b60f44a22",
+                "node": "c99891ff-6631-e92e-527a-f3872df86657",
                 "port": "input0"
             }
         },
         {
             "type": "draw2d.Connection",
-            "id": "d8fcf029-4731-a2fc-a819-176eb2ea87eb",
+            "id": "8ee31a3d-ae21-d208-cb8b-2929300fd69e",
             "alpha": 1,
             "userData": {},
             "cssClass": "draw2d_Connection",
@@ -385,17 +319,17 @@ http.createServer(function (request, response) {
             "router": "draw2d.layout.connection.SplineConnectionRouter",
             "radius": 2,
             "source": {
-                "node": "cbd87a51-f284-8c17-d154-86166490aef2",
+                "node": "80f0e15a-08bb-36ae-17ae-49096b9cc49c",
                 "port": "output0"
             },
             "target": {
-                "node": "4d1a79e0-7411-5c45-94dc-6c41f72537e0",
+                "node": "d54cc33a-4670-465f-6d26-63d22b3f363d",
                 "port": "input0"
             }
         },
         {
             "type": "draw2d.Connection",
-            "id": "ca9203bb-ee8d-0062-3b93-f8aa7b545a03",
+            "id": "c82efec6-dc00-49b8-5786-d2b2a6b837fd",
             "alpha": 1,
             "userData": {},
             "cssClass": "draw2d_Connection",
@@ -407,39 +341,17 @@ http.createServer(function (request, response) {
             "router": "draw2d.layout.connection.SplineConnectionRouter",
             "radius": 2,
             "source": {
-                "node": "54b31e4d-0ff3-48ed-13e6-6a8b60f44a22",
-                "port": "output0"
-            },
-            "target": {
-                "node": "4d1a79e0-7411-5c45-94dc-6c41f72537e0",
-                "port": "input0"
-            }
-        },
-        {
-            "type": "draw2d.Connection",
-            "id": "d4d7ccda-4574-493c-1f79-9bbcfef395b3",
-            "alpha": 1,
-            "userData": {},
-            "cssClass": "draw2d_Connection",
-            "stroke": 1,
-            "color": "#1B1B1B",
-            "outlineStroke": 0,
-            "outlineColor": "none",
-            "policy": "draw2d.policy.line.LineSelectionFeedbackPolicy",
-            "router": "draw2d.layout.connection.SplineConnectionRouter",
-            "radius": 2,
-            "source": {
-                "node": "4f95b94b-46b1-64b6-fa4f-27ecf0141775",
+                "node": "80f0e15a-08bb-36ae-17ae-49096b9cc49c",
                 "port": "output2"
             },
             "target": {
-                "node": "19e804cc-c854-e723-6b4d-7e038d1740af",
+                "node": "be97b5ac-d691-8f86-0174-de06afe90ac1",
                 "port": "input0"
             }
         },
         {
             "type": "draw2d.Connection",
-            "id": "5db48c96-cb67-aeaa-51a4-477f062b1f03",
+            "id": "cba2bb65-f31d-f097-604d-17d970bbfa1b",
             "alpha": 1,
             "userData": {},
             "cssClass": "draw2d_Connection",
@@ -451,33 +363,11 @@ http.createServer(function (request, response) {
             "router": "draw2d.layout.connection.SplineConnectionRouter",
             "radius": 2,
             "source": {
-                "node": "96915e45-b4d5-31e6-1279-cfb25ebc6e4d",
+                "node": "be97b5ac-d691-8f86-0174-de06afe90ac1",
                 "port": "output0"
             },
             "target": {
-                "node": "4d1a79e0-7411-5c45-94dc-6c41f72537e0",
-                "port": "input0"
-            }
-        },
-        {
-            "type": "draw2d.Connection",
-            "id": "bb01d517-278b-8c4c-ecdd-ab6026f08949",
-            "alpha": 1,
-            "userData": {},
-            "cssClass": "draw2d_Connection",
-            "stroke": 1,
-            "color": "#1B1B1B",
-            "outlineStroke": 0,
-            "outlineColor": "none",
-            "policy": "draw2d.policy.line.LineSelectionFeedbackPolicy",
-            "router": "draw2d.layout.connection.SplineConnectionRouter",
-            "radius": 2,
-            "source": {
-                "node": "19e804cc-c854-e723-6b4d-7e038d1740af",
-                "port": "output0"
-            },
-            "target": {
-                "node": "96915e45-b4d5-31e6-1279-cfb25ebc6e4d",
+                "node": "7cc30adb-18a0-e0b4-57e1-2c6844d54bde",
                 "port": "input0"
             }
         }

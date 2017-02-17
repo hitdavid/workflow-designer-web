@@ -53,10 +53,10 @@ com.chanjet.gzq.aflowServiceTask = draw2d.shape.basic.Rectangle.extend({
 		
 		var leftLocator = new draw2d.layout.locator.InputPortLocator();
 		this.createPort("input",leftLocator);
-		
-		
+
 		var rightLocator = new draw2d.layout.locator.OutputPortLocator();
-		this.createPort("output",rightLocator);
+		var p = this.createPort("output",rightLocator);
+        p.setMaxFanOut(1);
 	},
 	
 	 /**

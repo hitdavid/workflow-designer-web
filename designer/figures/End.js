@@ -9,7 +9,22 @@ com.chanjet.gzq.aflowEnd = draw2d.shape.basic.Circle.extend({
 		
 		var leftLocator = new draw2d.layout.locator.InputPortLocator();
 		this.createPort("input",leftLocator);
-		
-		//this.getInputPort(0).setAlpha(0);
+
+        this.userData = {
+            name: "流程结束",
+            id: this.id,
+            type: "End",
+            color: this.getColor().hex(),
+            label: '',
+            outputPort: [
+            ],
+            inputPort: [
+                {
+                    name: 'input0',
+                    port: 'draw2d.InputPort',
+                    locator: 'draw2d.layout.locator.InputPortLocator',
+                }
+            ],
+        };
 	}
 });

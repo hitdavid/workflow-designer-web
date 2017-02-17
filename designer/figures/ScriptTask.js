@@ -79,7 +79,8 @@ com.chanjet.gzq.aflowScriptTask = draw2d.shape.basic.Rectangle.extend({
 		
 		
 		var rightLocator = new draw2d.layout.locator.OutputPortLocator();
-		this.createPort("output",rightLocator);
+		var p = this.createPort("output",rightLocator);
+        p.setMaxFanOut(1);
 		
 		this.userData = {name:"脚本任务"};
 	},

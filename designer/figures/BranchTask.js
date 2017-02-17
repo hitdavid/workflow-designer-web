@@ -31,30 +31,58 @@ com.chanjet.gzq.aflowBranchTaskText = draw2d.shape.basic.Text.extend({
     }
 });
 
-com.chanjet.gzq.aflowBranchTask = draw2d.shape.basic.Rectangle.extend({
+com.chanjet.gzq.aflowBranchTask = draw2d.shape.basic.Triangle.extend({
     NAME: "com.chanjet.gzq.aflowBranchTask",
     init: function(){
         this._super();
 
         this.setStroke(1);
-        this.setDimension(96, 64);
+        this.setDimension(96, 96);
         this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
-        this.setRadius(10);
+        this.setRadius(2);
 
-        var BranchTaskICON = new com.chanjet.gzq.aflowBranchTaskICON();
-        var BranchTaskText = new com.chanjet.gzq.aflowBranchTaskText("条件分支");
+        // var BranchTaskICON = new com.chanjet.gzq.aflowBranchTaskICON();
+        // var BranchTaskICONLocation = new draw2d.layout.locator.XYRelPortLocator(5,5);
+        // this.add(BranchTaskICON, BranchTaskICONLocation,0);
 
-        var BranchTaskICONLocation = new draw2d.layout.locator.XYRelPortLocator(5,5);
+        var BranchTaskText = new com.chanjet.gzq.aflowBranchTaskText("条件");
         var BranchTaskTextLocation = new draw2d.layout.locator.CenterLocator();
-
-        this.add(BranchTaskICON, BranchTaskICONLocation,0);
         this.add(BranchTaskText, BranchTaskTextLocation,1);
 
         var leftLocator = new draw2d.layout.locator.InputPortLocator();
         this.createPort("input", leftLocator);
 
-        var rightLocator = new draw2d.layout.locator.OutputPortLocator();
-        this.createPort("output", rightLocator);
+        var rightLocator0 = new draw2d.layout.locator.OutputPortLocator();
+        var outputPort0 = this.createPort("output", rightLocator0);
+        outputPort0.setBackgroundColor('#00A8F0');
+        outputPort0.setMaxFanOut(1);
+
+        var rightLocator1 = new draw2d.layout.locator.OutputPortLocator();
+        var outputPort1 = this.createPort("output", rightLocator1);
+        outputPort1.setBackgroundColor('#00A8F0');
+        outputPort1.setMaxFanOut(1);
+
+
+        this.userData = {
+            name: "条件分支",
+            id: this.id,
+            type: "BranchTask",
+            color: this.getColor().hex(),
+            label: BranchTaskText.getText(),
+            outputPort: [
+                {
+                    name: 'output0',
+                    port: 'draw2d.OutputPort',
+                    locator: 'draw2d.layout.locator.OutputPortLocator',
+                },
+                {
+                    name: 'output1',
+                    port: 'draw2d.OutputPort',
+                    locator: 'draw2d.layout.locator.OutputPortLocator',
+                },
+            ],
+        };
+
     },
 
     /**
@@ -112,7 +140,9 @@ com.chanjet.gzq.aflowBranchTask = draw2d.shape.basic.Rectangle.extend({
                         break;
                     case "AddBranch":
                         var rightLocator = new draw2d.layout.locator.OutputPortLocator();
-                        this.createPort("output",rightLocator);
+                        var p = this.createPort("output",rightLocator);
+                        p.setBackgroundColor('#00A8F0');
+                        p.setMaxFanOut(1);
                         break;
                     case "delete":
                         // without undo/redo support
@@ -135,7 +165,7 @@ com.chanjet.gzq.aflowBranchTask = draw2d.shape.basic.Rectangle.extend({
                 "blue":   {name: "Blue", icon: "copy"},
                 "sep1":   "---------",
                 "delete": {name: "Delete", icon: "delete"},
-                "AddBranch": {name: "AddBranch", icon: ""}
+                "AddBranch": {name: "AddBranch", icon: "copy"}
             }
         });
     }
