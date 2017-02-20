@@ -42,12 +42,12 @@ com.chanjet.gzq.aflow.BranchTask = draw2d.shape.basic.Triangle.extend({
 
         var rightLocator0 = new draw2d.layout.locator.OutputPortLocator();
         var outputPort0 = this.createPort("output", rightLocator0);
-        outputPort0.setBackgroundColor('#00A8F0');
+        outputPort0.setBackgroundColor('#00FF00');
         outputPort0.setMaxFanOut(1);
 
         var rightLocator1 = new draw2d.layout.locator.OutputPortLocator();
         var outputPort1 = this.createPort("output", rightLocator1);
-        outputPort1.setBackgroundColor('#00A8F0');
+        outputPort1.setBackgroundColor('#00FF00');
         outputPort1.setMaxFanOut(1);
 
 
@@ -57,22 +57,7 @@ com.chanjet.gzq.aflow.BranchTask = draw2d.shape.basic.Triangle.extend({
             type: "BranchTask",
             color: this.getColor().hex(),
             label: BranchTaskText.getText(),
-            outputPorts: [
-                {
-                    name: 'output0',
-                    port: 'draw2d.OutputPort',
-                    locator: 'draw2d.layout.locator.OutputPortLocator',
-                    operator: '',
-                    expression: '',
-                },
-                {
-                    name: 'output1',
-                    port: 'draw2d.OutputPort',
-                    locator: 'draw2d.layout.locator.OutputPortLocator',
-                    operator: '',
-                    expression: '',
-                },
-            ],
+
             templateId: 'uuid',
             templateName: '表单模版名称',
             fieldId: 'uuid',
@@ -139,7 +124,7 @@ com.chanjet.gzq.aflow.BranchTask = draw2d.shape.basic.Triangle.extend({
                     case "AddBranch":
                         var rightLocator = new draw2d.layout.locator.OutputPortLocator();
                         var p = this.createPort("output",rightLocator);
-                        p.setBackgroundColor('#00A8F0');
+                        p.setBackgroundColor('#00FF00');
                         p.setMaxFanOut(1);
                         break;
                     case "delete":

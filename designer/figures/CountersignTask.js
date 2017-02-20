@@ -45,6 +45,14 @@ com.chanjet.gzq.aflow.CountersignTask = draw2d.shape.basic.Rectangle.extend({
 
         var bottomLocator = new draw2d.layout.locator.ExtendPortLocator();
         this.createPort("extend", bottomLocator);
+
+        this.userData = {
+            name: "会签",
+            id: this.id,
+            type: "CountersignTask",
+            color: this.getColor().hex(),
+            label: CountersignTEXT.getText(),
+        };
 	},
 	
 	 /**
@@ -124,7 +132,9 @@ com.chanjet.gzq.aflow.CountersignTask = draw2d.shape.basic.Rectangle.extend({
                 "delete": {name: "Delete", icon: "delete"}
             }
         });
-	} 
+	}
+
+
 	
 });
 

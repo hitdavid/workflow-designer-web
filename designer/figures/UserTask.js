@@ -53,6 +53,7 @@ com.chanjet.gzq.aflow.UserTask = draw2d.shape.basic.Rectangle.extend({
 			type: "UserTask",
             color: this.getColor().hex(),
             label: userTaskText.getText(),
+            userId:[],
 		};
 	},
 

@@ -72,10 +72,12 @@
 
                 app.canvas.on("select, click", function (e, i) {
                     console.log("select, click" + i + e);
-                    if(e.selection.primary == null) {
+
+                    if (e.selection.primary == null) {
                         $('#propGrid').jqPropertyGrid(app.canvas.userData, options);
                         return;
                     }
+
                     if(e.selection.primary.userData == null) {
                         e.selection.primary.userData = {};
                     }
@@ -208,6 +210,6 @@
 			</pre>
 
 </div>
-<div id="propGrid" data-options="region:'east',width:286,collapsed:false" title="属性"></div>
+<div id="propGrid" data-options="region:'east',width:300,collapsed:false" title="属性"></div>
 </body>
 </html>

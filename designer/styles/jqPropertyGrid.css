@@ -7,6 +7,7 @@
 .pgTable {
     border: solid 1px #95B8E7;
     border-spacing: 0;
+    width: 298px;
 }
 
 .pgGroupRow {

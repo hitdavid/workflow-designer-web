@@ -130,12 +130,24 @@ com.chanjet.gzq.aflow.Application = Class.extend({
             );
         }
 
+        conn.userData = {
+            name: "连接线",
+            id: conn.id,
+            type: "Connection",
+        };
+
         if(sourcePort != null && sourcePort.parent != null) {
             console.log("from :" + sourcePort.parent.type + "(id:" + sourcePort.parent.id + ")");
+            conn.userData['form'] = sourcePort.parent.id;
+            if (sourcePort.parent.cssClass == 'com_chanjet_gzq_aflow_BranchTask') {
+                conn.userData['operator'] = '';
+                conn.userData['expression'] = '';
+            }
         }
 
 		if(targetPort != null && targetPort.parent != null) {
 			console.log("end: " + targetPort.parent.type + "(id:" + targetPort.parent.id + ")");
+            conn.userData['to'] = targetPort.parent.id;
 		}
 
         conn.installEditPolicy(policy);

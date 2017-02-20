@@ -52,5 +52,7 @@ com.chanjet.gzq.aflow.Accordion = Class.extend({
 				view.getCommandStack().execute(command);// 放入堆栈，撤销或者重做
 			}
 		});
+
+
 	}
 });
