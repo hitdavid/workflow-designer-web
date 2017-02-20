@@ -22,5 +22,15 @@ com.chanjet.gzq.aflow.Canvas = draw2d.Canvas.extend({
 
 		});
 		this.installEditPolicy(new MyInterceptorPolicy());
+
+        this.userData = {
+            name: "流程模版",
+            id: this.id,
+            type: "流程模版",
+            formTemplateId: 'uuid',
+            formTemplateName: '表单模版名称',
+        };
 	}
+
+
 });

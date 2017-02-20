@@ -200,11 +200,14 @@
 			}
 
 			// Default is textbox
-		} else if (type == 'object') {
-            valueHTML = '<div id="' + displayName + '"></div>';
+		} else if (type == 'outputPorts') {
+            valueHTML = '<div id="outputPorts"></div>';
 		}
+        else if (type == 'object') {
+            valueHTML = '<div id="'+ value['name'] +'"></div>';
+        }
 		else {
-			valueHTML = '<input type="text" id="' + elemId + '" value="' + value + '"</input>';
+			valueHTML = '<input type="text" id="' + elemId + '" value="' + value + '" readonly="'+ meta.readonly +'" />';
 			if (getValueFuncs) {
 				getValueFuncs[name] = function() {
 					return $('#' + elemId).val();

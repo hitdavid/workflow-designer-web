@@ -40165,6 +40165,7 @@ draw2d.io.json.Writer = draw2d.io.Writer.extend({
             throw "Writer.marshal method signature has been change from version 2.10.1 to version 3.0.0. Please consult the API documentation about this issue.";
         }
 
+        var obj = {};
         var result = [];
 
         canvas.getFigures().each(function (i, figure) {
@@ -40175,9 +40176,12 @@ draw2d.io.json.Writer = draw2d.io.Writer.extend({
             result.push(element.getPersistentAttributes());
         });
 
-        var base64Content = draw2d.util.Base64.encode(JSON.stringify(result, null, 2));
+        obj['canvas'] = result;
+        obj['userData'] = canvas['userData'];
 
-        resultCallback(result, base64Content);
+        var base64Content = draw2d.util.Base64.encode(JSON.stringify(obj, null, 2));
+
+        resultCallback(obj, base64Content);
     }
 });
 

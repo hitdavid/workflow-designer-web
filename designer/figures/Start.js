@@ -17,15 +17,6 @@ com.chanjet.gzq.aflow.Start = draw2d.shape.basic.Circle.extend({
             type: "Start",
             color: this.getColor().hex(),
             label: '流程开始',
-            outputPort: [
-                {
-                    name: 'output0',
-                    port: 'draw2d.OutputPort',
-                    locator: 'draw2d.layout.locator.OutputPortLocator',
-                },
-            ],
-            inputPort: [
-            ],
         };
 	}
 });

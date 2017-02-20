@@ -54,20 +54,6 @@ com.chanjet.gzq.aflow.RoleTask = draw2d.shape.basic.Rectangle.extend({
             type: "RoleTask",
             color: this.getColor().hex(),
             label: roleTaskText.getText(),
-            inputPort: [
-                {
-                    name: 'input0',
-                    port: 'draw2d.InputPort',
-                    locator: 'draw2d.layout.locator.InputPortLocator',
-                },
-            ],
-            outputPort: [
-                {
-                    name: 'output0',
-                    port: 'draw2d.OutputPort',
-                    locator: 'draw2d.layout.locator.OutputPortLocator',
-                },
-            ],
         };
 	},
 	

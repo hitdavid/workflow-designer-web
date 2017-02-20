@@ -2,335 +2,163 @@
  * Created by David on 2017/2/20.
  */
 var theMeta = {
-    _super: {
-        browsable: false
-    },
-    dasharray: {
-        browsable: false
-    },
-    glowIsActive: {
-        browsable: false
-    },
-    portRelayoutRequired: {
-        browsable: false
-    },
-    setterWhitelist: {
-        browsable: false
-    },
-    getterWhitelist: {
-        browsable: false
-    },
-    isResizeHandle: {
-        browsable: false
-    },
-    command: {
-        browsable: false
-    },
-    canvas: {
-        browsable: false
-    },
-    shape: {
-        browsable: false
-    },
-    children: {
-        browsable: false
-    },
-    canSnapToHelper: {
-        browsable: false
-    },
-    editPolicy: {
-        browsable: false
-    },
-    timerId: {
-        browsable: false
-    },
-    timerInterval: {
-        browsable: false
-    },
-    parent: {
-        browsable: false
-    },
-    composite: {
-        browsable: false
-    },
-    userData: {
-        browsable: false
-    },
-    cssClass: {
-        browsable: false
-    },
-    isInDragDrop: {
-        browsable: false
-    },
-    repaintBlocked: {
-        browsable: false
-    },
-    lastAppliedAttributes: {
-        browsable: false
-    },
-    selectionHandles: {
-        browsable: false
-    },
-    eventSubscriptions: {
-        browsable: false
-    },
-    _inEvent: {
-        browsable: false
-    },
-    lastAppliedRotation: {
-        browsable: false
-    },
-    originalAlpha: {
-        browsable: false
-    },
-    isMoving: {
-        browsable: false
-    },
-    oldPoint: {
-        browsable: false
-    },
-    sourceDecorator: {
-        browsable: false
-    },
-    targetDecorator: {
-        browsable: false
-    },
-    sourceDecoratorNode: {
-        browsable: false
-    },
-    targetDecoratorNode: {
-        browsable: false
-    },
-    svgPathString: {
-        browsable: false
-    },
-    router: {
-        browsable: false
-    },
-    routingRequired: {
-        browsable: false
-    },
-    lineSegments: {
-        browsable: false
-    },
-    corona: {
-        browsable: false
-    },
-    isGlowing: {
-        browsable: false
-    },
-    outlineVisible: {
-        browsable: false
-    },
-    vertices: {
-        browsable: false
-    },
-    snapToGridAnchor: {
-        browsable: false
-    },
-    strokeBeforeGlow: {
-        browsable: false
-    },
-    persistPorts: {
-        browsable: false
-    },
-
-
-
-    x: {
-        browsable: true,
-        group: "布局",
-        type: 'text'
-    },
-    y: {
-        browsable: true,
-        group: "布局",
-        type: 'text'
-    },
-    ox: {
-        browsable: true,
-        group: "布局",
-        type: 'text'
-    },
-    oy: {
-        browsable: true,
-        group: "布局",
-        type: 'text'
-    },
-    width: {
-        browsable: true,
-        group: "布局",
-        type: 'text'
-    },
-    height: {
-        browsable: true,
-        group: "布局",
-        type: 'text'
-    },
-    minHeight: {
-        browsable: true,
-        group: "布局",
-        type: 'text'
-    },
-    minWidth: {
-        browsable: true,
-        group: "布局",
-        type: 'text'
-    },
-    rotationAngle: {
-        browsable: true,
-        group: "布局",
-        type: 'text'
-    },
-    keepAspectRatio: {
-        browsable: true,
-        group: "布局",
-        type: 'boolean'
-    },
-    minX: {
-        browsable: true,
-        group: "布局",
-        type: 'text'
-    },
-    minY: {
-        browsable: true,
-        group: "布局",
-        type: 'text'
-    },
-    maxX: {
-        browsable: true,
-        group: "布局",
-        type: 'text'
-    },
-    maxY: {
-        browsable: true,
-        group: "布局",
-        type: 'text'
-    },
-
-
-
-
-
-    alpha: {
-        browsable: true,
-        group: "样式",
-        type: 'text'
-    },
-    visible: {
-        browsable: true,
-        group: "样式"
-    },
-    color: {
-        browsable: true,
-        group: "样式",
-        type: "color"
-    },
-    bgColor: {
-        browsable: true,
-        group: "样式",
-        type: "color"
-    },
-    lineColor: {
-        browsable: true,
-        group: "样式",
-        type: "color"
-    },
-    outlineColor: {
-        browsable: true,
-        group: "样式",
-        type: "color"
-    },
-    stroke: {
-        browsable: true,
-        group: "样式",
-        type: 'text'
-    },
-    outlineStroke: {
-        browsable: true,
-        group: "样式",
-        type: 'text'
-    },
-    radius: {
-        browsable: true,
-        group: "样式",
-        type: 'text'
-    },
-
-
-
-    type: {
-        browsable: true,
-        group: "基本属性",
-        type: 'text'
-    },
     id: {
         browsable: true,
         group: "基本属性",
-        type: 'text'
+        type: 'text',
+        name: "ID",
+        readonly: "true",
+    },
+    type: {
+        browsable: true,
+        group: "基本属性",
+        type: 'text',
+        name: "类型",
+        readonly: "true",
+    },
+    color: {
+        browsable: true,
+        group: "基本属性",
+        type: 'color',
+        name: "颜色",
+        readonly: "true",
+    },
+    name: {
+        browsable: true,
+        group: "基本属性",
+        type: 'text',
+        name: "名称",
+        readonly: "true",
+    },
+    label: {
+        browsable: true,
+        group: "基本属性",
+        type: 'text',
+        name: "标签",
+        readonly: "true",
+    },
+    templateId: {
+        browsable: true,
+        group: "基本属性",
+        type: 'text',
+        name: "模版ID",
+        readonly: "false",
+    },
+    templateName: {
+        browsable: true,
+        group: "基本属性",
+        type: 'text',
+        name: "模版名称",
+        readonly: "false",
+    },
+    fieldId: {
+        browsable: true,
+        group: "基本属性",
+        type: 'text',
+        name: "字段ID",
+        readonly: "false",
+    },
+    fieldName: {
+        browsable: true,
+        group: "基本属性",
+        type: 'text',
+        name: "字段名称",
+        readonly: "false",
+    },
+    senderId: {
+        browsable: true,
+        group: "基本属性",
+        type: 'text',
+        name: "制单人",
+        readonly: "false",
+    },
+    branchVariable: {
+        browsable: true,
+        group: "基本属性",
+        type: 'text',
+        name: "条件变量",
+        readonly: "false",
     },
 
-
-
-    selectable: {
-        browsable: true,
-        group: "行为"
-    },
-    deleteable: {
-        browsable: true,
-        group: "行为"
-    },
-    resizeable: {
-        browsable: true,
-        group: "行为"
-    },
-    draggable: {
-        browsable: true,
-        group: "行为"
-    },
 
 
 
     inputPorts: {
         browsable: true,
         group: "连接",
-        type: 'object'
+        type: 'object',
+        name: "输入",
     },
     outputPorts: {
         browsable: true,
         group: "连接",
-        type: 'object'
+        type: 'outputPorts',
+        name: "输出",
     },
-    hybridPorts: {
+
+
+
+    0: {
         browsable: true,
         group: "连接",
-        type: 'object'
+        type: 'object',
+        name: "",
     },
-    cachedPorts: {
+    1: {
         browsable: true,
         group: "连接",
-        type: 'object'
+        type: 'object',
+        name: "",
     },
-    sourcePort: {
+    2: {
         browsable: true,
         group: "连接",
-        type: 'object'
+        type: 'object',
+        name: "",
     },
-    targetPort: {
+    3: {
         browsable: true,
         group: "连接",
-        type: 'object'
+        type: 'object',
+        name: "",
     },
-    start: {
+    4: {
         browsable: true,
         group: "连接",
-        type: 'object'
+        type: 'object',
+        name: "",
     },
-    end: {
+    5: {
         browsable: true,
         group: "连接",
-        type: 'object'
+        type: 'object',
+        name: "",
     },
+    6: {
+        browsable: true,
+        group: "连接",
+        type: 'object',
+        name: "",
+    },
+    7: {
+        browsable: true,
+        group: "连接",
+        type: 'object',
+        name: "",
+    },
+    8: {
+        browsable: true,
+        group: "连接",
+        type: 'object',
+        name: "",
+    },
+    9: {
+        browsable: true,
+        group: "连接",
+        type: 'object',
+        name: "",
+    },
+
 };
 var options = {
     meta: theMeta

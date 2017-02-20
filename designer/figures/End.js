@@ -16,15 +16,6 @@ com.chanjet.gzq.aflow.End = draw2d.shape.basic.Circle.extend({
             type: "End",
             color: this.getColor().hex(),
             label: '流程结束',
-            outputPort: [
-            ],
-            inputPort: [
-                {
-                    name: 'input0',
-                    port: 'draw2d.InputPort',
-                    locator: 'draw2d.layout.locator.InputPortLocator',
-                }
-            ],
         };
 	}
 });

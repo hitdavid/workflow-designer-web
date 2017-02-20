@@ -73,12 +73,20 @@
                 app.canvas.on("select, click", function (e, i) {
                     console.log("select, click" + i + e);
                     if(e.selection.primary == null) {
+                        $('#propGrid').jqPropertyGrid(app.canvas.userData, options);
                         return;
                     }
                     if(e.selection.primary.userData == null) {
                         e.selection.primary.userData = {};
                     }
                     $('#propGrid').jqPropertyGrid(e.selection.primary.userData, options);
+                    $('#outputPorts').jqPropertyGrid(e.selection.primary.userData.outputPorts, options);
+
+                    var len = e.selection.primary.userData.outputPorts.length - 1;
+                    for (var i = 0; i <= len; i++) {
+                        var id = '#output'+i;
+                        $(id).jqPropertyGrid(e.selection.primary.userData.outputPorts[i], options);
+                    }
 
                 });
 
@@ -132,7 +140,8 @@
 
             var writer = new draw2d.io.json.Writer();
             writer.marshal(canvas, function (json) {
-                $("#jsonOutput").text(JSON.stringify(json, null, 2));
+                var jsonText = JSON.stringify(json, null, 2);
+                $("#jsonOutput").text(jsonText);
             });
         }
 
@@ -159,12 +168,6 @@
         <div id="boundary-event" title="条件分支" iconCls="bpm-menu-icon" class="bpm-menu">
             <a href="##" class="easyui-linkbutton" plain="true" iconCls="branch-task-icon"
                nodeType="BranchTask">条件分支</a><br>
-        </div>
-        <div id="notify" title="通知（开发中）" iconCls="bpm-menu-icon" class="bpm-menu">
-            <a href="##" class="easyui-linkbutton" plain="true" iconCls="branch-task-icon"
-               nodeType="BranchTask">邮件通知</a><br>
-            <a href="##" class="easyui-linkbutton" plain="true" iconCls="branch-task-icon"
-               nodeType="BranchTask">消息通知</a><br>
         </div>
     </div>
 </div>

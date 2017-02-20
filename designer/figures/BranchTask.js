@@ -57,14 +57,7 @@ com.chanjet.gzq.aflow.BranchTask = draw2d.shape.basic.Triangle.extend({
             type: "BranchTask",
             color: this.getColor().hex(),
             label: BranchTaskText.getText(),
-            inputPort: [
-                {
-                    name: 'input0',
-                    port: 'draw2d.InputPort',
-                    locator: 'draw2d.layout.locator.InputPortLocator',
-                }
-            ],
-            outputPort: [
+            outputPorts: [
                 {
                     name: 'output0',
                     port: 'draw2d.OutputPort',
@@ -84,7 +77,7 @@ com.chanjet.gzq.aflow.BranchTask = draw2d.shape.basic.Triangle.extend({
             templateName: '表单模版名称',
             fieldId: 'uuid',
             fieldName: '表单字段名称',
-            documentMakerId: 'userId or roleId',
+            senderId: 'userId or roleId',
             branchVariable: 'id',
         };
 

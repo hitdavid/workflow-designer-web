@@ -53,20 +53,6 @@ com.chanjet.gzq.aflow.UserTask = draw2d.shape.basic.Rectangle.extend({
 			type: "UserTask",
             color: this.getColor().hex(),
             label: userTaskText.getText(),
-            inputPort: [
-                {
-                    name: 'input0',
-                    port: 'draw2d.InputPort',
-                    locator: 'draw2d.layout.locator.InputPortLocator',
-                },
-            ],
-            outputPort: [
-                {
-                    name: 'output0',
-                    port: 'draw2d.OutputPort',
-                    locator: 'draw2d.layout.locator.OutputPortLocator',
-                },
-            ],
 		};
 	},
 
