@@ -1,5 +1,5 @@
-com.chanjet.gzq.aflowStart = draw2d.shape.basic.Circle.extend({
-	NAME: "com.chanjet.gzq.aflowStart",
+com.chanjet.gzq.aflow.Start = draw2d.shape.basic.Circle.extend({
+	NAME: "com.chanjet.gzq.aflow.Start",
 	init: function(){
 		this._super();
 		
@@ -16,7 +16,7 @@ com.chanjet.gzq.aflowStart = draw2d.shape.basic.Circle.extend({
             id: this.id,
             type: "Start",
             color: this.getColor().hex(),
-            label: '',
+            label: '流程开始',
             outputPort: [
                 {
                     name: 'output0',

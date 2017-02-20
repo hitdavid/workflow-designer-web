@@ -1,61 +1,4 @@
-/**
- * Activiti5 Designer 0.0.1
- * 
- * Copyright (c) 2014 RanJi All rights reserved.
- * 
- * This program is free software, and you can follow the Free Software Foundation's GNU General Public License as published by the terms used to modify and redistribute the program. 
- * Or a second license, or (at your option) any later version.
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY. 
- * Without even the implied warranty for a particular purpose. More detailed information, please refer to the GNU General Public License.
- * You should have received a copy of the GNU General Public License along with the program. If not,
- * Visit the WebSite:
- *	 Licensed under the GPL license: http://www.gnu.org/licenses/gpl.txt
- * 
- * To use it on other projects please contact me at jiran1221@163.com
- * Thanks for your using. Good Luck!
- * 
- */
-
-/*
-com.chanjet.gzq.aflowRoleTaskICON = draw2d.shape.icon.User.extend({
-	NAME: "ManualTaskICON",
-	
-	init: function(){
-		this._super();
-		this.setDimension(16,16);
-	}
-});
-*/
-
-com.chanjet.gzq.aflowRoleTaskICON = draw2d.SetFigure.extend({
-	NAME: "aflowRoleTaskICON",
-	
-	
-    init: function() {
-		this._super();
-		this.setDimension(16,16);
-    },
-
-    /**
-     * @private
-     * @returns
-     */
-    createSet : function() {
-		var set = this._super();	
-		
-		//-- ManualTask ICON
-		
-		set.push(this.canvas.paper.path("M0.5,3.751l4.083-3.25c0,0,11.166,0.083,12.083,0.083s-2.417,2.917-1.5,2.917 s11.667,0,12.584,0c1.166,1.708-0.168,3.167-0.834,3.667s0.875,1.917-1,4.417c-0.75,0.25,0.75,1.875-1.333,3.333 c-1.167,0.583,0.583,1.542-1.25,2.833c-1.167,0-20.833,0.083-20.833,0.083l-2-1.333V3.751z").attr({opacity:1,fillOpacity:1,fill:"none",stroke:"#000000",strokeWidth:1}));
-		set.push(this.canvas.paper.path("M 13.5 7 L 27 7").attr({opacity:1,fill:"none",stroke:"#000000",strokeWidth:2}));
-		set.push(this.canvas.paper.path("M 13.5 11 L 26 11").attr({opacity:1,fill:"none",stroke:"#000000",strokeWidth:2}));
-		set.push(this.canvas.paper.path("M 14 14.5 L 25 14.5").attr({opacity:1,fill:"none",stroke:"#000000",strokeWidth:1.5}));
-		set.push(this.canvas.paper.path("M 8.2 3.1 L 15 3.1").attr({opacity:1,fill:"none",stroke:"#000000",strokeWidth:1.5}));
-			
-		return set;
-    }
-});
-
-com.chanjet.gzq.aflowRoleTaskText = draw2d.shape.basic.Text.extend({
+com.chanjet.gzq.aflow.RoleTaskText = draw2d.shape.basic.Text.extend({
 	NAME: "aflowRoleTaskText",
 	
 	init: function(text){
@@ -83,8 +26,8 @@ com.chanjet.gzq.aflowRoleTaskText = draw2d.shape.basic.Text.extend({
 	}
 });
 
-com.chanjet.gzq.aflowRoleTask = draw2d.shape.basic.Rectangle.extend({
-	NAME: "com.chanjet.gzq.aflowRoleTask",
+com.chanjet.gzq.aflow.RoleTask = draw2d.shape.basic.Rectangle.extend({
+	NAME: "com.chanjet.gzq.aflow.RoleTask",
 	init: function(){
 		this._super();
 		
@@ -93,14 +36,8 @@ com.chanjet.gzq.aflowRoleTask = draw2d.shape.basic.Rectangle.extend({
 		this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
 		this.setRadius(5);
 		
-		var roleTaskICON = new com.chanjet.gzq.aflowRoleTaskICON();
-		var roleTaskText = new com.chanjet.gzq.aflowRoleTaskText("上级主管");
-		
-		var roleTaskICONLocation = new draw2d.layout.locator.XYRelPortLocator(5,5);
+		var roleTaskText = new com.chanjet.gzq.aflow.RoleTaskText("审批角色");
 		var roleTaskTextLocation = new draw2d.layout.locator.CenterLocator();
-		
-		
-		this.add(roleTaskICON, roleTaskICONLocation,0);
 		this.add(roleTaskText, roleTaskTextLocation,1);
 		
 		var leftLocator = new draw2d.layout.locator.InputPortLocator();
@@ -110,8 +47,28 @@ com.chanjet.gzq.aflowRoleTask = draw2d.shape.basic.Rectangle.extend({
 		var rightLocator = new draw2d.layout.locator.OutputPortLocator();
 		p = this.createPort("output",rightLocator);
         p.setMaxFanOut(1);
-		
-		this.userData = {name:"上级主管"};
+
+        this.userData = {
+            name: "审批角色",
+            id: this.id,
+            type: "RoleTask",
+            color: this.getColor().hex(),
+            label: roleTaskText.getText(),
+            inputPort: [
+                {
+                    name: 'input0',
+                    port: 'draw2d.InputPort',
+                    locator: 'draw2d.layout.locator.InputPortLocator',
+                },
+            ],
+            outputPort: [
+                {
+                    name: 'output0',
+                    port: 'draw2d.OutputPort',
+                    locator: 'draw2d.layout.locator.OutputPortLocator',
+                },
+            ],
+        };
 	},
 	
 	 /**

@@ -38,19 +38,14 @@
 
     <!-- 固定人 -->
     <script src="figures/UserTask.js"></script>
-    <!-- 自由流 -->
-    <script src="figures/MailTask.js"></script>
     <!-- 角色 -->
     <script src="figures/RoleTask.js"></script>
-
-    <script src="figures/ServiceTask.js"></script>
-    <script src="figures/ScriptTask.js"></script>
-    <script src="figures/ExclusiveGateway.js"></script>
-    <script src="figures/ParallelGateway.js"></script>
+    <!-- 会签 -->
+    <script src="figures/CountersignTask.js"></script>
+    <!-- 分支 -->
     <script src="figures/BranchTask.js"></script>
 
-    <script src='properties/treeview.js'></script>
-    <link rel='stylesheet' href='styles/treeview.css'/>
+    <script src='properties/propertiesMeta.js'></script>
 
     <script src='properties/jqPropertyGrid.js'></script>
     <link rel='stylesheet' href='styles/jqPropertyGrid.css'/>
@@ -64,7 +59,7 @@
         $(window).load(function () {
             //-- 2. activiti-designer的连接器(全局)
 
-            app = new com.chanjet.gzq.aflowApplication();
+            app = new com.chanjet.gzq.aflow.Application();
 
             $.getJSON("http://localhost:8888/", function (result) {
                 json = result;
@@ -155,15 +150,11 @@
         <div id="task" title="审批节点" iconCls="bpm-menu-icon" selected="true" class="bpm-menu">
             <a href="#" class="easyui-linkbutton" plain="true" iconCls="user-task-icon" nodeType="UserTask">固定人员</a><br>
             <a href="#" class="easyui-linkbutton" plain="true" iconCls="manual-task-icon"
-               nodeType="RoleTask">上级主管</a><br>
-            <a href="#" class="easyui-linkbutton" plain="true" iconCls="service-task-icon"
-               nodeType="ServiceTask">自由选择</a><br>
+               nodeType="RoleTask">审批角色</a><br>
         </div>
         <div id="gateway" title="会签(开发中)" iconCls="bpm-menu-icon" class="bpm-menu">
             <a href="##" class="easyui-linkbutton" plain="true" iconCls="parallel-gateway-icon"
-               nodeType="ParallelGateway">必选会签</a><br>
-            <a href="##" class="easyui-linkbutton" plain="true" iconCls="exclusive-gateway-icon"
-               nodeType="ExclusiveGateway">可选会签</a><br>
+               nodeType="CountersignTask">会签</a><br>
         </div>
         <div id="boundary-event" title="条件分支" iconCls="bpm-menu-icon" class="bpm-menu">
             <a href="##" class="easyui-linkbutton" plain="true" iconCls="branch-task-icon"

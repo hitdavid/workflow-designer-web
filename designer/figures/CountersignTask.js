@@ -1,37 +1,50 @@
-com.chanjet.gzq.aflowExclusiveGatewayICON = draw2d.shape.icon.Cross.extend({
-	NAME: "ExclusiveGatewayICON",
-	
-	init: function(){
-		this._super();
-		this.setStroke(0);
-		this.setDimension(16,16);
-	}
+com.chanjet.gzq.aflow.CountersignTEXT = draw2d.shape.basic.Text.extend({
+    NAME: "CountersignTEXT",
+
+    init: function(text){
+        this._super();
+        this.setText(text);
+        this.setFontFamily("微软雅黑");
+        this.setStroke(0);
+
+        this.installEditor(new draw2d.ui.LabelInplaceEditor({
+            onCommit: $.proxy(function(value){
+                if(this.getWidth()>96)
+                    this.getParent().setWidth(this.getWidth());
+                else{
+                    this.getParent().setWidth(96);
+                }
+                this.getParent().setHeight(64);
+            },this),
+            onCancel: function(){
+            }
+        }));
+    }
 });
 
+com.chanjet.gzq.aflow.CountersignTask = draw2d.shape.basic.Rectangle.extend({
+	NAME: "com.chanjet.gzq.aflow.CountersignTask",
 
-com.chanjet.gzq.aflowExclusiveGateway = draw2d.shape.basic.Diamond.extend({
-	NAME: "com.chanjet.gzq.aflowExclusiveGateway",
 	init: function(){
 		this._super();
-		
-		this.setStroke(1);
-		this.setDimension(48,48);
-		this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
-		this.setRadius(2);
-		
-		var ExclusiveGatewayICON = new com.chanjet.gzq.aflowExclusiveGatewayICON();
-		var ExclusiveGatewayICONLocation = new draw2d.layout.locator.CenterLocator();
-		
-		
-		this.add(ExclusiveGatewayICON,ExclusiveGatewayICONLocation,0);
+
+        this.setDimension(48, 48);
+        this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
+        this.setRadius(2);
+
+		var CountersignTEXT = new com.chanjet.gzq.aflow.CountersignTEXT("会签");
+		var CountersignTEXTLocation = new draw2d.layout.locator.CenterLocator();
+		this.add(CountersignTEXT, CountersignTEXTLocation, 1);
 		
 		var leftLocator = new draw2d.layout.locator.InputPortLocator();
-		this.createPort("input",leftLocator);
-		
-		
+		this.createPort("input", leftLocator);
+
 		var rightLocator = new draw2d.layout.locator.OutputPortLocator();
-        var p = this.createPort("output",rightLocator);
+		var p = this.createPort("output", rightLocator);
         p.setMaxFanOut(1);
+
+        var bottomLocator = new draw2d.layout.locator.ExtendPortLocator();
+        this.createPort("extend", bottomLocator);
 	},
 	
 	 /**

@@ -1,5 +1,5 @@
-com.chanjet.gzq.aflowCanvas = draw2d.Canvas.extend({
-	canvasName: "com.chanjet.gzq.aflowCanvas",
+com.chanjet.gzq.aflow.Canvas = draw2d.Canvas.extend({
+	canvasName: "com.chanjet.gzq.aflow.Canvas",
 
 	init: function(id){
 		this._super(id);

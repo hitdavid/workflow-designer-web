@@ -1,13 +1,4 @@
-com.chanjet.gzq.aflowBranchTaskICON = draw2d.shape.icon.Check.extend({
-    NAME: "BranchTaskICON",
-
-    init: function(){
-        this._super();
-        this.setDimension(16,16);
-    }
-});
-
-com.chanjet.gzq.aflowBranchTaskText = draw2d.shape.basic.Text.extend({
+com.chanjet.gzq.aflow.BranchTaskText = draw2d.shape.basic.Text.extend({
     NAME: "BranchTaskText",
 
     init: function(text){
@@ -31,8 +22,9 @@ com.chanjet.gzq.aflowBranchTaskText = draw2d.shape.basic.Text.extend({
     }
 });
 
-com.chanjet.gzq.aflowBranchTask = draw2d.shape.basic.Triangle.extend({
-    NAME: "com.chanjet.gzq.aflowBranchTask",
+com.chanjet.gzq.aflow.BranchTask = draw2d.shape.basic.Triangle.extend({
+    NAME: "com.chanjet.gzq.aflow.BranchTask",
+
     init: function(){
         this._super();
 
@@ -41,11 +33,7 @@ com.chanjet.gzq.aflowBranchTask = draw2d.shape.basic.Triangle.extend({
         this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
         this.setRadius(2);
 
-        // var BranchTaskICON = new com.chanjet.gzq.aflowBranchTaskICON();
-        // var BranchTaskICONLocation = new draw2d.layout.locator.XYRelPortLocator(5,5);
-        // this.add(BranchTaskICON, BranchTaskICONLocation,0);
-
-        var BranchTaskText = new com.chanjet.gzq.aflowBranchTaskText("条件");
+        var BranchTaskText = new com.chanjet.gzq.aflow.BranchTaskText("条件");
         var BranchTaskTextLocation = new draw2d.layout.locator.CenterLocator();
         this.add(BranchTaskText, BranchTaskTextLocation,1);
 
@@ -69,18 +57,35 @@ com.chanjet.gzq.aflowBranchTask = draw2d.shape.basic.Triangle.extend({
             type: "BranchTask",
             color: this.getColor().hex(),
             label: BranchTaskText.getText(),
+            inputPort: [
+                {
+                    name: 'input0',
+                    port: 'draw2d.InputPort',
+                    locator: 'draw2d.layout.locator.InputPortLocator',
+                }
+            ],
             outputPort: [
                 {
                     name: 'output0',
                     port: 'draw2d.OutputPort',
                     locator: 'draw2d.layout.locator.OutputPortLocator',
+                    operator: '',
+                    expression: '',
                 },
                 {
                     name: 'output1',
                     port: 'draw2d.OutputPort',
                     locator: 'draw2d.layout.locator.OutputPortLocator',
+                    operator: '',
+                    expression: '',
                 },
             ],
+            templateId: 'uuid',
+            templateName: '表单模版名称',
+            fieldId: 'uuid',
+            fieldName: '表单字段名称',
+            documentMakerId: 'userId or roleId',
+            branchVariable: 'id',
         };
 
     },
