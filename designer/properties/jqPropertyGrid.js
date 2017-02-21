@@ -207,7 +207,7 @@
             valueHTML = '<div id="'+ value['name'] +'"></div>';
         }
 		else {
-			valueHTML = '<input type="text" id="' + elemId + '" value="' + value + '" readonly="'+ meta.readonly +'" />';
+			valueHTML = '<input type="text" id="' + elemId + '" value="' + value + '" />';
 			if (getValueFuncs) {
 				getValueFuncs[name] = function() {
 					return $('#' + elemId).val();

@@ -79,8 +79,20 @@ var theMeta = {
         name: "条件变量",
         readonly: "false",
     },
-
-
+    formTemplateName: {
+        browsable: true,
+        group: "基本属性",
+        type: 'text',
+        name: "表单模版",
+        readonly: "false",
+    },
+    formTemplateId: {
+        browsable: true,
+        group: "基本属性",
+        type: 'text',
+        name: "表单模版ID",
+        readonly: "false",
+    },
 
 
     inputPorts: {
