@@ -25,6 +25,7 @@
 .pgCell {
     border: dotted 1px #ccc;
     padding: 5px;
+    width: 100px;
 }
 
 .pgTooltip {

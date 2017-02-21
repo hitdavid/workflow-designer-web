@@ -70,27 +70,6 @@
                 displayJSON(app.canvas);
                 updatePreview(app.canvas);
 
-                app.canvas.on("select, click", function (e, i) {
-                    console.log("select, click" + i + e);
-
-                    if (e.selection.primary == null) {
-                        $('#propGrid').jqPropertyGrid(app.canvas.userData, options);
-                        return;
-                    }
-
-                    if(e.selection.primary.userData == null) {
-                        e.selection.primary.userData = {};
-                    }
-                    $('#propGrid').jqPropertyGrid(e.selection.primary.userData, options);
-                    $('#outputPorts').jqPropertyGrid(e.selection.primary.userData.outputPorts, options);
-
-                    var len = e.selection.primary.userData.outputPorts.length - 1;
-                    for (var i = 0; i <= len; i++) {
-                        var id = '#output'+i;
-                        $(id).jqPropertyGrid(e.selection.primary.userData.outputPorts[i], options);
-                    }
-
-                });
 
             });
 
@@ -101,7 +80,55 @@
                 }
             });
 
+            app.canvas.on("select, click", function (e, i) {
+                console.log("select, click" + i + e);
+
+                if (e.selection.primary == null) {
+                    $('#propGrid').jqPropertyGrid(app.canvas.userData, options);
+                    return;
+                }
+
+                if(e.selection.primary.userData == null) {
+                    e.selection.primary.userData = {};
+                }
+                $('#propGrid').jqPropertyGrid(e.selection.primary.userData, options);
+            });
+
+            $('#propGrid').on("change", function (e) {
+                
+                var id = afterDigit(e.target.id);
+
+                if( app.canvas.selection.primary != null) {
+                    //tasks
+                    if( app.canvas.selection.primary.userData != null) {
+                        app.canvas.selection.primary.userData[id] = e.target.value;
+                    }
+                }
+                else {
+                    // canvas
+                    app.canvas.userData[id] = e.target.value;
+                }
+                displayJSON(app.canvas);
+            });
+
         });
+
+        function afterDigit(str) {
+            for (var i = str.length - 1; i >= 0; i--) {
+                if (isDigit(str[i])) {
+                    return str.substring(i + 1, str.length);
+                }
+            }
+            return str;
+        }
+
+        function isDigit(s)
+        {
+            var patrn = /^[0-9]{1,20}$/;
+            if (!patrn.exec(s))
+                return false;
+            return true;
+        }
 
         function updatePreview(canvas) {
 
@@ -130,15 +157,6 @@
         ;
 
         function displayJSON(canvas) {
-            //-- test code
-            /*
-             canvas.getFigures().each(function(i,f){
-             console.log(f.NAME);		//-- Node Type
-             console.log(f.getId());		//-- Node ID
-             console.log(f.toXML());		//-- Node Mapped XML
-             });
-             */
-            //-- test code
 
             var writer = new draw2d.io.json.Writer();
             writer.marshal(canvas, function (json) {

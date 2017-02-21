@@ -200,10 +200,7 @@
 			}
 
 			// Default is textbox
-		} else if (type == 'outputPorts') {
-            valueHTML = '<div id="outputPorts"></div>';
-		}
-        else if (type == 'object') {
+		} else if (type == 'object') {
             valueHTML = '<div id="'+ value['name'] +'"></div>';
         }
 		else {
