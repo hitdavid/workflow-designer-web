@@ -69,8 +69,6 @@
                 app.loadFigure(json);
                 displayJSON(app.canvas);
                 updatePreview(app.canvas);
-
-
             });
 
             app.canvas.getCommandStack().addEventListener(function (e) {
@@ -95,7 +93,7 @@
             });
 
             $('#propGrid').on("change", function (e) {
-                
+
                 var id = afterDigit(e.target.id);
 
                 if( app.canvas.selection.primary != null) {
@@ -165,6 +163,21 @@
             });
         }
 
+        function save() {
+            var jsonArgs;
+            var writer = new draw2d.io.json.Writer();
+            writer.marshal(app.canvas, function (json) {
+                jsonArgs = JSON.stringify(json, null, 2);;
+            });
+            $.post('http://127.0.0.1:8080/aflow/template', {
+                orgId:'123',
+                name: app.canvas.userData['name'],
+                json: jsonArgs ,
+            }, function (result) {
+                console.log(result);
+            })
+        }
+
 
     </script>
 
@@ -196,6 +209,7 @@
     <div id="edit-menu" style="width:100px;">
         <div id="undoButton" iconCls="icon-undo" onclick="javascript:void(0)">Undo</div>
         <div id="redoButton" iconCls="icon-redo" onclick="javascript:void(0)">Redo</div>
+        <div id="saveButton" iconCls="" onclick="save();">Save</div>
     </div>
 
     <div id="Canvas"

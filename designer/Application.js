@@ -34,7 +34,9 @@ com.chanjet.gzq.aflow.Application = Class.extend({
 		var elements = [];
 		var conns = [];
 
-		json.forEach(function (e, i) {
+		this.canvas.userData = json['userData'];
+
+		json['canvas'].forEach(function (e, i) {
 
 		    var element = new (eval(e.type));
 		    var keys = Object.getOwnPropertyNames(e);
