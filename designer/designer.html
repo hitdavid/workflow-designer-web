@@ -52,19 +52,17 @@
 
     <script>
 
-        var json = [];
-
-        var app
+        var app;
 
         $(window).load(function () {
             //-- 2. activiti-designer的连接器(全局)
 
             app = new com.chanjet.gzq.aflow.Application();
-
+            var json;
             $.getJSON("http://localhost:8888/", function (result) {
                 json = result;
             }).fail(function () {
-                json = [];
+                json = {'canvas':[], userData: app.canvas.userData }
             }).always(function () {
                 app.loadFigure(json);
                 displayJSON(app.canvas);
@@ -185,22 +183,13 @@
 <body id="bpm-layout" class="easyui-layout">
 <div data-options="region:'west',width:150" iconCls="bpm-nav-icon" title="工具箱">
     <div class="easyui-accordion" fit="true" border="1">
-        <div id="event" title="流程起止" iconCls="bpm-menu-icon" class="bpm-menu">
+        <div id="event" title="审批流程工具" iconCls="bpm-menu-icon" class="bpm-menu">
             <a href="##" class="easyui-linkbutton" plain="true" iconCls="start-event-icon" nodeType="Start">开始</a><br>
             <a href="##" class="easyui-linkbutton" plain="true" iconCls="end-event-icon" nodeType="End">结束</a><br>
-        </div>
-        <div id="task" title="审批节点" iconCls="bpm-menu-icon" selected="true" class="bpm-menu">
-            <a href="#" class="easyui-linkbutton" plain="true" iconCls="user-task-icon" nodeType="UserTask">固定人员</a><br>
-            <a href="#" class="easyui-linkbutton" plain="true" iconCls="manual-task-icon"
-               nodeType="RoleTask">审批角色</a><br>
-        </div>
-        <div id="gateway" title="会签(开发中)" iconCls="bpm-menu-icon" class="bpm-menu">
-            <a href="##" class="easyui-linkbutton" plain="true" iconCls="parallel-gateway-icon"
-               nodeType="CountersignTask">会签</a><br>
-        </div>
-        <div id="boundary-event" title="条件分支" iconCls="bpm-menu-icon" class="bpm-menu">
-            <a href="##" class="easyui-linkbutton" plain="true" iconCls="branch-task-icon"
-               nodeType="BranchTask">条件分支</a><br>
+            <a href="#" class="easyui-linkbutton" plain="true" iconCls="user-task-icon" nodeType="UserTask">固定人员审批节点</a><br>
+            <a href="#" class="easyui-linkbutton" plain="true" iconCls="manual-task-icon" nodeType="RoleTask">管理角色审批节点</a><br>
+            <a href="##" class="easyui-linkbutton" plain="true" iconCls="parallel-gateway-icon" nodeType="CountersignTask">会签审批节点</a><br>
+            <a href="##" class="easyui-linkbutton" plain="true" iconCls="branch-task-icon" nodeType="BranchTask">条件分支判断节点</a><br>
         </div>
     </div>
 </div>

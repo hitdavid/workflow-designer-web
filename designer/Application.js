@@ -36,6 +36,10 @@ com.chanjet.gzq.aflow.Application = Class.extend({
 
 		this.canvas.userData = json['userData'];
 
+		if(json['canvas'].length == 0) {
+		    return;
+        }
+
 		json['canvas'].forEach(function (e, i) {
 
 		    var element = new (eval(e.type));
@@ -121,17 +125,6 @@ com.chanjet.gzq.aflow.Application = Class.extend({
 	    //conn.setRouter(new draw2d.layout.connection.VertexRouter());
 		conn.setRouter(new draw2d.layout.connection.SplineConnectionRouter());
 
-		var policy = new draw2d.policy.line.VertexSelectionFeedbackPolicy();
-
-        policy.__proto__.__proto__.onSelectCallBack = function (canvas, figure, isPrimarySelection) {
-            console.log("conn selected: start from " +
-                figure.sourcePort.parent.type + "(id:" +
-                figure.sourcePort.parent.id + "), to " +
-                figure.targetPort.parent.type + "(id:" +
-                figure.targetPort.parent.id + ")"
-            );
-        }
-
         conn.userData = {
             name: "连接线",
             id: conn.id,
@@ -139,7 +132,7 @@ com.chanjet.gzq.aflow.Application = Class.extend({
         };
 
         if(sourcePort != null && sourcePort.parent != null) {
-            console.log("from :" + sourcePort.parent.type + "(id:" + sourcePort.parent.id + ")");
+            // console.log("from :" + sourcePort.parent.type + "(id:" + sourcePort.parent.id + ")");
             conn.userData['form'] = sourcePort.parent.id;
             if (sourcePort.parent.cssClass == 'com_chanjet_gzq_aflow_BranchTask') {
                 conn.userData['operator'] = '';
@@ -148,28 +141,16 @@ com.chanjet.gzq.aflow.Application = Class.extend({
         }
 
 		if(targetPort != null && targetPort.parent != null) {
-			console.log("end: " + targetPort.parent.type + "(id:" + targetPort.parent.id + ")");
+			// console.log("end: " + targetPort.parent.type + "(id:" + targetPort.parent.id + ")");
             conn.userData['to'] = targetPort.parent.id;
 		}
 
-        conn.installEditPolicy(policy);
+        conn.installEditPolicy(new draw2d.policy.line.VertexSelectionFeedbackPolicy());
 
 	    return conn;
 	},
 
     checkGraph: function() {
-
-	    /*
-	    TODO: 规则检查算法：
-	    1，每个 port （ 无论 source 还是 target ）都必须有连接线连接。
-	    2，每个 sourcePort （不包含会签）只允许一条连接线连出。
-	    3，通知 节点不受上述 第2条 限制，允许从任意 sourcePort 引出。（作废）
-	    4，每个 会签 下方的 sourcePort 可以允许 1+ 个引出线。
-	    5，每个 条件分支 节点允许 1 个 targetPort 和 1+ 个 sourcePort， 并且每个 sourcePort 都有附加的条件表达式（userData）。
-	    6，每个图有且仅有 1 个 开始节点 和 1 个 结束节点。
-	    7，任意节点的 驳回，撤销 等业务操作都不在图中表现。
-	    8，一个完整的图中，任意一条路径都是起点到终点的路径的一部分，这张图一定是单向无环图。
-	    */
 
     }
 });

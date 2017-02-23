@@ -37,7 +37,7 @@ com.chanjet.gzq.aflow.RoleTask = draw2d.shape.basic.Rectangle.extend({
 		this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
 		this.setRadius(5);
 		
-		var roleTaskText = new com.chanjet.gzq.aflow.RoleTaskText("审批角色");
+		var roleTaskText = new com.chanjet.gzq.aflow.RoleTaskText("管理角色");
 		var roleTaskTextLocation = new draw2d.layout.locator.CenterLocator();
 		this.add(roleTaskText, roleTaskTextLocation,1);
 		
@@ -50,12 +50,12 @@ com.chanjet.gzq.aflow.RoleTask = draw2d.shape.basic.Rectangle.extend({
         p.setMaxFanOut(1);
 
         this.userData = {
-            name: "审批角色",
+            name: "管理角色",
             id: this.id,
             type: "RoleTask",
             color: this.getColor().hex(),
             label: roleTaskText.getText(),
-            roleIds:[],
+            roleIds:'',
         };
 	},
 	

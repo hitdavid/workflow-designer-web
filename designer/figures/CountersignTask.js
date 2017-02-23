@@ -22,15 +22,16 @@ com.chanjet.gzq.aflow.CountersignTEXT = draw2d.shape.basic.Text.extend({
     }
 });
 
-com.chanjet.gzq.aflow.CountersignTask = draw2d.shape.basic.Rectangle.extend({
+com.chanjet.gzq.aflow.CountersignTask = draw2d.shape.basic.Diamond.extend({
 	NAME: "com.chanjet.gzq.aflow.CountersignTask",
 
 	init: function(){
 		this._super();
 
-        this.setDimension(48, 48);
+        this.setStroke(1);
+        this.setDimension(64,64);
         this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
-        this.setRadius(2);
+        this.setRadius(5);
 
 		var CountersignTEXT = new com.chanjet.gzq.aflow.CountersignTEXT("会签");
 		var CountersignTEXTLocation = new draw2d.layout.locator.CenterLocator();
@@ -43,15 +44,14 @@ com.chanjet.gzq.aflow.CountersignTask = draw2d.shape.basic.Rectangle.extend({
 		var p = this.createPort("output", rightLocator);
         p.setMaxFanOut(1);
 
-        var bottomLocator = new draw2d.layout.locator.ExtendPortLocator();
-        this.createPort("extend", bottomLocator);
-
         this.userData = {
             name: "会签",
             id: this.id,
             type: "CountersignTask",
             color: this.getColor().hex(),
             label: CountersignTEXT.getText(),
+            roleIds: '',
+            userIds: '',
         };
 	},
 	

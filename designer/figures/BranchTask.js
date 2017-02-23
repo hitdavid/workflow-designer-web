@@ -29,7 +29,7 @@ com.chanjet.gzq.aflow.BranchTask = draw2d.shape.basic.Triangle.extend({
         this._super();
 
         this.setStroke(1);
-        this.setDimension(96, 96);
+        this.setDimension(64, 96);
         this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
         this.setRadius(2);
 

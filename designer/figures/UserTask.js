@@ -46,6 +46,7 @@ com.chanjet.gzq.aflow.UserTask = draw2d.shape.basic.Rectangle.extend({
 		
 		var rightLocator = new draw2d.layout.locator.OutputPortLocator();
 		var p = this.createPort("output",rightLocator);
+        p.setMaxFanOut(1);
 		
 		this.userData = {
 			name: "固定人员",

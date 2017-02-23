@@ -14,9 +14,9 @@ com.chanjet.gzq.aflow.Canvas = draw2d.Canvas.extend({
 			},
 
 			delegateDrop: function(draggedFigure, dropTarget){
-				if(draggedFigure instanceof com.chanjet.gzq.aflowUserTask && dropTarget instanceof draw2d.Connection){
-					return dropTarget;
-				}
+				// if(draggedFigure instanceof com.chanjet.gzq.aflow.UserTask && dropTarget instanceof draw2d.Connection){
+				// 	return dropTarget;
+				// }
 				return this._super(draggedFigure, dropTarget);
 			}
 
