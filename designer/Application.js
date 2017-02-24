@@ -114,10 +114,10 @@ com.chanjet.gzq.aflow.Application = Class.extend({
 		//-- 1. 连接
 		//var conn = new draw2d.Connection();
 		var conn = new draw2d.Connection(new draw2d.policy.line.VertexSelectionFeedbackPolicy());
-		conn.setStroke(1);
+		conn.setStroke(2);
 		
 		//-- 2. 设置连接的锚
-		var targetDecorator = new draw2d.decoration.connection.ArrowDecorator(5,5);
+		var targetDecorator = new draw2d.decoration.connection.ArrowDecorator(12,12);
 		targetDecorator.setBackgroundColor("#000000");
 		conn.setTargetDecorator(targetDecorator);
 		
@@ -137,6 +137,7 @@ com.chanjet.gzq.aflow.Application = Class.extend({
             if (sourcePort.parent.cssClass == 'com_chanjet_gzq_aflow_BranchTask') {
                 conn.userData['operator'] = '';
                 conn.userData['expression'] = '';
+                conn.setColor('#0000ff');
             }
         }
 
