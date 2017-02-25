@@ -48,7 +48,6 @@ com.chanjet.gzq.aflow.CountersignTask = draw2d.shape.basic.Diamond.extend({
             name: "会签",
             id: this.id,
             type: "CountersignTask",
-            color: this.getColor().hex(),
             label: CountersignTEXT.getText(),
             roleIds: '',
             userIds: '',

@@ -18256,7 +18256,6 @@ draw2d.shape.node.Node = draw2d.Figure.extend({
                 break;
             case "hybrid":
                 newPort = new draw2d.HybridPort();
-
                 count = this.hybridPorts.getSize();
                 break;
             case "extend":

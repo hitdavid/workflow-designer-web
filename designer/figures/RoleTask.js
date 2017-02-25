@@ -53,7 +53,6 @@ com.chanjet.gzq.aflow.RoleTask = draw2d.shape.basic.Rectangle.extend({
             name: "管理角色",
             id: this.id,
             type: "RoleTask",
-            color: this.getColor().hex(),
             label: roleTaskText.getText(),
             roleIds:'',
         };

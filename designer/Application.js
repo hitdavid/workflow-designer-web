@@ -54,13 +54,13 @@ com.chanjet.gzq.aflow.Application = Class.extend({
                         // TODO: add a color deserializer here from json for color and bgColor fields
                     }
                     else if (k == "ports") {
-                        if (e.type == "com.chanjet.gzq.aflowBranchTask") {
+                        if (e.type == "com.chanjet.gzq.aflow.BranchTask") {
                             //分支条件，需要初始化多个ports
                             if (e[k].length > 2) {
                                 for (var i = e[k].length - 4; i >= 0; i--) {
                                     var rightLocator = new draw2d.layout.locator.OutputPortLocator();
                                     var p = element.createPort("output",rightLocator);
-                                    p.setBackgroundColor('#00A8F0');
+                                    p.setBackgroundColor('#00FF00');
                                     p.setMaxFanOut(1);
                                 }
                             }
@@ -73,6 +73,11 @@ com.chanjet.gzq.aflow.Application = Class.extend({
                         element[k] = e[k];
                     }
                 });
+
+                element.getOutputPorts().each( function (i, p) {
+                        p.setMaxFanOut(1);
+                });
+
                 elements.push(element);
 
                 self.canvas.add(element, element.x, element.y);

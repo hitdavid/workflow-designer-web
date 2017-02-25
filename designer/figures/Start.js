@@ -15,7 +15,6 @@ com.chanjet.gzq.aflow.Start = draw2d.shape.basic.Circle.extend({
             name: "流程开始",
             id: this.id,
             type: "Start",
-            color: this.getColor().hex(),
             label: '流程开始',
         };
 	}

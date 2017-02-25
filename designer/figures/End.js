@@ -14,7 +14,6 @@ com.chanjet.gzq.aflow.End = draw2d.shape.basic.Circle.extend({
             name: "流程结束",
             id: this.id,
             type: "End",
-            color: this.getColor().hex(),
             label: '流程结束',
         };
 	}

@@ -55,7 +55,6 @@ com.chanjet.gzq.aflow.BranchTask = draw2d.shape.basic.Triangle.extend({
             name: "条件分支",
             id: this.id,
             type: "BranchTask",
-            color: this.getColor().hex(),
             label: BranchTaskText.getText(),
 
             templateId: 'uuid',
