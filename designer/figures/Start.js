@@ -5,7 +5,7 @@ com.chanjet.gzq.aflow.Start = draw2d.shape.basic.Circle.extend({
 		
 		this.setStroke(1);
 		this.setRadius(15);
-		this.setBackgroundColor(new draw2d.util.Color("#ffffff"));
+		this.setBackgroundColor(new draw2d.util.Color("#99FF99"));
 		
 		var rightLocator = new draw2d.layout.locator.OutputPortLocator();
 		var p = this.createPort("output",rightLocator);

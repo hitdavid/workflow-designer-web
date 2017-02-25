@@ -9,16 +9,7 @@ com.chanjet.gzq.aflow.RoleTaskText = draw2d.shape.basic.Text.extend({
 		
 		this.installEditor(new draw2d.ui.LabelInplaceEditor({
 		   onCommit: $.proxy(function(value){
-			   //-- 更新数据
 			   this.getParent().userData.name = value;
-			   this.getParent().userData.id = 3;
-			   
-			   if(this.getWidth()>96)
-				this.getParent().setWidth(this.getWidth());
-			   else{
-				this.getParent().setWidth(96);
-			   }
-			   this.getParent().setHeight(64);
 		   },this),
 		   onCancel: function(){
 		   }
@@ -36,6 +27,8 @@ com.chanjet.gzq.aflow.RoleTask = draw2d.shape.basic.Rectangle.extend({
 		this.setDimension(96,64);
 		this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
 		this.setRadius(5);
+
+        this.setResizeable(false);
 		
 		var roleTaskText = new com.chanjet.gzq.aflow.RoleTaskText("管理角色");
 		var roleTaskTextLocation = new draw2d.layout.locator.CenterLocator();

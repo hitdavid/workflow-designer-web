@@ -108,68 +108,20 @@ var theMeta = {
         name: "输出",
     },
 
+    operator: {
+        browsable: true,
+        group: "条件设置",
+        type: 'options',
+        options: ['', '>', '>=', '<', '<=', '等于', '不等于'],
+        name: "运算符",
+    },
+    expression: {
+        browsable: true,
+        group: "条件设置",
+        type: 'text',
+        name: "比较值",
+    }
 
-
-    0: {
-        browsable: true,
-        group: "连接",
-        type: 'object',
-        name: "",
-    },
-    1: {
-        browsable: true,
-        group: "连接",
-        type: 'object',
-        name: "",
-    },
-    2: {
-        browsable: true,
-        group: "连接",
-        type: 'object',
-        name: "",
-    },
-    3: {
-        browsable: true,
-        group: "连接",
-        type: 'object',
-        name: "",
-    },
-    4: {
-        browsable: true,
-        group: "连接",
-        type: 'object',
-        name: "",
-    },
-    5: {
-        browsable: true,
-        group: "连接",
-        type: 'object',
-        name: "",
-    },
-    6: {
-        browsable: true,
-        group: "连接",
-        type: 'object',
-        name: "",
-    },
-    7: {
-        browsable: true,
-        group: "连接",
-        type: 'object',
-        name: "",
-    },
-    8: {
-        browsable: true,
-        group: "连接",
-        type: 'object',
-        name: "",
-    },
-    9: {
-        browsable: true,
-        group: "连接",
-        type: 'object',
-        name: "",
-    },
 
 };
 var options = {

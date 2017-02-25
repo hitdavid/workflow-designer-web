@@ -9,12 +9,7 @@ com.chanjet.gzq.aflow.BranchTaskText = draw2d.shape.basic.Text.extend({
 
         this.installEditor(new draw2d.ui.LabelInplaceEditor({
             onCommit: $.proxy(function(value){
-                if(this.getWidth()>96)
-                    this.getParent().setWidth(this.getWidth());
-                else{
-                    this.getParent().setWidth(96);
-                }
-                this.getParent().setHeight(64);
+                this.getParent().userData.name = value;
             },this),
             onCancel: function(){
             }
@@ -32,6 +27,8 @@ com.chanjet.gzq.aflow.BranchTask = draw2d.shape.basic.Triangle.extend({
         this.setDimension(64, 96);
         this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
         this.setRadius(2);
+
+        this.setResizeable(false);
 
         var BranchTaskText = new com.chanjet.gzq.aflow.BranchTaskText("条件");
         var BranchTaskTextLocation = new draw2d.layout.locator.CenterLocator();

@@ -45,6 +45,8 @@
     <!-- 分支 -->
     <script src="figures/BranchTask.js"></script>
 
+    <script src="figures/Connection.js"></script>
+
     <script src='properties/propertiesMeta.js'></script>
 
     <script src='properties/jqPropertyGrid.js'></script>
@@ -98,6 +100,10 @@
                     //tasks
                     if( app.canvas.selection.primary.userData != null) {
                         app.canvas.selection.primary.userData[id] = e.target.value;
+
+                        if (app.canvas.selection.primary.userData['operator'] != null) {
+                            app.canvas.selection.primary.showExpression();
+                        }
                     }
                 }
                 else {

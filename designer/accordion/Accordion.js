@@ -53,6 +53,5 @@ com.chanjet.gzq.aflow.Accordion = Class.extend({
 			}
 		});
 
-
 	}
 });

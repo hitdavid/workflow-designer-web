@@ -6,23 +6,14 @@ com.chanjet.gzq.aflow.UserTaskText = draw2d.shape.basic.Text.extend({
 		this.setText(text);
 		this.setFontFamily("微软雅黑");
 		this.setStroke(0);
-		
-		this.installEditor(new draw2d.ui.LabelInplaceEditor({
-		   onCommit: $.proxy(function(value){
-			   //-- 更新数据
-			   this.getParent().userData.name = value;
-			   this.getParent().userData.id = 3;
-			   
-			   if(this.getWidth()>96)
-				this.getParent().setWidth(this.getWidth());
-			   else{
-				this.getParent().setWidth(96);
-			   }
-			   this.getParent().setHeight(64);
-		   },this),
-		   onCancel: function(){
-		   }
-		}));
+
+        this.installEditor(new draw2d.ui.LabelInplaceEditor({
+            onCommit: $.proxy(function(value){
+                this.getParent().userData.name = value;
+            },this),
+            onCancel: function(){
+            }
+        }));
 	}
 });
 
@@ -35,6 +26,8 @@ com.chanjet.gzq.aflow.UserTask = draw2d.shape.basic.Rectangle.extend({
 		this.setDimension(96,64);
 		this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
 		this.setRadius(5);
+
+        this.setResizeable(false);
 
 		var userTaskText = new com.chanjet.gzq.aflow.UserTaskText("固定人员");
 		var userTaskTextLocation = new draw2d.layout.locator.CenterLocator();

@@ -9,12 +9,7 @@ com.chanjet.gzq.aflow.CountersignTEXT = draw2d.shape.basic.Text.extend({
 
         this.installEditor(new draw2d.ui.LabelInplaceEditor({
             onCommit: $.proxy(function(value){
-                if(this.getWidth()>96)
-                    this.getParent().setWidth(this.getWidth());
-                else{
-                    this.getParent().setWidth(96);
-                }
-                this.getParent().setHeight(64);
+                this.getParent().userData.name = value;
             },this),
             onCancel: function(){
             }
@@ -32,6 +27,8 @@ com.chanjet.gzq.aflow.CountersignTask = draw2d.shape.basic.Diamond.extend({
         this.setDimension(64,64);
         this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
         this.setRadius(5);
+
+        this.setResizeable(false);
 
 		var CountersignTEXT = new com.chanjet.gzq.aflow.CountersignTEXT("会签");
 		var CountersignTEXTLocation = new draw2d.layout.locator.CenterLocator();

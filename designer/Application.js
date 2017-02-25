@@ -114,35 +114,20 @@ com.chanjet.gzq.aflow.Application = Class.extend({
         });
 
         this.checkGraph();
-	},	
-	createConnection: function(sourcePort, targetPort){
-		//-- 1. 连接
-		//var conn = new draw2d.Connection();
-		var conn = new draw2d.Connection(new draw2d.policy.line.VertexSelectionFeedbackPolicy());
-		conn.setStroke(2);
-		
-		//-- 2. 设置连接的锚
-		var targetDecorator = new draw2d.decoration.connection.ArrowDecorator(12,12);
-		targetDecorator.setBackgroundColor("#000000");
-		conn.setTargetDecorator(targetDecorator);
-		
-		//-- 3. 设置路由
-	    //conn.setRouter(new draw2d.layout.connection.VertexRouter());
-		conn.setRouter(new draw2d.layout.connection.SplineConnectionRouter());
+	},
 
-        conn.userData = {
-            name: "连接线",
-            id: conn.id,
-            type: "Connection",
-        };
+	createConnection: function(sourcePort, targetPort){
+
+		var conn = new com.chanjet.gzq.aflow.Connection();
 
         if(sourcePort != null && sourcePort.parent != null) {
-            // console.log("from :" + sourcePort.parent.type + "(id:" + sourcePort.parent.id + ")");
-            conn.userData['form'] = sourcePort.parent.id;
+            conn.userData['from'] = sourcePort.parent.id;
+
             if (sourcePort.parent.cssClass == 'com_chanjet_gzq_aflow_BranchTask') {
                 conn.userData['operator'] = '';
                 conn.userData['expression'] = '';
                 conn.setColor('#0000ff');
+                conn.showExpression();
             }
         }
 
@@ -151,12 +136,7 @@ com.chanjet.gzq.aflow.Application = Class.extend({
             conn.userData['to'] = targetPort.parent.id;
 		}
 
-        conn.installEditPolicy(new draw2d.policy.line.VertexSelectionFeedbackPolicy());
-
 	    return conn;
 	},
 
-    checkGraph: function() {
-
-    }
 });
