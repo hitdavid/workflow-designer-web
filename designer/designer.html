@@ -173,8 +173,9 @@
             writer.marshal(app.canvas, function (json) {
                 jsonArgs = JSON.stringify(json, null, 2);;
             });
-            $.post('http://127.0.0.1:8080/aflow/template', {
+            $.post('http://127.0.0.1:8080/aflow/definition', {
                 orgId:'123',
+                userId:'456',
                 name: app.canvas.userData['name'],
                 json: jsonArgs ,
             }, function (result) {
