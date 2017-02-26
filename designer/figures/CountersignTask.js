@@ -72,14 +72,7 @@ com.chanjet.gzq.aflow.CountersignTask = draw2d.shape.basic.Diamond.extend({
 			var oldSource = dropTarget.getSource();
 			
 			dropTarget.setSource(this.getOutputPort(0));
-			
-			
-			//var additionalConnection = draw2d.Connection.createConnection();
-			//this.getCanvas().add(additionalConnection);
-			
-			//additionalConnection.setSource(oldSource);
-			//additionalConnection.setTarget(this.getInputPort(0));
-			
+
 			var cmd = new draw2d.command.CommandConnect(this.getCanvas(),oldSource,this.getInputPort(0));
 			this.getCanvas().getCommandStack().execute(cmd);
 			
@@ -96,15 +89,6 @@ com.chanjet.gzq.aflow.CountersignTask = draw2d.shape.basic.Diamond.extend({
             callback: $.proxy(function(key, options) 
             {
                switch(key){
-               case "red":
-                   this.setColor('#f3546a');
-                   break;
-               case "green":
-                   this.setColor('#b9dd69');
-                   break;
-               case "blue":
-                   this.setColor('#00A8F0');
-                   break;
                case "delete":
                    // without undo/redo support
               //     this.getCanvas().remove(this);
@@ -121,10 +105,6 @@ com.chanjet.gzq.aflow.CountersignTask = draw2d.shape.basic.Diamond.extend({
             y:y,
             items: 
             {
-                "red":    {name: "Red", icon: "edit"},
-                "green":  {name: "Green", icon: "cut"},
-                "blue":   {name: "Blue", icon: "copy"},
-                "sep1":   "---------",
                 "delete": {name: "Delete", icon: "delete"}
             }
         });

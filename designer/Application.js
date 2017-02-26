@@ -44,7 +44,7 @@ com.chanjet.gzq.aflow.Application = Class.extend({
 
 		    var element = new (eval(e.type));
 		    var keys = Object.getOwnPropertyNames(e);
-            if (e.type == "draw2d.Connection") {
+            if (e.type == "com.chanjet.gzq.aflow.Connection") {
                 conns.push(e);
             }
             else {
@@ -112,8 +112,6 @@ com.chanjet.gzq.aflow.Application = Class.extend({
             self.canvas.add(element, element.x, element.y);
 
         });
-
-        this.checkGraph();
 	},
 
 	createConnection: function(sourcePort, targetPort){
