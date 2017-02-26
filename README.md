@@ -44,7 +44,7 @@
 
 ### 图示：
 
-![](https://raw.githubusercontent.com/hitdavid/workflow-designer-web/master/demo/demo.png)
+![](https://raw.githubusercontent.com/hitdavid/workflow-designer-web/dev/demo/demo.png)
 
 demo folder includes a demo server, in server.js
 
