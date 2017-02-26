@@ -19,5 +19,32 @@ com.chanjet.gzq.aflow.Start = draw2d.shape.basic.Circle.extend({
             type: "Start",
             label: '流程开始',
         };
-	}
+	},
+
+    onContextMenu:function(x,y){
+        $.contextMenu({
+            selector: "body",
+            events:
+                {
+                    hide:function(){ $.contextMenu( 'destroy' ); }
+                },
+            callback: $.proxy(function(key, options)
+            {
+                switch(key){
+                    case "delete":
+                        var cmd = new draw2d.command.CommandDelete(this);
+                        this.getCanvas().getCommandStack().execute(cmd);
+                    default:
+                        break;
+                }
+
+            },this),
+            x:x,
+            y:y,
+            items:
+                {
+                    "delete": {name: "Delete", icon: "delete"}
+                }
+        });
+    },
 });
