@@ -73,13 +73,6 @@ com.chanjet.gzq.aflow.RoleTask = draw2d.shape.basic.Rectangle.extend({
 			
 			dropTarget.setSource(this.getOutputPort(0));
 			
-			
-			//var additionalConnection = draw2d.Connection.createConnection();
-			//this.getCanvas().add(additionalConnection);
-			
-			//additionalConnection.setSource(oldSource);
-			//additionalConnection.setTarget(this.getInputPort(0));
-			
 			var cmd = new draw2d.command.CommandConnect(this.getCanvas(),oldSource,this.getInputPort(0));
 			this.getCanvas().getCommandStack().execute(cmd);
 			
@@ -96,16 +89,6 @@ com.chanjet.gzq.aflow.RoleTask = draw2d.shape.basic.Rectangle.extend({
             callback: $.proxy(function(key, options) 
             {
                switch(key){
-               case "red":
-                   //this.setColor('#f3546a');
-				   this.openPropertiesPanel();
-                   break;
-               case "green":
-                   this.setColor('#b9dd69');
-                   break;
-               case "blue":
-                   this.setColor('#00A8F0');
-                   break;
                case "delete":
                    // without undo/redo support
               //     this.getCanvas().remove(this);
@@ -122,26 +105,11 @@ com.chanjet.gzq.aflow.RoleTask = draw2d.shape.basic.Rectangle.extend({
             y:y,
             items: 
             {
-                "red":    {name: "Red", icon: "edit"},
-                "green":  {name: "Green", icon: "cut"},
-                "blue":   {name: "Blue", icon: "copy"},
-                "sep1":   "---------",
                 "delete": {name: "Delete", icon: "delete"}
             }
         });
 	},
 
-	openPropertiesPanel: function(){
-		var eastPanel = $("#bpm-layout").layout('panel','east');
-		if(eastPanel.panel('options').collapsed)
-			$("#bpm-layout").layout('expand','east');
-		eastPanel.panel('refresh','properties/manualTaskProperties.html');
-	},
-	
-	toXML: function(){
-		return '<manualTask id="'+this.userData.id+'" name="'+this.userData.name+'" activiti:assignee="${applyUserID}">'
-		+'</manualTask>';
-	}
 	
 });
 

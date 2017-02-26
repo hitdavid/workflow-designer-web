@@ -71,6 +71,38 @@ com.chanjet.gzq.aflow.Connection = draw2d.Connection.extend({
                 c.figure.setText(text);
             }
         })
-    }
+    },
+
+    onRightMouseDown: function (figure, x, y, shiftKey, ctrlKey) {
+      this.onContextMenu(x, y);
+
+    },
+
+    onContextMenu:function(x,y){
+        $.contextMenu({
+            selector: "body",
+            events:
+                {
+                    hide:function(){ $.contextMenu( 'destroy' ); }
+                },
+            callback: $.proxy(function(key, options)
+            {
+                switch(key){
+                    case "delete":
+                        var cmd = new draw2d.command.CommandDelete(this);
+                        this.getCanvas().getCommandStack().execute(cmd);
+                    default:
+                        break;
+                }
+
+            },this),
+            x:x,
+            y:y,
+            items:
+                {
+                    "delete": {name: "Delete", icon: "delete"}
+                }
+        });
+    },
 
 });

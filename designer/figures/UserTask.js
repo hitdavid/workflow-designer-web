@@ -35,8 +35,7 @@ com.chanjet.gzq.aflow.UserTask = draw2d.shape.basic.Rectangle.extend({
 		
 		var leftLocator = new draw2d.layout.locator.InputPortLocator();
 		this.createPort("input",leftLocator);
-		
-		
+
 		var rightLocator = new draw2d.layout.locator.OutputPortLocator();
 		var p = this.createPort("output",rightLocator);
         p.setMaxFanOut(1);
@@ -73,21 +72,7 @@ com.chanjet.gzq.aflow.UserTask = draw2d.shape.basic.Rectangle.extend({
             callback: $.proxy(function(key, options) 
             {
                switch(key){
-               case "red":
-                   //this.setColor('#f3546a');
-				   this.openPropertiesPanel();
-                   break;
-               case "green":
-                   this.setColor('#b9dd69');
-                   break;
-               case "blue":
-                   this.setColor('#00A8F0');
-                   break;
                case "delete":
-                   // without undo/redo support
-              //     this.getCanvas().remove(this);
-                   
-                   // with undo/redo support
                    var cmd = new draw2d.command.CommandDelete(this);
                    this.getCanvas().getCommandStack().execute(cmd);
                default:
@@ -99,26 +84,10 @@ com.chanjet.gzq.aflow.UserTask = draw2d.shape.basic.Rectangle.extend({
             y:y,
             items: 
             {
-                "red":    {name: "Red", icon: "edit"},
-                "green":  {name: "Green", icon: "cut"},
-                "blue":   {name: "Blue", icon: "copy"},
-                "sep1":   "---------",
                 "delete": {name: "Delete", icon: "delete"}
             }
         });
 	},
-
-	openPropertiesPanel: function(){
-		var eastPanel = $("#bpm-layout").layout('panel','east');
-		if(eastPanel.panel('options').collapsed)
-			$("#bpm-layout").layout('expand','east');
-		eastPanel.panel('refresh','properties/userTaskProperties.html');
-	},
-	
-	toXML: function(){
-		return '<userTask id="'+this.userData.id+'" name="'+this.userData.name+'" activiti:assignee="${applyUserID}">'
-		+'</userTask>';
-	}
 	
 });
 

@@ -26,7 +26,7 @@ var theMeta = {
     name: {
         browsable: true,
         group: "基本属性",
-        type: 'text',
+        type: 'label',
         name: "名称",
         readonly: "true",
     },
@@ -39,56 +39,42 @@ var theMeta = {
     },
     templateId: {
         browsable: true,
-        group: "基本属性",
+        group: "条件属性",
         type: 'text',
         name: "模版ID",
         readonly: "false",
     },
     templateName: {
         browsable: true,
-        group: "基本属性",
+        group: "条件属性",
         type: 'text',
         name: "模版名称",
         readonly: "false",
     },
     fieldId: {
         browsable: true,
-        group: "基本属性",
+        group: "条件属性",
         type: 'text',
         name: "字段ID",
         readonly: "false",
     },
     fieldName: {
         browsable: true,
-        group: "基本属性",
+        group: "条件属性",
         type: 'text',
         name: "字段名称",
         readonly: "false",
     },
-    senderId: {
-        browsable: true,
-        group: "基本属性",
-        type: 'text',
-        name: "制单人",
-        readonly: "false",
-    },
-    branchVariable: {
-        browsable: true,
-        group: "基本属性",
-        type: 'text',
-        name: "条件变量",
-        readonly: "false",
-    },
     formTemplateName: {
         browsable: true,
-        group: "基本属性",
+        group: "条件属性",
         type: 'text',
         name: "表单模版",
         readonly: "false",
     },
     formTemplateId: {
         browsable: true,
-        group: "基本属性",
+        group: "条件属性",
         type: 'text',
         name: "表单模版ID",
         readonly: "false",
@@ -108,6 +94,19 @@ var theMeta = {
         name: "输出",
     },
 
+    from: {
+        browsable: true,
+        group: "连接",
+        type: 'text',
+        name: "起点",
+    },
+    to: {
+        browsable: true,
+        group: "连接",
+        type: 'text',
+        name: "终点",
+    },
+
     operator: {
         browsable: true,
         group: "条件设置",
@@ -120,7 +119,19 @@ var theMeta = {
         group: "条件设置",
         type: 'text',
         name: "比较值",
-    }
+    },
+    roleIds: {
+        browsable: true,
+        group: "审批人设置",
+        type: 'text',
+        name: "角色",
+    },
+    userIds: {
+        browsable: true,
+        group: "审批人设置",
+        type: 'text',
+        name: "审批人",
+}
 
 
 };

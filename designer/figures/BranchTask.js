@@ -58,11 +58,32 @@ com.chanjet.gzq.aflow.BranchTask = draw2d.shape.basic.Triangle.extend({
             templateName: '表单模版名称',
             fieldId: 'uuid',
             fieldName: '表单字段名称',
-            senderId: 'userId or roleId',
-            branchVariable: 'id',
+            // caseNumber: 2,
         };
 
     },
+
+    addCase: function () {
+        var rightLocator = new draw2d.layout.locator.OutputPortLocator();
+        var p = this.createPort("output",rightLocator);
+        p.setBackgroundColor('#00FF00');
+        p.setMaxFanOut(1);
+        // this.userData['caseNumber'] += 1;
+    },
+
+    delCase: function () {
+
+        var outputPorts = this.getOutputPorts();
+        outputPorts.each(function (i, p) {
+            if (p.getConnections().data.length == 0) {
+                p.parent.removePort(p);
+                return false;
+            }
+        });
+        // this.userData['caseNumber'] -= 1;
+        this.repaint();
+    },
+
 
     /**
      *
@@ -86,15 +107,8 @@ com.chanjet.gzq.aflow.BranchTask = draw2d.shape.basic.Triangle.extend({
 
             dropTarget.setSource(this.getOutputPort(0));
 
-            //var additionalConnection = draw2d.Connection.createConnection();
-            //this.getCanvas().add(additionalConnection);
-
-            //additionalConnection.setSource(oldSource);
-            //additionalConnection.setTarget(this.getInputPort(0));
-
             var cmd = new draw2d.command.CommandConnect(this.getCanvas(),oldSource,this.getInputPort(0));
             this.getCanvas().getCommandStack().execute(cmd);
-
         }
     },
 
@@ -108,26 +122,13 @@ com.chanjet.gzq.aflow.BranchTask = draw2d.shape.basic.Triangle.extend({
             callback: $.proxy(function(key, options)
             {
                 switch(key){
-                    case "red":
-                        this.setColor('#f3546a');
+                    case "AddCase":
+                        this.addCase();
                         break;
-                    case "green":
-                        this.setColor('#b9dd69');
-                        break;
-                    case "blue":
-                        this.setColor('#00A8F0');
-                        break;
-                    case "AddBranch":
-                        var rightLocator = new draw2d.layout.locator.OutputPortLocator();
-                        var p = this.createPort("output",rightLocator);
-                        p.setBackgroundColor('#00FF00');
-                        p.setMaxFanOut(1);
+                    case "DelCase":
+                        this.delCase();
                         break;
                     case "delete":
-                        // without undo/redo support
-                        //     this.getCanvas().remove(this);
-
-                        // with undo/redo support
                         var cmd = new draw2d.command.CommandDelete(this);
                         this.getCanvas().getCommandStack().execute(cmd);
                     default:
@@ -139,12 +140,10 @@ com.chanjet.gzq.aflow.BranchTask = draw2d.shape.basic.Triangle.extend({
             y:y,
             items:
             {
-                "red":    {name: "Red", icon: "edit"},
-                "green":  {name: "Green", icon: "cut"},
-                "blue":   {name: "Blue", icon: "copy"},
-                "sep1":   "---------",
                 "delete": {name: "Delete", icon: "delete"},
-                "AddBranch": {name: "AddBranch", icon: "copy"}
+                "sep1":   "---------",
+                "AddCase": {name: "AddCase", icon: "edit"},
+                "DelCase": {name: "DelCase", icon: "delete"},
             }
         });
     }
