@@ -80,6 +80,9 @@ com.chanjet.gzq.aflow.Application = Class.extend({
 
                 elements.push(element);
 
+                // var cmd = new draw2d.command.CommandAdd(self.canvas, element, element.x, element.y);
+                // self.canvas.getCommandStack().execute(cmd);
+
                 self.canvas.add(element, element.x, element.y);
             }
         });
@@ -106,16 +109,8 @@ com.chanjet.gzq.aflow.Application = Class.extend({
                 }
             });
 
-            var element = self.createConnection(start, end);
-            element.userData = e.userData;
-            if (start.parent.cssClass == 'com_chanjet_gzq_aflow_BranchTask') {
-                element.showExpression();
-            }
-
-            element.sourcePort = start;
-            element.targetPort = end;
-            self.canvas.add(element, element.x, element.y);
-
+            var cmd = new draw2d.command.CommandConnect(self.canvas, start, end);
+            self.canvas.getCommandStack().execute(cmd);
         });
 	},
 
@@ -135,7 +130,6 @@ com.chanjet.gzq.aflow.Application = Class.extend({
         }
 
 		if(targetPort != null && targetPort.parent != null) {
-			// console.log("end: " + targetPort.parent.type + "(id:" + targetPort.parent.id + ")");
             conn.userData['to'] = targetPort.parent.id;
 		}
 

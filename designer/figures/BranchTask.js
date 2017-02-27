@@ -63,6 +63,8 @@ com.chanjet.gzq.aflow.BranchTask = draw2d.shape.basic.Triangle.extend({
 
     },
 
+    onDoubleClick: function() {},
+
     addCase: function () {
         var rightLocator = new draw2d.layout.locator.OutputPortLocator();
         var p = this.createPort("output",rightLocator);

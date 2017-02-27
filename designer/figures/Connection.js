@@ -74,8 +74,8 @@ com.chanjet.gzq.aflow.Connection = draw2d.Connection.extend({
     },
 
     onRightMouseDown: function (figure, x, y, shiftKey, ctrlKey) {
-      this.onContextMenu(x, y);
-
+        //super.onRightMouseDown(figure, x, y, shiftKey, ctrlKey);
+        this.onContextMenu(x, y);
     },
 
     onContextMenu:function(x,y){

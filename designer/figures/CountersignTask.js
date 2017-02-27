@@ -50,6 +50,8 @@ com.chanjet.gzq.aflow.CountersignTask = draw2d.shape.basic.Diamond.extend({
             userIds: '',
         };
 	},
+
+    onDoubleClick: function() {},
 	
 	 /**
      *

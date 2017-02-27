@@ -50,6 +50,8 @@ com.chanjet.gzq.aflow.RoleTask = draw2d.shape.basic.Rectangle.extend({
             roleIds:'',
         };
 	},
+
+    onDoubleClick: function() {},
 	
 	 /**
      *
