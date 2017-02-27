@@ -1,0 +1,37 @@
+/**
+ * Created by David on 2017/2/27.
+ */
+var theOperators = [
+    {
+        text:'',
+        value:0
+    },
+    {
+        text:'>',
+        value:1
+    },
+    {
+        text:'>=',
+        value:2
+    },
+    {
+        text:'<',
+        value:3
+    },
+    {
+        text:'<=',
+        value:4
+    },
+    {
+        text:'等于',
+        value:5
+    },
+    {
+        text:'不等于',
+        value:6
+    },
+    {
+        text:'缺省',
+        value:7
+    },
+]

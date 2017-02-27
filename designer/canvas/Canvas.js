@@ -26,7 +26,7 @@ com.chanjet.gzq.aflow.Canvas = draw2d.Canvas.extend({
         this.userData = {
             name: "流程模版",
             id: this.id,
-            type: "FlowTemplate",
+            type: "FlowDefinition",
             formTemplateId: 'uuid',
             formTemplateName: '表单模版名称',
         };

@@ -22,15 +22,15 @@ http.createServer(function (request, response) {
         "canvas": [
             {
                 "type": "com.chanjet.gzq.aflow.Start",
-                "id": "3a88d54f-70aa-97e9-c240-60d58b0e91f9",
-                "x": 35,
-                "y": 205,
+                "id": "0e5e2253-404b-77ce-5e6e-50a6e57af0c2",
+                "x": 44,
+                "y": 362,
                 "width": 30,
                 "height": 30,
                 "alpha": 1,
                 "userData": {
                     "name": "流程开始",
-                    "id": "3a88d54f-70aa-97e9-c240-60d58b0e91f9",
+                    "id": "0e5e2253-404b-77ce-5e6e-50a6e57af0c2",
                     "type": "Start",
                     "label": "流程开始"
                 },
@@ -47,19 +47,45 @@ http.createServer(function (request, response) {
                 "stroke": 1
             },
             {
+                "type": "com.chanjet.gzq.aflow.End",
+                "id": "34be98a9-195e-2c04-d31d-6555a196c7b8",
+                "x": 1185,
+                "y": 346,
+                "width": 30,
+                "height": 30,
+                "alpha": 1,
+                "userData": {
+                    "name": "流程结束",
+                    "id": "34be98a9-195e-2c04-d31d-6555a196c7b8",
+                    "type": "End",
+                    "label": "流程结束"
+                },
+                "cssClass": "com_chanjet_gzq_aflow_End",
+                "ports": [
+                    {
+                        "name": "input0",
+                        "port": "draw2d.InputPort",
+                        "locator": "draw2d.layout.locator.InputPortLocator"
+                    }
+                ],
+                "bgColor": "#FF9999",
+                "color": "#1B1B1B",
+                "stroke": 1
+            },
+            {
                 "type": "com.chanjet.gzq.aflow.RoleTask",
-                "id": "560b00e9-2351-68af-7506-64dda6ee055e",
-                "x": 149,
-                "y": 188,
+                "id": "06e3d9d2-f801-9bac-9505-26af445b525e",
+                "x": 137,
+                "y": 345,
                 "width": 96,
                 "height": 64,
                 "alpha": 1,
                 "userData": {
                     "name": "管理角色",
-                    "id": "560b00e9-2351-68af-7506-64dda6ee055e",
+                    "id": "06e3d9d2-f801-9bac-9505-26af445b525e",
                     "type": "RoleTask",
                     "label": "管理角色",
-                    "roleIds": "123"
+                    "roleIds": "rid"
                 },
                 "cssClass": "com_chanjet_gzq_aflow_RoleTask",
                 "ports": [
@@ -81,21 +107,21 @@ http.createServer(function (request, response) {
             },
             {
                 "type": "com.chanjet.gzq.aflow.BranchTask",
-                "id": "9d08427a-443f-5899-4001-e39e8fb60747",
-                "x": 90,
-                "y": 328,
+                "id": "6e2b9fcc-d312-e7c9-789d-aae7fa196124",
+                "x": 280,
+                "y": 329,
                 "width": 64,
                 "height": 96,
                 "alpha": 1,
                 "userData": {
                     "name": "条件分支",
-                    "id": "9d08427a-443f-5899-4001-e39e8fb60747",
+                    "id": "6e2b9fcc-d312-e7c9-789d-aae7fa196124",
                     "type": "BranchTask",
                     "label": "条件",
-                    "templateId": "12345",
+                    "templateId": "uuid",
                     "templateName": "报销单",
-                    "fieldId": "67890",
-                    "fieldName": "报销类型"
+                    "fieldId": "uuid",
+                    "fieldName": "科目"
                 },
                 "cssClass": "com_chanjet_gzq_aflow_BranchTask",
                 "ports": [
@@ -121,68 +147,35 @@ http.createServer(function (request, response) {
                 "radius": 2,
                 "vertices": [
                     {
-                        "x": 90,
-                        "y": 376
+                        "x": 280,
+                        "y": 377
                     },
                     {
-                        "x": 154,
-                        "y": 328
+                        "x": 344,
+                        "y": 329
                     },
                     {
-                        "x": 154,
-                        "y": 424
+                        "x": 344,
+                        "y": 425
                     }
                 ]
             },
             {
-                "type": "com.chanjet.gzq.aflow.RoleTask",
-                "id": "220096ad-9c4b-5fa9-6527-691e10dd4fbe",
-                "x": 428,
-                "y": 284,
+                "type": "com.chanjet.gzq.aflow.UserTask",
+                "id": "da514a7b-ff1f-15bb-1ed3-9fe5ab770298",
+                "x": 996,
+                "y": 329,
                 "width": 96,
                 "height": 64,
                 "alpha": 1,
                 "userData": {
-                    "name": "管理角色",
-                    "id": "220096ad-9c4b-5fa9-6527-691e10dd4fbe",
-                    "type": "RoleTask",
-                    "label": "管理角色",
-                    "roleIds": "123"
+                    "name": "固定人员",
+                    "id": "da514a7b-ff1f-15bb-1ed3-9fe5ab770298",
+                    "type": "UserTask",
+                    "label": "固定人员",
+                    "userIds": "uid,uid,uid"
                 },
-                "cssClass": "com_chanjet_gzq_aflow_RoleTask",
-                "ports": [
-                    {
-                        "name": "input0",
-                        "port": "draw2d.InputPort",
-                        "locator": "draw2d.layout.locator.InputPortLocator"
-                    },
-                    {
-                        "name": "output0",
-                        "port": "draw2d.OutputPort",
-                        "locator": "draw2d.layout.locator.OutputPortLocator"
-                    }
-                ],
-                "bgColor": "#FFFFCC",
-                "color": "#1B1B1B",
-                "stroke": 1,
-                "radius": 5
-            },
-            {
-                "type": "com.chanjet.gzq.aflow.RoleTask",
-                "id": "81de3a82-ccad-404b-85e7-fe21ac9679bd",
-                "x": 294,
-                "y": 519,
-                "width": 96,
-                "height": 64,
-                "alpha": 1,
-                "userData": {
-                    "name": "管理角色",
-                    "id": "81de3a82-ccad-404b-85e7-fe21ac9679bd",
-                    "type": "RoleTask",
-                    "label": "管理角色",
-                    "roleIds": ""
-                },
-                "cssClass": "com_chanjet_gzq_aflow_RoleTask",
+                "cssClass": "com_chanjet_gzq_aflow_UserTask",
                 "ports": [
                     {
                         "name": "input0",
@@ -202,20 +195,20 @@ http.createServer(function (request, response) {
             },
             {
                 "type": "com.chanjet.gzq.aflow.BranchTask",
-                "id": "f0eada93-f795-824b-95aa-163645d6b8d3",
-                "x": 464,
-                "y": 401,
+                "id": "a832e33a-9375-5493-794f-8cb46eaf2617",
+                "x": 495,
+                "y": 477,
                 "width": 64,
                 "height": 96,
                 "alpha": 1,
                 "userData": {
                     "name": "条件分支",
-                    "id": "f0eada93-f795-824b-95aa-163645d6b8d3",
+                    "id": "a832e33a-9375-5493-794f-8cb46eaf2617",
                     "type": "BranchTask",
                     "label": "条件",
-                    "templateId": "12345",
+                    "templateId": "uuid",
                     "templateName": "报销单",
-                    "fieldId": "67890",
+                    "fieldId": "uuid",
                     "fieldName": "合计金额"
                 },
                 "cssClass": "com_chanjet_gzq_aflow_BranchTask",
@@ -242,111 +235,33 @@ http.createServer(function (request, response) {
                 "radius": 2,
                 "vertices": [
                     {
-                        "x": 464,
-                        "y": 449
+                        "x": 495,
+                        "y": 525
                     },
                     {
-                        "x": 528,
-                        "y": 401
+                        "x": 559,
+                        "y": 477
                     },
                     {
-                        "x": 528,
-                        "y": 497
+                        "x": 559,
+                        "y": 573
                     }
                 ]
-            },
-            {
-                "type": "com.chanjet.gzq.aflow.CountersignTask",
-                "id": "27668396-5401-2a81-34f8-53a484d9734d",
-                "x": 747,
-                "y": 474,
-                "width": 64,
-                "height": 64,
-                "alpha": 1,
-                "userData": {
-                    "name": "会签",
-                    "id": "27668396-5401-2a81-34f8-53a484d9734d",
-                    "type": "CountersignTask",
-                    "label": "会签",
-                    "roleIds": "",
-                    "userIds": "111, 222, 333"
-                },
-                "cssClass": "com_chanjet_gzq_aflow_CountersignTask",
-                "ports": [
-                    {
-                        "name": "input0",
-                        "port": "draw2d.InputPort",
-                        "locator": "draw2d.layout.locator.InputPortLocator"
-                    },
-                    {
-                        "name": "output0",
-                        "port": "draw2d.OutputPort",
-                        "locator": "draw2d.layout.locator.OutputPortLocator"
-                    }
-                ],
-                "bgColor": "#FFFFCC",
-                "color": "#1B1B1B",
-                "stroke": 1,
-                "radius": 5,
-                "vertices": [
-                    {
-                        "x": 779,
-                        "y": 474
-                    },
-                    {
-                        "x": 811,
-                        "y": 506
-                    },
-                    {
-                        "x": 779,
-                        "y": 538
-                    },
-                    {
-                        "x": 747,
-                        "y": 506
-                    }
-                ]
-            },
-            {
-                "type": "com.chanjet.gzq.aflow.End",
-                "id": "19f30999-3c10-964c-eeab-9856137ccbf6",
-                "x": 985,
-                "y": 307,
-                "width": 30,
-                "height": 30,
-                "alpha": 1,
-                "userData": {
-                    "name": "流程结束",
-                    "id": "19f30999-3c10-964c-eeab-9856137ccbf6",
-                    "type": "End",
-                    "label": "流程结束"
-                },
-                "cssClass": "com_chanjet_gzq_aflow_End",
-                "ports": [
-                    {
-                        "name": "input0",
-                        "port": "draw2d.InputPort",
-                        "locator": "draw2d.layout.locator.InputPortLocator"
-                    }
-                ],
-                "bgColor": "#FF9999",
-                "color": "#1B1B1B",
-                "stroke": 1
             },
             {
                 "type": "com.chanjet.gzq.aflow.RoleTask",
-                "id": "4885c240-479e-6ed7-4ca3-7ab9d68d9d5e",
-                "x": 731,
-                "y": 365,
+                "id": "563c111f-0c44-3af7-a3c3-1e0f145a2d40",
+                "x": 728,
+                "y": 412,
                 "width": 96,
                 "height": 64,
                 "alpha": 1,
                 "userData": {
                     "name": "管理角色",
-                    "id": "4885c240-479e-6ed7-4ca3-7ab9d68d9d5e",
+                    "id": "563c111f-0c44-3af7-a3c3-1e0f145a2d40",
                     "type": "RoleTask",
                     "label": "管理角色",
-                    "roleIds": "123"
+                    "roleIds": "rid"
                 },
                 "cssClass": "com_chanjet_gzq_aflow_RoleTask",
                 "ports": [
@@ -367,15 +282,67 @@ http.createServer(function (request, response) {
                 "radius": 5
             },
             {
+                "type": "com.chanjet.gzq.aflow.CountersignTask",
+                "id": "69221b85-31f1-4995-8865-c32157cb2582",
+                "x": 777,
+                "y": 560,
+                "width": 64,
+                "height": 64,
+                "alpha": 1,
+                "userData": {
+                    "name": "会签",
+                    "id": "69221b85-31f1-4995-8865-c32157cb2582",
+                    "type": "CountersignTask",
+                    "label": "会签",
+                    "roleIds": "uid,uid,uid",
+                    "userIds": ""
+                },
+                "cssClass": "com_chanjet_gzq_aflow_CountersignTask",
+                "ports": [
+                    {
+                        "name": "input0",
+                        "port": "draw2d.InputPort",
+                        "locator": "draw2d.layout.locator.InputPortLocator"
+                    },
+                    {
+                        "name": "output0",
+                        "port": "draw2d.OutputPort",
+                        "locator": "draw2d.layout.locator.OutputPortLocator"
+                    }
+                ],
+                "bgColor": "#FFFFCC",
+                "color": "#1B1B1B",
+                "stroke": 1,
+                "radius": 5,
+                "vertices": [
+                    {
+                        "x": 809,
+                        "y": 560
+                    },
+                    {
+                        "x": 841,
+                        "y": 592
+                    },
+                    {
+                        "x": 809,
+                        "y": 624
+                    },
+                    {
+                        "x": 777,
+                        "y": 592
+                    }
+                ]
+            },
+            {
                 "type": "com.chanjet.gzq.aflow.Connection",
-                "id": "49a3b7b8-46b6-9cf8-3644-ecbad70cab12",
+                "id": "386a4ccb-e60f-d42f-a1fc-6acedff1f5b5",
                 "alpha": 1,
                 "userData": {
                     "name": "连接线",
-                    "id": "49a3b7b8-46b6-9cf8-3644-ecbad70cab12",
+                    "id": "386a4ccb-e60f-d42f-a1fc-6acedff1f5b5",
                     "type": "Connection",
-                    "from": "3a88d54f-70aa-97e9-c240-60d58b0e91f9",
-                    "to": "560b00e9-2351-68af-7506-64dda6ee055e"
+                    "from": "0e5e2253-404b-77ce-5e6e-50a6e57af0c2",
+                    "to": "06e3d9d2-f801-9bac-9505-26af445b525e"
                 },
                 "cssClass": "com_chanjet_gzq_aflow_Connection",
                 "stroke": 2,
@@ -386,24 +353,24 @@ http.createServer(function (request, response) {
                 "router": "draw2d.layout.connection.SplineConnectionRouter",
                 "radius": 2,
                 "source": {
-                    "node": "3a88d54f-70aa-97e9-c240-60d58b0e91f9",
+                    "node": "0e5e2253-404b-77ce-5e6e-50a6e57af0c2",
                     "port": "output0"
                 },
                 "target": {
-                    "node": "560b00e9-2351-68af-7506-64dda6ee055e",
+                    "node": "06e3d9d2-f801-9bac-9505-26af445b525e",
                     "port": "input0"
                 }
             },
             {
                 "type": "com.chanjet.gzq.aflow.Connection",
-                "id": "60e9427b-895a-9c1d-b413-1b9ec7d16c5f",
+                "id": "203db889-d3aa-aa7d-d1b3-d0660fac59b4",
                 "alpha": 1,
                 "userData": {
                     "name": "连接线",
-                    "id": "60e9427b-895a-9c1d-b413-1b9ec7d16c5f",
+                    "id": "203db889-d3aa-aa7d-d1b3-d0660fac59b4",
                     "type": "Connection",
-                    "from": "560b00e9-2351-68af-7506-64dda6ee055e",
-                    "to": "9d08427a-443f-5899-4001-e39e8fb60747"
+                    "from": "06e3d9d2-f801-9bac-9505-26af445b525e",
+                    "to": "6e2b9fcc-d312-e7c9-789d-aae7fa196124"
                 },
                 "cssClass": "com_chanjet_gzq_aflow_Connection",
                 "stroke": 2,
@@ -414,26 +381,26 @@ http.createServer(function (request, response) {
                 "router": "draw2d.layout.connection.SplineConnectionRouter",
                 "radius": 2,
                 "source": {
-                    "node": "560b00e9-2351-68af-7506-64dda6ee055e",
+                    "node": "06e3d9d2-f801-9bac-9505-26af445b525e",
                     "port": "output0"
                 },
                 "target": {
-                    "node": "9d08427a-443f-5899-4001-e39e8fb60747",
+                    "node": "6e2b9fcc-d312-e7c9-789d-aae7fa196124",
                     "port": "input0"
                 }
             },
             {
                 "type": "com.chanjet.gzq.aflow.Connection",
-                "id": "91ac00be-edbf-4763-d253-795cea6fa4b0",
+                "id": "fe22870b-4b2e-ff42-c1ce-f0f7b0665124",
                 "alpha": 1,
                 "userData": {
                     "name": "连接线",
-                    "id": "91ac00be-edbf-4763-d253-795cea6fa4b0",
+                    "id": "fe22870b-4b2e-ff42-c1ce-f0f7b0665124",
                     "type": "Connection",
-                    "from": "9d08427a-443f-5899-4001-e39e8fb60747",
-                    "to": "220096ad-9c4b-5fa9-6527-691e10dd4fbe",
-                    "operator": "等于",
-                    "expression": "日常费用报销"
+                    "from": "6e2b9fcc-d312-e7c9-789d-aae7fa196124",
+                    "to": "da514a7b-ff1f-15bb-1ed3-9fe5ab770298",
+                    "operator": "5",
+                    "expression": "内勤报销"
                 },
                 "cssClass": "com_chanjet_gzq_aflow_Connection",
                 "stroke": 2,
@@ -444,26 +411,26 @@ http.createServer(function (request, response) {
                 "router": "draw2d.layout.connection.SplineConnectionRouter",
                 "radius": 2,
                 "source": {
-                    "node": "9d08427a-443f-5899-4001-e39e8fb60747",
+                    "node": "6e2b9fcc-d312-e7c9-789d-aae7fa196124",
                     "port": "output0"
                 },
                 "target": {
-                    "node": "220096ad-9c4b-5fa9-6527-691e10dd4fbe",
+                    "node": "da514a7b-ff1f-15bb-1ed3-9fe5ab770298",
                     "port": "input0"
                 }
             },
             {
                 "type": "com.chanjet.gzq.aflow.Connection",
-                "id": "8a526032-d931-bb92-0911-0f7c5c8d3697",
+                "id": "1da50b60-faec-ef40-2d7b-0e55806398fd",
                 "alpha": 1,
                 "userData": {
                     "name": "连接线",
-                    "id": "8a526032-d931-bb92-0911-0f7c5c8d3697",
+                    "id": "1da50b60-faec-ef40-2d7b-0e55806398fd",
                     "type": "Connection",
-                    "from": "9d08427a-443f-5899-4001-e39e8fb60747",
-                    "to": "81de3a82-ccad-404b-85e7-fe21ac9679bd",
-                    "operator": "不等于",
-                    "expression": "日常费用报销"
+                    "from": "6e2b9fcc-d312-e7c9-789d-aae7fa196124",
+                    "to": "a832e33a-9375-5493-794f-8cb46eaf2617",
+                    "operator": "5",
+                    "expression": "外勤报销"
                 },
                 "cssClass": "com_chanjet_gzq_aflow_Connection",
                 "stroke": 2,
@@ -474,53 +441,25 @@ http.createServer(function (request, response) {
                 "router": "draw2d.layout.connection.SplineConnectionRouter",
                 "radius": 2,
                 "source": {
-                    "node": "9d08427a-443f-5899-4001-e39e8fb60747",
+                    "node": "6e2b9fcc-d312-e7c9-789d-aae7fa196124",
                     "port": "output1"
                 },
                 "target": {
-                    "node": "81de3a82-ccad-404b-85e7-fe21ac9679bd",
+                    "node": "a832e33a-9375-5493-794f-8cb46eaf2617",
                     "port": "input0"
                 }
             },
             {
                 "type": "com.chanjet.gzq.aflow.Connection",
-                "id": "0365341d-cb6a-562a-81be-f191f6778fac",
+                "id": "a15c9055-2dff-a5b2-07f7-b44507a5650d",
                 "alpha": 1,
                 "userData": {
                     "name": "连接线",
-                    "id": "0365341d-cb6a-562a-81be-f191f6778fac",
+                    "id": "a15c9055-2dff-a5b2-07f7-b44507a5650d",
                     "type": "Connection",
-                    "from": "81de3a82-ccad-404b-85e7-fe21ac9679bd",
-                    "to": "f0eada93-f795-824b-95aa-163645d6b8d3"
-                },
-                "cssClass": "com_chanjet_gzq_aflow_Connection",
-                "stroke": 2,
-                "color": "#1B1B1B",
-                "outlineStroke": 0,
-                "outlineColor": "none",
-                "policy": "draw2d.policy.line.LineSelectionFeedbackPolicy",
-                "router": "draw2d.layout.connection.SplineConnectionRouter",
-                "radius": 2,
-                "source": {
-                    "node": "81de3a82-ccad-404b-85e7-fe21ac9679bd",
-                    "port": "output0"
-                },
-                "target": {
-                    "node": "f0eada93-f795-824b-95aa-163645d6b8d3",
-                    "port": "input0"
-                }
-            },
-            {
-                "type": "com.chanjet.gzq.aflow.Connection",
-                "id": "5f391211-d7cb-7916-15dc-d582d561a37c",
-                "alpha": 1,
-                "userData": {
-                    "name": "连接线",
-                    "id": "5f391211-d7cb-7916-15dc-d582d561a37c",
-                    "type": "Connection",
-                    "from": "f0eada93-f795-824b-95aa-163645d6b8d3",
-                    "to": "27668396-5401-2a81-34f8-53a484d9734d",
-                    "operator": ">",
+                    "from": "a832e33a-9375-5493-794f-8cb46eaf2617",
+                    "to": "563c111f-0c44-3af7-a3c3-1e0f145a2d40",
+                    "operator": "3",
                     "expression": "5000"
                 },
                 "cssClass": "com_chanjet_gzq_aflow_Connection",
@@ -532,25 +471,81 @@ http.createServer(function (request, response) {
                 "router": "draw2d.layout.connection.SplineConnectionRouter",
                 "radius": 2,
                 "source": {
-                    "node": "f0eada93-f795-824b-95aa-163645d6b8d3",
-                    "port": "output1"
+                    "node": "a832e33a-9375-5493-794f-8cb46eaf2617",
+                    "port": "output0"
                 },
                 "target": {
-                    "node": "27668396-5401-2a81-34f8-53a484d9734d",
+                    "node": "563c111f-0c44-3af7-a3c3-1e0f145a2d40",
                     "port": "input0"
                 }
             },
             {
                 "type": "com.chanjet.gzq.aflow.Connection",
-                "id": "551e3b15-97f1-cdb1-1eab-75cf04b443d4",
+                "id": "614e0d79-2827-213b-c1e9-e61fd352a054",
                 "alpha": 1,
                 "userData": {
                     "name": "连接线",
-                    "id": "551e3b15-97f1-cdb1-1eab-75cf04b443d4",
+                    "id": "614e0d79-2827-213b-c1e9-e61fd352a054",
                     "type": "Connection",
-                    "from": "f0eada93-f795-824b-95aa-163645d6b8d3",
-                    "to": "4885c240-479e-6ed7-4ca3-7ab9d68d9d5e",
-                    "operator": "<=",
+                    "from": "da514a7b-ff1f-15bb-1ed3-9fe5ab770298",
+                    "to": "34be98a9-195e-2c04-d31d-6555a196c7b8"
+                },
+                "cssClass": "com_chanjet_gzq_aflow_Connection",
+                "stroke": 2,
+                "color": "#1B1B1B",
+                "outlineStroke": 0,
+                "outlineColor": "none",
+                "policy": "draw2d.policy.line.LineSelectionFeedbackPolicy",
+                "router": "draw2d.layout.connection.SplineConnectionRouter",
+                "radius": 2,
+                "source": {
+                    "node": "da514a7b-ff1f-15bb-1ed3-9fe5ab770298",
+                    "port": "output0"
+                },
+                "target": {
+                    "node": "34be98a9-195e-2c04-d31d-6555a196c7b8",
+                    "port": "input0"
+                }
+            },
+            {
+                "type": "com.chanjet.gzq.aflow.Connection",
+                "id": "2d7b6dcb-7ef3-b116-fe53-603c8a8b8f7b",
+                "alpha": 1,
+                "userData": {
+                    "name": "连接线",
+                    "id": "2d7b6dcb-7ef3-b116-fe53-603c8a8b8f7b",
+                    "type": "Connection",
+                    "from": "563c111f-0c44-3af7-a3c3-1e0f145a2d40",
+                    "to": "34be98a9-195e-2c04-d31d-6555a196c7b8"
+                },
+                "cssClass": "com_chanjet_gzq_aflow_Connection",
+                "stroke": 2,
+                "color": "#1B1B1B",
+                "outlineStroke": 0,
+                "outlineColor": "none",
+                "policy": "draw2d.policy.line.LineSelectionFeedbackPolicy",
+                "router": "draw2d.layout.connection.SplineConnectionRouter",
+                "radius": 2,
+                "source": {
+                    "node": "563c111f-0c44-3af7-a3c3-1e0f145a2d40",
+                    "port": "output0"
+                },
+                "target": {
+                    "node": "da514a7b-ff1f-15bb-1ed3-9fe5ab770298",
+                    "port": "input0"
+                }
+            },
+            {
+                "type": "com.chanjet.gzq.aflow.Connection",
+                "id": "c32d50c2-50bd-ed34-6750-55449afac21e",
+                "alpha": 1,
+                "userData": {
+                    "name": "连接线",
+                    "id": "c32d50c2-50bd-ed34-6750-55449afac21e",
+                    "type": "Connection",
+                    "from": "a832e33a-9375-5493-794f-8cb46eaf2617",
+                    "to": "69221b85-31f1-4995-8865-c32157cb2582",
+                    "operator": "2",
                     "expression": "5000"
                 },
                 "cssClass": "com_chanjet_gzq_aflow_Connection",
@@ -562,24 +557,24 @@ http.createServer(function (request, response) {
                 "router": "draw2d.layout.connection.SplineConnectionRouter",
                 "radius": 2,
                 "source": {
-                    "node": "f0eada93-f795-824b-95aa-163645d6b8d3",
-                    "port": "output0"
+                    "node": "a832e33a-9375-5493-794f-8cb46eaf2617",
+                    "port": "output1"
                 },
                 "target": {
-                    "node": "4885c240-479e-6ed7-4ca3-7ab9d68d9d5e",
+                    "node": "69221b85-31f1-4995-8865-c32157cb2582",
                     "port": "input0"
                 }
             },
             {
                 "type": "com.chanjet.gzq.aflow.Connection",
-                "id": "47328344-f385-6df9-ac7c-68f3dc1cacef",
+                "id": "1e57f18a-bbd4-54ae-1af2-832a2cf7148e",
                 "alpha": 1,
                 "userData": {
                     "name": "连接线",
-                    "id": "47328344-f385-6df9-ac7c-68f3dc1cacef",
+                    "id": "1e57f18a-bbd4-54ae-1af2-832a2cf7148e",
                     "type": "Connection",
-                    "from": "220096ad-9c4b-5fa9-6527-691e10dd4fbe",
-                    "to": "19f30999-3c10-964c-eeab-9856137ccbf6"
+                    "from": "69221b85-31f1-4995-8865-c32157cb2582",
+                    "to": "34be98a9-195e-2c04-d31d-6555a196c7b8"
                 },
                 "cssClass": "com_chanjet_gzq_aflow_Connection",
                 "stroke": 2,
@@ -590,79 +585,24 @@ http.createServer(function (request, response) {
                 "router": "draw2d.layout.connection.SplineConnectionRouter",
                 "radius": 2,
                 "source": {
-                    "node": "220096ad-9c4b-5fa9-6527-691e10dd4fbe",
+                    "node": "69221b85-31f1-4995-8865-c32157cb2582",
                     "port": "output0"
                 },
                 "target": {
-                    "node": "19f30999-3c10-964c-eeab-9856137ccbf6",
-                    "port": "input0"
-                }
-            },
-            {
-                "type": "com.chanjet.gzq.aflow.Connection",
-                "id": "f54a0f99-ac54-0913-6d54-c6079f99d4c1",
-                "alpha": 1,
-                "userData": {
-                    "name": "连接线",
-                    "id": "f54a0f99-ac54-0913-6d54-c6079f99d4c1",
-                    "type": "Connection",
-                    "from": "4885c240-479e-6ed7-4ca3-7ab9d68d9d5e",
-                    "to": "19f30999-3c10-964c-eeab-9856137ccbf6"
-                },
-                "cssClass": "com_chanjet_gzq_aflow_Connection",
-                "stroke": 2,
-                "color": "#1B1B1B",
-                "outlineStroke": 0,
-                "outlineColor": "none",
-                "policy": "draw2d.policy.line.LineSelectionFeedbackPolicy",
-                "router": "draw2d.layout.connection.SplineConnectionRouter",
-                "radius": 2,
-                "source": {
-                    "node": "4885c240-479e-6ed7-4ca3-7ab9d68d9d5e",
-                    "port": "output0"
-                },
-                "target": {
-                    "node": "19f30999-3c10-964c-eeab-9856137ccbf6",
-                    "port": "input0"
-                }
-            },
-            {
-                "type": "com.chanjet.gzq.aflow.Connection",
-                "id": "6b6de62c-fbe9-997c-3dab-a326169bb284",
-                "alpha": 1,
-                "userData": {
-                    "name": "连接线",
-                    "id": "6b6de62c-fbe9-997c-3dab-a326169bb284",
-                    "type": "Connection",
-                    "from": "27668396-5401-2a81-34f8-53a484d9734d",
-                    "to": "19f30999-3c10-964c-eeab-9856137ccbf6"
-                },
-                "cssClass": "com_chanjet_gzq_aflow_Connection",
-                "stroke": 2,
-                "color": "#1B1B1B",
-                "outlineStroke": 0,
-                "outlineColor": "none",
-                "policy": "draw2d.policy.line.LineSelectionFeedbackPolicy",
-                "router": "draw2d.layout.connection.SplineConnectionRouter",
-                "radius": 2,
-                "source": {
-                    "node": "27668396-5401-2a81-34f8-53a484d9734d",
-                    "port": "output0"
-                },
-                "target": {
-                    "node": "19f30999-3c10-964c-eeab-9856137ccbf6",
+                    "node": "da514a7b-ff1f-15bb-1ed3-9fe5ab770298",
                     "port": "input0"
                 }
             }
         ],
         "userData": {
             "name": "流程模版",
-            "id": "uuid-12345",
-            "type": "FlowDefinition",
-            "formTemplateId": "12345",
+            "id": "Canvas",
+            "type": "FlowTemplate",
+            "formTemplateId": "uuid",
             "formTemplateName": "报销单"
         }
     };
+
 
     response.end(JSON.stringify(data));
 

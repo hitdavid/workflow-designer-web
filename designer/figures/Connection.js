@@ -57,7 +57,15 @@ com.chanjet.gzq.aflow.Connection = draw2d.Connection.extend({
     showExpression: function() {
 
         if(this.userData['operator'] != '' && this.userData['expression'] != '') {
-            this.setText(this.userData['operator'] + ' ' + this.userData['expression']);
+
+            var operatorText = '';
+
+            for (var i = 0; i < theOperators.length; i++) {
+                if (theOperators[i]['value'] == this.userData['operator']) {
+                    operatorText = theOperators[i]['text'];
+                }
+            }
+            this.setText(operatorText + ' ' + this.userData['expression']);
         }
         else {
             this.setText('设置条件');

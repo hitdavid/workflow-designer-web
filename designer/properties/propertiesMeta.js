@@ -111,7 +111,7 @@ var theMeta = {
         browsable: true,
         group: "条件设置",
         type: 'options',
-        options: ['', '>', '>=', '<', '<=', '等于', '不等于'],
+        options: theOperators,
         name: "运算符",
     },
     expression: {

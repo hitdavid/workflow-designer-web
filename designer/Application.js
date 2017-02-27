@@ -14,8 +14,13 @@ com.chanjet.gzq.aflow.Application = Class.extend({
 	 */
 	init: function(canvasID){
 		//-- 1. activiti-designer的画布
+
+        var uuid = draw2d.util.UUID.create();
+
 		this.canvas = new com.chanjet.gzq.aflow.Canvas('Canvas');
-		
+		this.canvas.userData.id = uuid;
+
+
 		//-- 2. activiti-designer的连接器(全局)
 		draw2d.Connection.createConnection = this.createConnection;
 		
@@ -107,7 +112,8 @@ com.chanjet.gzq.aflow.Application = Class.extend({
             });
 
             var cmd = new draw2d.command.CommandConnect(self.canvas, start, end);
-            self.canvas.getCommandStack().execute(cmd);
+            // self.canvas.getCommandStack().execute(cmd);
+            cmd.execute();
             cmd.connection.id = e.id;
             cmd.connection.userData = e.userData;
             if (start.parent.cssClass == 'com_chanjet_gzq_aflow_BranchTask') {
