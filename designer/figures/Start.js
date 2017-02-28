@@ -21,6 +21,8 @@ com.chanjet.gzq.aflow.Start = draw2d.shape.basic.Circle.extend({
         };
 	},
 
+    onDoubleClick: function() {},
+
     onContextMenu:function(x,y){
         $.contextMenu({
             selector: "body",
