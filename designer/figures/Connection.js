@@ -24,7 +24,7 @@ com.chanjet.gzq.aflow.ConnectionTEXT = draw2d.shape.basic.Text.extend({
 
 com.chanjet.gzq.aflow.Connection = draw2d.Connection.extend({
 
-    NAME: "com.chanjet.gzq.aflow.Connection",
+    NAME: "Connection",
 
     init: function(){
         this._super();

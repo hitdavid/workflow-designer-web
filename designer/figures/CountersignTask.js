@@ -18,7 +18,7 @@ com.chanjet.gzq.aflow.CountersignTEXT = draw2d.shape.basic.Text.extend({
 });
 
 com.chanjet.gzq.aflow.CountersignTask = draw2d.shape.basic.Diamond.extend({
-	NAME: "com.chanjet.gzq.aflow.CountersignTask",
+	NAME: "CountersignTask",
 
 	init: function(){
 		this._super();

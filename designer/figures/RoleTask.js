@@ -18,7 +18,7 @@ com.chanjet.gzq.aflow.RoleTaskText = draw2d.shape.basic.Text.extend({
 });
 
 com.chanjet.gzq.aflow.RoleTask = draw2d.shape.basic.Rectangle.extend({
-	NAME: "com.chanjet.gzq.aflow.RoleTask",
+	NAME: "RoleTask",
 
 	init: function(){
 		this._super();

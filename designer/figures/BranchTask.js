@@ -18,7 +18,7 @@ com.chanjet.gzq.aflow.BranchTaskText = draw2d.shape.basic.Text.extend({
 });
 
 com.chanjet.gzq.aflow.BranchTask = draw2d.shape.basic.Triangle.extend({
-    NAME: "com.chanjet.gzq.aflow.BranchTask",
+    NAME: "BranchTask",
 
     init: function(){
         this._super();

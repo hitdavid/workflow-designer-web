@@ -49,7 +49,7 @@ com.chanjet.gzq.aflow.Application = Class.extend({
 
 		    var element = new (eval(e.type));
 		    var keys = Object.getOwnPropertyNames(e);
-            if (e.type == "com.chanjet.gzq.aflow.Connection") {
+            if (e.type == "Connection") {
                 conns.push(e);
             }
             else {
@@ -59,7 +59,7 @@ com.chanjet.gzq.aflow.Application = Class.extend({
                         // TODO: add a color deserializer here from json for color and bgColor fields
                     }
                     else if (k == "ports") {
-                        if (e.type == "com.chanjet.gzq.aflow.BranchTask") {
+                        if (e.type == "BranchTask") {
                             //分支条件，需要初始化多个ports
                             if (e[k].length > 2) {
                                 for (var i = e[k].length - 4; i >= 0; i--) {
@@ -116,7 +116,7 @@ com.chanjet.gzq.aflow.Application = Class.extend({
             cmd.execute();
             cmd.connection.id = e.id;
             cmd.connection.userData = e.userData;
-            if (start.parent.cssClass == 'com_chanjet_gzq_aflow_BranchTask') {
+            if (start.parent.cssClass == 'BranchTask') {
                 cmd.connection.showExpression();
             }
 
@@ -130,7 +130,7 @@ com.chanjet.gzq.aflow.Application = Class.extend({
         if(sourcePort != null && sourcePort.parent != null) {
             conn.userData['from'] = sourcePort.parent.id;
 
-            if (sourcePort.parent.cssClass == 'com_chanjet_gzq_aflow_BranchTask') {
+            if (sourcePort.parent.cssClass == 'BranchTask') {
                 conn.userData['operator'] = '';
                 conn.userData['expression'] = '';
                 conn.setColor('#0000ff');

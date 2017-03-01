@@ -1,5 +1,5 @@
 com.chanjet.gzq.aflow.Start = draw2d.shape.basic.Circle.extend({
-	NAME: "com.chanjet.gzq.aflow.Start",
+	NAME: "Start",
 	init: function(){
 		this._super();
 		

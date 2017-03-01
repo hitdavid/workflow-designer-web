@@ -18,7 +18,7 @@ com.chanjet.gzq.aflow.UserTaskText = draw2d.shape.basic.Text.extend({
 });
 
 com.chanjet.gzq.aflow.UserTask = draw2d.shape.basic.Rectangle.extend({
-	NAME: "com.chanjet.gzq.aflow.UserTask",
+	NAME: "UserTask",
 	init: function(){
 		this._super();
 		
