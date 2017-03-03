@@ -108,7 +108,7 @@ var theMeta = {
     },
 
     operator: {
-        browsable: true,
+        browsable: false,
         group: "条件设置",
         type: 'options',
         options: theOperators,
@@ -118,8 +118,9 @@ var theMeta = {
         browsable: true,
         group: "条件设置",
         type: 'text',
-        name: "比较值",
+        name: "取值",
     },
+
     roleIds: {
         browsable: true,
         group: "审批人设置",
@@ -131,7 +132,13 @@ var theMeta = {
         group: "审批人设置",
         type: 'text',
         name: "审批人",
-}
+    },
+    help: {
+        browsable: true,
+        group: "帮助",
+        type: 'label',
+        name: "帮助",
+    },
 
 
 };

@@ -104,7 +104,7 @@
                     if( app.canvas.selection.primary.userData != null) {
                         app.canvas.selection.primary.userData[id] = e.target.value;
 
-                        if (app.canvas.selection.primary.userData['operator'] != null) {
+                        if (app.canvas.selection.primary.userData['expression'] != null) {
                             app.canvas.selection.primary.showExpression();
                         }
                     }
@@ -237,7 +237,7 @@
 								height:300px;
 								border:3px solid gray;
 								background-color:#dceffd;
-								opacity:0.8;"></pre>
+								opacity:0.8;visibility: hidden;"></pre>
 
 </div>
 <div id="propGrid" data-options="region:'east',width:300,collapsed:false" title="属性"></div>

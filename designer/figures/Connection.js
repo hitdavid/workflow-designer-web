@@ -10,7 +10,7 @@ com.chanjet.gzq.aflow.ConnectionTEXT = draw2d.shape.basic.Text.extend({
         this.setText(text);
         this.setFontFamily("微软雅黑");
         this.setStroke(0);
-        // this.setWidth(100);
+        this.setWidth(100);
 
         // this.installEditor(new draw2d.ui.LabelInplaceEditor({
         //     onCommit: $.proxy(function(value){
@@ -40,8 +40,9 @@ com.chanjet.gzq.aflow.Connection = draw2d.Connection.extend({
         this.add(ConnectionTEXT, ConnectionTEXTLocation, 1);
 
 
+        this.setRouter(new draw2d.layout.connection.DirectRouter());
         // this.setRouter(new draw2d.layout.connection.MuteableManhattanConnectionRouter());
-        this.setRouter(new draw2d.layout.connection.SplineConnectionRouter());
+        // this.setRouter(new draw2d.layout.connection.SplineConnectionRouter());
 
         this.userData = {
             name: "连接线",
@@ -49,6 +50,7 @@ com.chanjet.gzq.aflow.Connection = draw2d.Connection.extend({
             type: "Connection",
             from: null,
             to: null,
+
         };
 
         this.installEditPolicy(new draw2d.policy.line.VertexSelectionFeedbackPolicy());
@@ -56,16 +58,8 @@ com.chanjet.gzq.aflow.Connection = draw2d.Connection.extend({
 
     showExpression: function() {
 
-        if(this.userData['operator'] != '' && this.userData['expression'] != '') {
-
-            var operatorText = '';
-
-            for (var i = 0; i < theOperators.length; i++) {
-                if (theOperators[i]['value'] == this.userData['operator']) {
-                    operatorText = theOperators[i]['text'];
-                }
-            }
-            this.setText(operatorText + ' ' + this.userData['expression']);
+        if(this.userData['expression'] != '') {
+            this.setText(this.userData['expression']);
         }
         else {
             this.setText('设置条件');

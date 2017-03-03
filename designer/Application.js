@@ -131,9 +131,28 @@ com.chanjet.gzq.aflow.Application = Class.extend({
             conn.userData['from'] = sourcePort.parent.id;
 
             if (sourcePort.parent.cssClass == 'BranchTask') {
-                conn.userData['operator'] = '';
                 conn.userData['expression'] = '';
                 conn.setColor('#0000ff');
+                conn.userData['help']=
+                "条件输入支持：<br />" +
+                "逗号分隔的多个条件，同时满足<br />" +
+                "<br />" +
+                "支持的运算符：<br />" +
+                "> 大于<br />" +
+                ">= 大于等于<br />" +
+                "< 小于<br />" +
+                "<= 大于等于<br />" +
+                "= 等于<br />"+
+                "!= 不等于<br />"+
+                "* 缺省条件，不满足其他条件时成立<br />"+
+                "<br />" +
+                "例子：<br />" +
+                ">500, <= 50000<br />" +
+                "-表示条件大于500并且小于等于50000<br />" +
+                "=1, =2, =3<br />" +
+                "-表示条件等于1，2，或者3<br />"+
+                "=报销单<br />" +
+                "-表示条件等于报销单<br />",
                 conn.showExpression();
             }
         }
