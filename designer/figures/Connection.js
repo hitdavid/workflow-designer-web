@@ -40,9 +40,9 @@ com.chanjet.gzq.aflow.Connection = draw2d.Connection.extend({
         this.add(ConnectionTEXT, ConnectionTEXTLocation, 1);
 
 
-        this.setRouter(new draw2d.layout.connection.DirectRouter());
+        // this.setRouter(new draw2d.layout.connection.DirectRouter());
         // this.setRouter(new draw2d.layout.connection.MuteableManhattanConnectionRouter());
-        // this.setRouter(new draw2d.layout.connection.SplineConnectionRouter());
+        this.setRouter(new draw2d.layout.connection.SplineConnectionRouter());
 
         this.userData = {
             name: "连接线",
@@ -106,5 +106,17 @@ com.chanjet.gzq.aflow.Connection = draw2d.Connection.extend({
                 }
         });
     },
+
+    // setStartPoint: function (x, y) {
+    //     this._super.setStartPoint(x, y);
+    //     var bb = this.getBoundingBox();
+    //     this.setWidth(bb.getWidth());
+    // },
+    //
+    // setEndPoint: function (x, y) {
+    //     this._super.setEndPoint(x, y);
+    //     var bb = this.getBoundingBox();
+    //     this.setWidth(bb.getWidth());
+    // },
 
 });

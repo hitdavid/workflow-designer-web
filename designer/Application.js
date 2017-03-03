@@ -28,7 +28,7 @@ com.chanjet.gzq.aflow.Application = Class.extend({
 		this.accordion = new com.chanjet.gzq.aflow.Accordion(this.canvas);
 		
 		//-- 4. activiti-designer的工具条
-		this.toolbar = new com.chanjet.gzq.aflowToolBar(this.canvas);
+		this.toolbar = new com.chanjet.gzq.aflow.ToolBar(this.canvas);
 		
 	},
 	loadFigure: function(json){
