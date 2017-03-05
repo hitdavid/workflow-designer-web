@@ -54,6 +54,7 @@
 
     <script src='properties/jqPropertyGrid.js'></script>
     <link rel='stylesheet' href='styles/jqPropertyGrid.css'/>
+    <link rel="stylesheet" href="styles/app.css">
 
     <script>
 
@@ -194,22 +195,19 @@
 <div data-options="region:'west',width:150" iconCls="bpm-nav-icon" title="工具箱">
     <div class="easyui-accordion" fit="true" border="1">
         <div id="event" title="审批流程工具" iconCls="bpm-menu-icon" class="bpm-menu">
-            <a href="##" class="easyui-linkbutton" plain="true" iconCls="start-event-icon" nodeType="Start">开始</a><br>
-            <a href="##" class="easyui-linkbutton" plain="true" iconCls="end-event-icon" nodeType="End">结束</a><br>
-            <a href="#" class="easyui-linkbutton" plain="true" iconCls="user-task-icon" nodeType="UserTask">固定人员审批节点</a><br>
-            <a href="#" class="easyui-linkbutton" plain="true" iconCls="manual-task-icon" nodeType="RoleTask">管理角色审批节点</a><br>
-            <a href="##" class="easyui-linkbutton" plain="true" iconCls="parallel-gateway-icon" nodeType="CountersignTask">会签审批节点</a><br>
-            <a href="##" class="easyui-linkbutton" plain="true" iconCls="branch-task-icon" nodeType="BranchTask">条件分支判断节点</a><br>
+            <a href="##" class="easyui-linkbutton" plain="true" iconCls="start-event-icon" nodeType="Start">开始</a>
+            <a href="##" class="easyui-linkbutton" plain="true" iconCls="end-event-icon" nodeType="End">结束</a>
+            <a href="#" class="easyui-linkbutton" plain="true" iconCls="user-task-icon" nodeType="UserTask">固定人员审批节点</a>
+            <a href="#" class="easyui-linkbutton" plain="true" iconCls="manual-task-icon" nodeType="RoleTask">管理角色审批节点</a>
+            <a href="##" class="easyui-linkbutton" plain="true" iconCls="parallel-gateway-icon" nodeType="CountersignTask">会签审批节点</a>
+            <a href="##" class="easyui-linkbutton" plain="true" iconCls="branch-task-icon" nodeType="BranchTask">条件分支判断节点</a>
         </div>
     </div>
 </div>
 <div data-options="region:'center'" title="工作区">
-    <a href="javascript:void(0)" class="easyui-splitbutton" menu="#edit-menu" iconCls="icon-edit">编辑</a>
-    <div id="edit-menu" style="width:100px;">
-        <div id="undoButton" iconCls="icon-undo" onclick="javascript:void(0)">Undo</div>
-        <div id="redoButton" iconCls="icon-redo" onclick="javascript:void(0)">Redo</div>
-        <div id="saveButton" iconCls="" onclick="save();">Save</div>
-    </div>
+    <a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-save'" onclick="save()">Save</a>
+    <a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-undo'">Undo</a>
+    <a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-redo'">Redo</a>
 
     <div id="Canvas"
          style="position:relative;width:2500px;height:2500px;background-image:url(styles/images/grid.png);"></div>
