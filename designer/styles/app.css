@@ -3,3 +3,6 @@
   display: block;
   text-align: left;
 }
+.easyui-linkbutton {
+  outline: 0;
+}
