@@ -50,7 +50,6 @@ com.chanjet.gzq.aflow.Connection = draw2d.Connection.extend({
             type: "Connection",
             from: null,
             to: null,
-
         };
 
         this.installEditPolicy(new draw2d.policy.line.VertexSelectionFeedbackPolicy());
@@ -93,6 +92,10 @@ com.chanjet.gzq.aflow.Connection = draw2d.Connection.extend({
                     case "delete":
                         var cmd = new draw2d.command.CommandDelete(this);
                         this.getCanvas().getCommandStack().execute(cmd);
+                    case "insertUser":
+                        app.canvas.insertTask(this, 'UserTask');
+                    case "insertRole":
+                        app.canvas.insertTask(this, 'RoleTask');
                     default:
                         break;
                 }
@@ -102,7 +105,9 @@ com.chanjet.gzq.aflow.Connection = draw2d.Connection.extend({
             y:y,
             items:
                 {
-                    "delete": {name: "Delete", icon: "delete"}
+                    "delete": {name: "删除", icon: ""},
+                    "insertUser": {name: "插入固定人员", icon: ""},
+                    "insertRole": {name: "插入上级主管", icon: ""},
                 }
         });
     },

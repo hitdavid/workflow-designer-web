@@ -77,6 +77,8 @@ com.chanjet.gzq.aflow.UserTask = draw2d.shape.basic.Rectangle.extend({
                case "delete":
                    var cmd = new draw2d.command.CommandDelete(this);
                    this.getCanvas().getCommandStack().execute(cmd);
+               case "appendUserTask":
+                   app.canvas.appendTask(this, 'UserTask')
                default:
                    break;
                }
@@ -86,7 +88,8 @@ com.chanjet.gzq.aflow.UserTask = draw2d.shape.basic.Rectangle.extend({
             y:y,
             items: 
             {
-                "delete": {name: "Delete", icon: "delete"}
+                "delete": {name: "删除", icon: "delete"},
+                "appendUserTask": {name: "添加一个固定审批人员节点", icon: "delete"}
             }
         });
 	},

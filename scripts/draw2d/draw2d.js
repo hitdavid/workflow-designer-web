@@ -24684,8 +24684,11 @@ draw2d.Connection = draw2d.shape.basic.PolyLine.extend({
 
         this.routingRequired = true;
         this.fireSourcePortRouteEvent();
-        this.sourcePort.connections.add(this);
-        this.sourcePort.on("move", this.moveListener);
+        if(this.sourcePort != undefined) {
+            this.sourcePort.connections.add(this);
+            this.sourcePort.on("move", this.moveListener);
+        }
+
         if (this.canvas !== null) {
             this.canvas.fireEvent("connect", {"port": this.sourcePort, "connection": this});
             this.sourcePort.fireEvent("connect", this);
@@ -24886,6 +24889,9 @@ draw2d.Connection = draw2d.shape.basic.PolyLine.extend({
      * @private
      **/
     fireSourcePortRouteEvent: function () {
+        if(this.sourcePort == undefined) {
+            return;
+        }
         this.sourcePort.getConnections().each(function (i, conn) {
             conn.routingRequired = true;
             conn.repaint();
