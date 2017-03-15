@@ -62,7 +62,9 @@ com.chanjet.gzq.aflow.UserTask = draw2d.shape.basic.Rectangle.extend({
     	}
 	},
 
-    onDoubleClick: function() {},
+    onDoubleClick: function() {
+        this.onContextMenu(x, y);
+	},
 	
 	onContextMenu:function(x,y){
 		 $.contextMenu({

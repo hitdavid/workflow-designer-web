@@ -31,8 +31,8 @@ com.chanjet.gzq.aflow.Canvas = draw2d.Canvas.extend({
 
 	insertTask: function (connection, taskType) {
 
-        var x = connection.getBoundingBox().getTopLeft().getX() + (connection.getBoundingBox().getWidth() / 2);
-        var y = connection.getBoundingBox().getTopLeft().getY() + (connection.getBoundingBox().getHeight() / 2);
+        var x = connection.getBoundingBox().getTopLeft().getX() + (connection.getBoundingBox().getWidth() / 2) - 48;
+        var y = connection.getBoundingBox().getTopLeft().getY() - 32;
 
         var sourcePort = connection.getSource();
         var targetPort = connection.getTarget();
@@ -56,13 +56,24 @@ com.chanjet.gzq.aflow.Canvas = draw2d.Canvas.extend({
 
     appendTask: function (thisTask, taskType) {
 
+	    var emptyPort = null;
+	    thisTask.outputPorts.data.forEach(function (e, i) {
+            if(e.connections.data.length == 0) {
+                emptyPort = e;
+            }
+        });
+
+        if(emptyPort == null) {
+	        return;
+        }
+
         var x = thisTask.getBoundingBox().getTopLeft().getX() + 96 + 100;
         var y = thisTask.getBoundingBox().getTopLeft().getY();
 
         var shape = eval("new com.chanjet.gzq.aflow."+taskType+"()");
         this.add(shape, x, y);
 
-        var cmd = new draw2d.command.CommandConnect(this, thisTask.outputPorts.data[0], shape.inputPorts.data[0]);
+        var cmd = new draw2d.command.CommandConnect(this, emptyPort, shape.inputPorts.data[0]);
         cmd.execute();
         if (thisTask.cssClass == 'BranchTask') {
             cmd.connection.showExpression();

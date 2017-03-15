@@ -74,6 +74,12 @@ com.chanjet.gzq.aflow.Connection = draw2d.Connection.extend({
         })
     },
 
+    // onDoubleClick: function() {
+    //     alert('onDoubleClick');
+    //     this.contextMenu.create('create', {})
+    //     this.onContextMenu(x, y);
+    // },
+
     onRightMouseDown: function (figure, x, y, shiftKey, ctrlKey) {
         //super.onRightMouseDown(figure, x, y, shiftKey, ctrlKey);
         this.onContextMenu(x, y);

@@ -47,8 +47,9 @@ com.chanjet.gzq.aflow.Application = Class.extend({
 
 		json['canvas'].forEach(function (e, i) {
 
-		    var element = new (eval(e.type));
-		    var keys = Object.getOwnPropertyNames(e);
+		    var element = eval("new com.chanjet.gzq.aflow."+e.type+"()");
+
+            var keys = Object.getOwnPropertyNames(e);
             if (e.type == "Connection") {
                 conns.push(e);
             }

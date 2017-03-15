@@ -22,15 +22,15 @@ http.createServer(function (request, response) {
         "canvas": [
             {
                 "type": "Start",
-                "id": "35c6be08-1fe9-abbf-09af-55f82a8b8799",
-                "x": 138,
-                "y": 89,
+                "id": "020b2f15-f4f7-304f-a2f0-df0fe7c6ebf7",
+                "x": 156,
+                "y": 176,
                 "width": 30,
                 "height": 30,
                 "alpha": 1,
                 "userData": {
                     "name": "流程开始",
-                    "id": "35c6be08-1fe9-abbf-09af-55f82a8b8799",
+                    "id": "020b2f15-f4f7-304f-a2f0-df0fe7c6ebf7",
                     "type": "Start",
                     "label": "流程开始"
                 },
@@ -47,44 +47,18 @@ http.createServer(function (request, response) {
                 "stroke": 1
             },
             {
-                "type": "End",
-                "id": "d408ac38-3f57-0ca3-4e79-44893147bdea",
-                "x": 865,
-                "y": 72,
-                "width": 30,
-                "height": 30,
-                "alpha": 1,
-                "userData": {
-                    "name": "流程结束",
-                    "id": "d408ac38-3f57-0ca3-4e79-44893147bdea",
-                    "type": "End",
-                    "label": "流程结束"
-                },
-                "cssClass": "End",
-                "ports": [
-                    {
-                        "name": "input0",
-                        "port": "draw2d.InputPort",
-                        "locator": "draw2d.layout.locator.InputPortLocator"
-                    }
-                ],
-                "bgColor": "#FF9999",
-                "color": "#1B1B1B",
-                "stroke": 1
-            },
-            {
                 "type": "UserTask",
-                "id": "b5e543c8-f246-f379-95e3-4398d46c1b8b",
-                "x": 143,
-                "y": 281,
+                "id": "ef1131f2-360c-faf8-2536-1d6938a6080a",
+                "x": 301,
+                "y": 159,
                 "width": 96,
                 "height": 64,
                 "alpha": 1,
                 "userData": {
                     "name": "固定人员",
-                    "id": "b5e543c8-f246-f379-95e3-4398d46c1b8b",
+                    "id": "ef1131f2-360c-faf8-2536-1d6938a6080a",
                     "type": "UserTask",
-                    "label": "固定人员",
+                    "label": "22",
                     "userIds": ""
                 },
                 "cssClass": "UserTask",
@@ -107,15 +81,15 @@ http.createServer(function (request, response) {
             },
             {
                 "type": "RoleTask",
-                "id": "8b829c55-03aa-80b0-bc4e-b4a6d5c1b49e",
-                "x": 759,
-                "y": 350,
+                "id": "fc413a5d-5ee6-3593-2388-422cd4342006",
+                "x": 486,
+                "y": 159,
                 "width": 96,
                 "height": 64,
                 "alpha": 1,
                 "userData": {
                     "name": "管理角色",
-                    "id": "8b829c55-03aa-80b0-bc4e-b4a6d5c1b49e",
+                    "id": "fc413a5d-5ee6-3593-2388-422cd4342006",
                     "type": "RoleTask",
                     "label": "管理角色",
                     "roleIds": ""
@@ -139,68 +113,16 @@ http.createServer(function (request, response) {
                 "radius": 5
             },
             {
-                "type": "CountersignTask",
-                "id": "a45ba3ba-59e9-e19b-2b35-516bee0fd80b",
-                "x": 570,
-                "y": 383,
-                "width": 64,
-                "height": 64,
-                "alpha": 1,
-                "userData": {
-                    "name": "会签",
-                    "id": "a45ba3ba-59e9-e19b-2b35-516bee0fd80b",
-                    "type": "CountersignTask",
-                    "label": "会签",
-                    "roleIds": "",
-                    "userIds": ""
-                },
-                "cssClass": "CountersignTask",
-                "ports": [
-                    {
-                        "name": "input0",
-                        "port": "draw2d.InputPort",
-                        "locator": "draw2d.layout.locator.InputPortLocator"
-                    },
-                    {
-                        "name": "output0",
-                        "port": "draw2d.OutputPort",
-                        "locator": "draw2d.layout.locator.OutputPortLocator"
-                    }
-                ],
-                "bgColor": "#FFFFCC",
-                "color": "#1B1B1B",
-                "stroke": 1,
-                "radius": 5,
-                "vertices": [
-                    {
-                        "x": 602,
-                        "y": 383
-                    },
-                    {
-                        "x": 634,
-                        "y": 415
-                    },
-                    {
-                        "x": 602,
-                        "y": 447
-                    },
-                    {
-                        "x": 570,
-                        "y": 415
-                    }
-                ]
-            },
-            {
                 "type": "BranchTask",
-                "id": "577501f5-48c3-cca2-337a-5c72e06ca052",
-                "x": 313,
-                "y": 264,
+                "id": "82c5f8d9-9352-fdf0-9199-7ca37bcdd54b",
+                "x": 675,
+                "y": 143,
                 "width": 64,
                 "height": 96,
                 "alpha": 1,
                 "userData": {
                     "name": "条件分支",
-                    "id": "577501f5-48c3-cca2-337a-5c72e06ca052",
+                    "id": "82c5f8d9-9352-fdf0-9199-7ca37bcdd54b",
                     "type": "BranchTask",
                     "label": "条件",
                     "templateId": "uuid",
@@ -232,30 +154,56 @@ http.createServer(function (request, response) {
                 "radius": 2,
                 "vertices": [
                     {
-                        "x": 313,
-                        "y": 312
+                        "x": 675,
+                        "y": 191
                     },
                     {
-                        "x": 377,
-                        "y": 264
+                        "x": 739,
+                        "y": 143
                     },
                     {
-                        "x": 377,
-                        "y": 360
+                        "x": 739,
+                        "y": 239
                     }
                 ]
             },
             {
+                "type": "End",
+                "id": "d60e15d3-cd79-c89a-c20e-99ae5b7551c3",
+                "x": 1003,
+                "y": 159,
+                "width": 30,
+                "height": 30,
+                "alpha": 1,
+                "userData": {
+                    "name": "流程结束",
+                    "id": "d60e15d3-cd79-c89a-c20e-99ae5b7551c3",
+                    "type": "End",
+                    "label": "流程结束"
+                },
+                "cssClass": "End",
+                "ports": [
+                    {
+                        "name": "input0",
+                        "port": "draw2d.InputPort",
+                        "locator": "draw2d.layout.locator.InputPortLocator"
+                    }
+                ],
+                "bgColor": "#FF9999",
+                "color": "#1B1B1B",
+                "stroke": 1
+            },
+            {
                 "type": "UserTask",
-                "id": "dc4277af-f9d4-e9ee-fe4a-2ec5fd2d8603",
-                "x": 572,
-                "y": 185,
+                "id": "d0cb76a0-9ffe-4a7c-da75-4bca29ee45fb",
+                "x": 834,
+                "y": 367,
                 "width": 96,
                 "height": 64,
                 "alpha": 1,
                 "userData": {
                     "name": "固定人员",
-                    "id": "dc4277af-f9d4-e9ee-fe4a-2ec5fd2d8603",
+                    "id": "d0cb76a0-9ffe-4a7c-da75-4bca29ee45fb",
                     "type": "UserTask",
                     "label": "固定人员",
                     "userIds": ""
@@ -280,14 +228,14 @@ http.createServer(function (request, response) {
             },
             {
                 "type": "Connection",
-                "id": "47c06c96-4eda-b8e3-6c24-397b882127ba",
+                "id": "e1bff94d-9da2-7fcc-2f3e-39ba67319184",
                 "alpha": 1,
                 "userData": {
                     "name": "连接线",
-                    "id": "47c06c96-4eda-b8e3-6c24-397b882127ba",
+                    "id": "e1bff94d-9da2-7fcc-2f3e-39ba67319184",
                     "type": "Connection",
-                    "from": "35c6be08-1fe9-abbf-09af-55f82a8b8799",
-                    "to": "b5e543c8-f246-f379-95e3-4398d46c1b8b"
+                    "from": "020b2f15-f4f7-304f-a2f0-df0fe7c6ebf7",
+                    "to": "ef1131f2-360c-faf8-2536-1d6938a6080a"
                 },
                 "cssClass": "Connection",
                 "stroke": 2,
@@ -298,24 +246,24 @@ http.createServer(function (request, response) {
                 "router": "draw2d.layout.connection.SplineConnectionRouter",
                 "radius": 2,
                 "source": {
-                    "node": "35c6be08-1fe9-abbf-09af-55f82a8b8799",
+                    "node": "020b2f15-f4f7-304f-a2f0-df0fe7c6ebf7",
                     "port": "output0"
                 },
                 "target": {
-                    "node": "b5e543c8-f246-f379-95e3-4398d46c1b8b",
+                    "node": "ef1131f2-360c-faf8-2536-1d6938a6080a",
                     "port": "input0"
                 }
             },
             {
                 "type": "Connection",
-                "id": "ce6893d3-0769-cbe6-777c-17ceb7963ac6",
+                "id": "2af8e9e7-9ec4-3acb-a576-7bc7a01efed3",
                 "alpha": 1,
                 "userData": {
                     "name": "连接线",
-                    "id": "ce6893d3-0769-cbe6-777c-17ceb7963ac6",
+                    "id": "2af8e9e7-9ec4-3acb-a576-7bc7a01efed3",
                     "type": "Connection",
-                    "from": "b5e543c8-f246-f379-95e3-4398d46c1b8b",
-                    "to": "d408ac38-3f57-0ca3-4e79-44893147bdea"
+                    "from": "ef1131f2-360c-faf8-2536-1d6938a6080a",
+                    "to": "fc413a5d-5ee6-3593-2388-422cd4342006"
                 },
                 "cssClass": "Connection",
                 "stroke": 2,
@@ -326,24 +274,24 @@ http.createServer(function (request, response) {
                 "router": "draw2d.layout.connection.SplineConnectionRouter",
                 "radius": 2,
                 "source": {
-                    "node": "8b829c55-03aa-80b0-bc4e-b4a6d5c1b49e",
+                    "node": "ef1131f2-360c-faf8-2536-1d6938a6080a",
                     "port": "output0"
                 },
                 "target": {
-                    "node": "d408ac38-3f57-0ca3-4e79-44893147bdea",
+                    "node": "fc413a5d-5ee6-3593-2388-422cd4342006",
                     "port": "input0"
                 }
             },
             {
                 "type": "Connection",
-                "id": "df0d5e4d-6ce6-471d-ea9a-529f10be0ad8",
+                "id": "c78dfac6-4cd8-7add-7236-7c35af9edd49",
                 "alpha": 1,
                 "userData": {
                     "name": "连接线",
-                    "id": "df0d5e4d-6ce6-471d-ea9a-529f10be0ad8",
+                    "id": "c78dfac6-4cd8-7add-7236-7c35af9edd49",
                     "type": "Connection",
-                    "from": "b5e543c8-f246-f379-95e3-4398d46c1b8b",
-                    "to": "577501f5-48c3-cca2-337a-5c72e06ca052"
+                    "from": "fc413a5d-5ee6-3593-2388-422cd4342006",
+                    "to": "82c5f8d9-9352-fdf0-9199-7ca37bcdd54b"
                 },
                 "cssClass": "Connection",
                 "stroke": 2,
@@ -354,26 +302,26 @@ http.createServer(function (request, response) {
                 "router": "draw2d.layout.connection.SplineConnectionRouter",
                 "radius": 2,
                 "source": {
-                    "node": "b5e543c8-f246-f379-95e3-4398d46c1b8b",
+                    "node": "fc413a5d-5ee6-3593-2388-422cd4342006",
                     "port": "output0"
                 },
                 "target": {
-                    "node": "577501f5-48c3-cca2-337a-5c72e06ca052",
+                    "node": "82c5f8d9-9352-fdf0-9199-7ca37bcdd54b",
                     "port": "input0"
                 }
             },
             {
                 "type": "Connection",
-                "id": "93b73e23-4202-545a-1ef2-5d8572f8f871",
+                "id": "27b93744-cfed-8e3a-26cf-817f41f9f0fd",
                 "alpha": 1,
                 "userData": {
                     "name": "连接线",
-                    "id": "93b73e23-4202-545a-1ef2-5d8572f8f871",
+                    "id": "27b93744-cfed-8e3a-26cf-817f41f9f0fd",
                     "type": "Connection",
-                    "from": "577501f5-48c3-cca2-337a-5c72e06ca052",
-                    "to": "a45ba3ba-59e9-e19b-2b35-516bee0fd80b",
-                    "operator": "",
-                    "expression": ""
+                    "from": "82c5f8d9-9352-fdf0-9199-7ca37bcdd54b",
+                    "to": "d60e15d3-cd79-c89a-c20e-99ae5b7551c3",
+                    "expression": "<3",
+                    "help": "条件输入支持：<br />逗号分隔的多个条件，同时满足<br /><br />支持的运算符：<br />> 大于<br />>= 大于等于<br />< 小于<br /><= 大于等于<br />= 等于<br />!= 不等于<br />* 缺省条件，不满足其他条件时成立<br /><br />例子：<br />>500, <= 50000<br />-表示条件大于500并且小于等于50000<br />=1, =2, =3<br />-表示条件等于1，2，或者3<br />=报销单<br />-表示条件等于报销单<br />"
                 },
                 "cssClass": "Connection",
                 "stroke": 2,
@@ -384,24 +332,54 @@ http.createServer(function (request, response) {
                 "router": "draw2d.layout.connection.SplineConnectionRouter",
                 "radius": 2,
                 "source": {
-                    "node": "577501f5-48c3-cca2-337a-5c72e06ca052",
+                    "node": "82c5f8d9-9352-fdf0-9199-7ca37bcdd54b",
+                    "port": "output0"
+                },
+                "target": {
+                    "node": "d60e15d3-cd79-c89a-c20e-99ae5b7551c3",
+                    "port": "input0"
+                }
+            },
+            {
+                "type": "Connection",
+                "id": "ed315a71-40ac-2dc3-af72-136bc7f5dd80",
+                "alpha": 1,
+                "userData": {
+                    "name": "连接线",
+                    "id": "ed315a71-40ac-2dc3-af72-136bc7f5dd80",
+                    "type": "Connection",
+                    "from": "82c5f8d9-9352-fdf0-9199-7ca37bcdd54b",
+                    "to": "d0cb76a0-9ffe-4a7c-da75-4bca29ee45fb",
+                    "expression": ">=3",
+                    "help": "条件输入支持：<br />逗号分隔的多个条件，同时满足<br /><br />支持的运算符：<br />> 大于<br />>= 大于等于<br />< 小于<br /><= 大于等于<br />= 等于<br />!= 不等于<br />* 缺省条件，不满足其他条件时成立<br /><br />例子：<br />>500, <= 50000<br />-表示条件大于500并且小于等于50000<br />=1, =2, =3<br />-表示条件等于1，2，或者3<br />=报销单<br />-表示条件等于报销单<br />"
+                },
+                "cssClass": "Connection",
+                "stroke": 2,
+                "color": "#0000FF",
+                "outlineStroke": 0,
+                "outlineColor": "none",
+                "policy": "draw2d.policy.line.LineSelectionFeedbackPolicy",
+                "router": "draw2d.layout.connection.SplineConnectionRouter",
+                "radius": 2,
+                "source": {
+                    "node": "82c5f8d9-9352-fdf0-9199-7ca37bcdd54b",
                     "port": "output1"
                 },
                 "target": {
-                    "node": "a45ba3ba-59e9-e19b-2b35-516bee0fd80b",
+                    "node": "d0cb76a0-9ffe-4a7c-da75-4bca29ee45fb",
                     "port": "input0"
                 }
             },
             {
                 "type": "Connection",
-                "id": "0c5c91d3-a1ea-9303-a977-4fcf6b54c60d",
+                "id": "cc15ed7c-e084-09af-25a4-148397b3d932",
                 "alpha": 1,
                 "userData": {
                     "name": "连接线",
-                    "id": "0c5c91d3-a1ea-9303-a977-4fcf6b54c60d",
+                    "id": "cc15ed7c-e084-09af-25a4-148397b3d932",
                     "type": "Connection",
-                    "from": "a45ba3ba-59e9-e19b-2b35-516bee0fd80b",
-                    "to": "8b829c55-03aa-80b0-bc4e-b4a6d5c1b49e"
+                    "from": "d0cb76a0-9ffe-4a7c-da75-4bca29ee45fb",
+                    "to": "d60e15d3-cd79-c89a-c20e-99ae5b7551c3"
                 },
                 "cssClass": "Connection",
                 "stroke": 2,
@@ -412,76 +390,18 @@ http.createServer(function (request, response) {
                 "router": "draw2d.layout.connection.SplineConnectionRouter",
                 "radius": 2,
                 "source": {
-                    "node": "a45ba3ba-59e9-e19b-2b35-516bee0fd80b",
+                    "node": "d0cb76a0-9ffe-4a7c-da75-4bca29ee45fb",
                     "port": "output0"
                 },
                 "target": {
-                    "node": "8b829c55-03aa-80b0-bc4e-b4a6d5c1b49e",
-                    "port": "input0"
-                }
-            },
-            {
-                "type": "Connection",
-                "id": "b7e41124-18f6-5c8b-9f8d-1932a13cea4f",
-                "alpha": 1,
-                "userData": {
-                    "name": "连接线",
-                    "id": "b7e41124-18f6-5c8b-9f8d-1932a13cea4f",
-                    "type": "Connection",
-                    "from": "577501f5-48c3-cca2-337a-5c72e06ca052",
-                    "to": "dc4277af-f9d4-e9ee-fe4a-2ec5fd2d8603",
-                    "operator": "",
-                    "expression": ""
-                },
-                "cssClass": "Connection",
-                "stroke": 2,
-                "color": "#0000FF",
-                "outlineStroke": 0,
-                "outlineColor": "none",
-                "policy": "draw2d.policy.line.LineSelectionFeedbackPolicy",
-                "router": "draw2d.layout.connection.SplineConnectionRouter",
-                "radius": 2,
-                "source": {
-                    "node": "577501f5-48c3-cca2-337a-5c72e06ca052",
-                    "port": "output0"
-                },
-                "target": {
-                    "node": "dc4277af-f9d4-e9ee-fe4a-2ec5fd2d8603",
-                    "port": "input0"
-                }
-            },
-            {
-                "type": "Connection",
-                "id": "4bc5860b-6fc6-b506-a4c4-cc9470ad5036",
-                "alpha": 1,
-                "userData": {
-                    "name": "连接线",
-                    "id": "4bc5860b-6fc6-b506-a4c4-cc9470ad5036",
-                    "type": "Connection",
-                    "from": "dc4277af-f9d4-e9ee-fe4a-2ec5fd2d8603",
-                    "to": "d408ac38-3f57-0ca3-4e79-44893147bdea"
-                },
-                "cssClass": "Connection",
-                "stroke": 2,
-                "color": "#1B1B1B",
-                "outlineStroke": 0,
-                "outlineColor": "none",
-                "policy": "draw2d.policy.line.LineSelectionFeedbackPolicy",
-                "router": "draw2d.layout.connection.SplineConnectionRouter",
-                "radius": 2,
-                "source": {
-                    "node": "dc4277af-f9d4-e9ee-fe4a-2ec5fd2d8603",
-                    "port": "output0"
-                },
-                "target": {
-                    "node": "d408ac38-3f57-0ca3-4e79-44893147bdea",
+                    "node": "d60e15d3-cd79-c89a-c20e-99ae5b7551c3",
                     "port": "input0"
                 }
             }
         ],
         "userData": {
             "name": "流程模版",
-            "id": "df91c65d-87b3-25a7-1a3a-c92877dbbd07",
+            "id": "96ee4442-97b0-83dc-b751-1166a33d5733",
             "type": "FlowDefinition",
             "formTemplateId": "uuid",
             "formTemplateName": "表单模版名称"
