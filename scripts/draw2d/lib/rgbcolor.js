@@ -230,7 +230,7 @@ function RGBColor(color_string)
     // some getters
     this.toRGB = function () {
         return 'rgb(' + this.r + ', ' + this.g + ', ' + this.b + ')';
-    }
+    };
     this.toHex = function () {
         var r = this.r.toString(16);
         var g = this.g.toString(16);
@@ -239,12 +239,12 @@ function RGBColor(color_string)
         if (g.length == 1) g = '0' + g;
         if (b.length == 1) b = '0' + b;
         return '#' + r + g + b;
-    }
+    };
 
     // help
     this.getHelpXML = function () {
 
-        var examples = new Array();
+        var examples = [];
         // add regexps
         for (var i = 0; i < color_defs.length; i++) {
             var example = color_defs[i].example;

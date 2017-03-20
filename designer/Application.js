@@ -20,7 +20,6 @@ com.chanjet.gzq.aflow.Application = Class.extend({
 		this.canvas = new com.chanjet.gzq.aflow.Canvas('Canvas');
 		this.canvas.userData.id = uuid;
 
-
 		//-- 2. activiti-designer的连接器(全局)
 		draw2d.Connection.createConnection = this.createConnection;
 		
@@ -73,7 +72,7 @@ com.chanjet.gzq.aflow.Application = Class.extend({
                         }
                     }
                     else if (k == 'vertices') {
-                        return;
+
                     }
                     else {
                         element[k] = e[k];

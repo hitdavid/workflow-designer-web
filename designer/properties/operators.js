@@ -34,4 +34,4 @@ var theOperators = [
         text:'缺省',
         value:7
     },
-]
+];

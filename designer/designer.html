@@ -67,9 +67,21 @@
             $.getJSON("http://localhost:8888/", function (result) {
                 json = result;
             }).fail(function () {
-                json = {'canvas':[], userData: app.canvas.userData }
+
+                var shape = new com.chanjet.gzq.aflow.Start();
+                var command = new draw2d.command.CommandAdd(app.canvas, shape, 100, 100);
+                app.canvas.getCommandStack().execute(command);// 放入堆栈，撤销或者重做
+                json = null;
+                var writer = new draw2d.io.json.Writer();
+                writer.marshal(app.canvas, function (json) {
+                    var json = JSON.stringify(json, null, 2);
+                });
+
             }).always(function () {
-                app.loadFigure(json);
+
+                if (json != null) {
+                    app.loadFigure(json);
+                }
                 displayJSON(app.canvas);
                 updatePreview(app.canvas);
             });
@@ -159,8 +171,6 @@
             }, new draw2d.geo.Rectangle(minX, minY, width, height));
 
         }
-        ;
-
         function displayJSON(canvas) {
 
             var writer = new draw2d.io.json.Writer();
@@ -174,7 +184,7 @@
             var jsonArgs;
             var writer = new draw2d.io.json.Writer();
             writer.marshal(app.canvas, function (json) {
-                jsonArgs = JSON.stringify(json, null, 2);;
+                jsonArgs = JSON.stringify(json, null, 2);
             });
             $.post('http://127.0.0.1:8080/aflow/definition', {
                 orgId:'123',
@@ -206,8 +216,8 @@
 <div data-options="region:'center'" title="工作区">
     <a href="javascript:void(0)" class="easyui-splitbutton" menu="#edit-menu" iconCls="icon-edit">编辑</a>
     <div id="edit-menu" style="width:100px;">
-        <div id="undoButton" iconCls="icon-undo" onclick="javascript:void(0)">Undo</div>
-        <div id="redoButton" iconCls="icon-redo" onclick="javascript:void(0)">Redo</div>
+        <div id="undoButton" iconCls="icon-undo" onclick="void(0)">Undo</div>
+        <div id="redoButton" iconCls="icon-redo" onclick="void(0)">Redo</div>
         <div id="saveButton" iconCls="" onclick="save();">Save</div>
     </div>
 

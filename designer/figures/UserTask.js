@@ -80,7 +80,7 @@ com.chanjet.gzq.aflow.UserTask = draw2d.shape.basic.Rectangle.extend({
                    var cmd = new draw2d.command.CommandDelete(this);
                    this.getCanvas().getCommandStack().execute(cmd);
                case "appendUserTask":
-                   app.canvas.appendTask(this, 'UserTask')
+                   app.canvas.appendTask(this, 'UserTask');
                default:
                    break;
                }
