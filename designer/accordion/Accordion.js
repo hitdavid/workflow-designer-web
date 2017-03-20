@@ -69,7 +69,7 @@ com.chanjet.gzq.aflow.Accordion = Class.extend({
                 if(count == 1) {
 
                     var cmd = new draw2d.command.CommandConnect(view, sourcePort, shape.inputPorts.data[0]);
-                    cmd.execute();
+                    view.getCommandStack().execute(cmd);// 放入堆栈，撤销或者重做
                     if (sourcePort.parent.cssClass == 'BranchTask') {
                         cmd.connection.showExpression();
                     }
