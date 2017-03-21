@@ -257,7 +257,8 @@ function Wizard( parent ){
         e.preventDefault();
 
         var v = null;
-        e.target.parentNode.childNodes.forEach(function (element, index) {
+
+        [].slice.call(e.target.parentNode.childNodes).forEach(function (element, index) {
             if(element.attributes != null && element.attributes.getNamedItem("business-meta") != null) {
                 if(element.attributes.getNamedItem("business-meta").nodeValue == 'case') {
                     if(v != null) {
