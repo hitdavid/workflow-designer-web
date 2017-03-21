@@ -103,10 +103,10 @@ com.chanjet.gzq.aflow.Canvas = draw2d.Canvas.extend({
 
         var shape = eval("new com.chanjet.gzq.aflow."+newTaskType+"()");
 
-        if(taskType == "UserTask") {
+        if(newTaskType == "UserTask") {
             shape.userData['userIds'] = value;
         }
-        else if(taskType == "RoleTask") {
+        else if(newTaskType == "RoleTask") {
             shape.userData['roleIds'] = value;
         }
         else {
@@ -116,33 +116,16 @@ com.chanjet.gzq.aflow.Canvas = draw2d.Canvas.extend({
         var command = new draw2d.command.CommandAdd(this, shape, thisTask.x, thisTask.y);
         this.getCommandStack().execute(command);
 
-        command = new draw2d.command.CommandDelete(connection);
-        this.getCommandStack().execute(command);
-
-
-        var emptyPort = null;
-        thisTask.outputPorts.data.forEach(function (e, i) {
-            if(e.connections.data.length == 0) {
-                emptyPort = e;
-            }
+        thisTask.inputPorts.data.forEach(function (port, index) {
+            port.connections.data.forEach(function (connection, i) {
+                command = new draw2d.command.CommandReconnect(connection);
+                command.setNewPorts(connection.sourcePort, shape.inputPorts.data[0]);
+                app.canvas.getCommandStack().execute(command);
+            });
         });
 
-        if(emptyPort == null) {
-            return;
-        }
-
-        var x = thisTask.getBoundingBox().getTopLeft().getX() + 96 + 100;
-        var y = thisTask.getBoundingBox().getTopLeft().getY();
-
-
-
-        var cmd = new draw2d.command.CommandConnect(this, emptyPort, shape.inputPorts.data[0]);
-        // cmd.execute();
-        this.getCommandStack().execute(cmd);
-
-        if (thisTask.cssClass == 'BranchTask') {
-            cmd.connection.showExpression();
-        }
+        command = new draw2d.command.CommandDelete(thisTask);
+        this.getCommandStack().execute(command);
 
         return shape;
     },

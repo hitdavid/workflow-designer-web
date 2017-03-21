@@ -286,6 +286,7 @@ function Wizard( parent ){
             app.canvas.appendTask(lastTask, nodeType, v);
         }
         else {
+            app.canvas.appendTask(lastTask, nodeType);
             thisWizard.close();
             return;
         }

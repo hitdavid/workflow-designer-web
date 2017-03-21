@@ -68,32 +68,41 @@ com.chanjet.gzq.aflow.UserTask = draw2d.shape.basic.Rectangle.extend({
 	
 	onContextMenu:function(x,y){
 		 $.contextMenu({
-            selector: "body", 
-            events:
-            {  
-               hide:function(){ $.contextMenu( 'destroy' ); }
-            },
-            callback: $.proxy(function(key, options) 
-            {
-               switch(key){
-               case "delete":
-                   var cmd = new draw2d.command.CommandDelete(this);
-                   this.getCanvas().getCommandStack().execute(cmd);
-               case "appendUserTask":
-                   app.canvas.appendTask(this, 'UserTask');
-               default:
-                   break;
-               }
+			 selector: "body",
+			 events: {
+               	hide:function(){ $.contextMenu( 'destroy' ); }
+			 },
+			 callback: $.proxy(function(key, options) {
+				 switch(key){
+					 case "delete":
+               			var cmd = new draw2d.command.CommandDelete(this);
+               			this.getCanvas().getCommandStack().execute(cmd);
+                         break;
+					 case "appendUserTask":
+                   		app.canvas.appendTask(this, 'UserTask');
+                         break;
+                     case "appendRoleTask":
+                         app.canvas.appendTask(this, 'RoleTask');
+                         break;
+					 case "convertToRoleTask":
+					 	 app.canvas.convertTaskType(this, "RoleTask");
+                         break;
+                     default:
+                        break;
+                 }
             
-            },this),
-            x:x,
-            y:y,
-            items: 
-            {
+             },this),
+             x:x,
+             y:y,
+             items: {
                 "delete": {name: "删除", icon: "delete"},
-                "appendUserTask": {name: "添加一个固定审批人员节点", icon: "delete"}
-            }
-        });
+                 "sep1":   "---------",
+                "appendUserTask": {name: "添加一个固定审批人员节点", icon: ""},
+                "appendRoleTask": {name: "添加一个上级主管节点", icon: ""},
+                 "sep2":   "---------",
+                "convertToRoleTask": {name: "节点变更为上级主管节点", icon: ""},
+             }
+		 });
 	},
 	
 });

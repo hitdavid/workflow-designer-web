@@ -88,26 +88,36 @@ com.chanjet.gzq.aflow.RoleTask = draw2d.shape.basic.Rectangle.extend({
             {  
                hide:function(){ $.contextMenu( 'destroy' ); }
             },
-            callback: $.proxy(function(key, options) 
-            {
-               switch(key){
-               case "delete":
-                   // without undo/redo support
-              //     this.getCanvas().remove(this);
-                   
-                   // with undo/redo support
-                   var cmd = new draw2d.command.CommandDelete(this);
-                   this.getCanvas().getCommandStack().execute(cmd);
-               default:
-                   break;
-               }
-            
-            },this),
+             callback: $.proxy(function(key, options) {
+                 switch(key){
+                     case "delete":
+                         var cmd = new draw2d.command.CommandDelete(this);
+                         this.getCanvas().getCommandStack().execute(cmd);
+                         break;
+                     case "appendUserTask":
+                         app.canvas.appendTask(this, 'UserTask');
+                         break;
+                     case "appendRoleTask":
+                         app.canvas.appendTask(this, 'RoleTask');
+                         break;
+                     case "convertToUserTask":
+                         app.canvas.convertTaskType(this, "UserTask");
+                         break;
+                     default:
+                         break;
+                 }
+
+             },this),
             x:x,
             y:y,
             items: 
             {
-                "delete": {name: "Delete", icon: "delete"}
+                "delete": {name: "删除", icon: "delete"},
+                "sep1":   "---------",
+                "appendUserTask": {name: "添加一个固定审批人员节点", icon: ""},
+                "appendRoleTask": {name: "添加一个上级主管节点", icon: ""},
+                "sep2":   "---------",
+                "convertToUserTask": {name: "节点变更为固定审批人员节点", icon: ""},
             }
         });
 	},

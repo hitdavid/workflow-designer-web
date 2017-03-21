@@ -133,6 +133,7 @@ com.chanjet.gzq.aflow.BranchTask = draw2d.shape.basic.Triangle.extend({
                     case "delete":
                         var cmd = new draw2d.command.CommandDelete(this);
                         this.getCanvas().getCommandStack().execute(cmd);
+                        break;
                     default:
                         break;
                 }
