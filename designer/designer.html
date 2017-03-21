@@ -26,6 +26,9 @@
     <script src="../scripts/draw2d/draw2d.js"></script>
     <script src="../scripts/easyui/jquery.easyui.min.js"></script>
 
+    <script src="../scripts/bootstrap/bootstrap.min.js"></script>
+    <script src="../scripts/wizard/wizard.js"></script>
+
     <script src='properties/operators.js'></script>
 
     <!-- 以下JS为应用的整体布局的JS -->
@@ -54,6 +57,19 @@
 
     <script src='properties/jqPropertyGrid.js'></script>
     <link rel='stylesheet' href='styles/jqPropertyGrid.css'/>
+
+    <style>
+        .wizard { border: 1px solid #ddd; padding: 15px; overflow: hidden; display: block; }
+        .wizard .step {border: 1px solid #ddd;
+            background: rgb(255,255,255);
+            margin: 0 auto;
+            width: 700px;
+            height: 300px;
+            position: relative; /*脱离文档流*/
+            top: 50%; /*偏移*/
+            margin-top: -150px;
+        }
+    </style>
 
     <script>
 
@@ -196,6 +212,10 @@
             })
         }
 
+        function showWizard() {
+            myWizard.style.display="block";
+        }
+
 
     </script>
 
@@ -213,12 +233,17 @@
         </div>
     </div>
 </div>
+
 <div data-options="region:'center'" title="工作区">
     <a href="javascript:void(0)" class="easyui-splitbutton" menu="#edit-menu" iconCls="icon-edit">编辑</a>
     <div id="edit-menu" style="width:100px;">
         <div id="undoButton" iconCls="icon-undo" onclick="void(0)">Undo</div>
         <div id="redoButton" iconCls="icon-redo" onclick="void(0)">Redo</div>
         <div id="saveButton" iconCls="" onclick="save();">Save</div>
+    </div>
+    <a href="javascript:void(0)" class="easyui-splitbutton" menu="#wizard-menu" iconCls="icon-edit">向导</a>
+    <div id="wizard-menu" style="width:100px;">
+        <div id="show" iconCls="icon-undo" onclick="showWizard();">Show</div>
     </div>
 
     <div id="Canvas"
@@ -251,5 +276,32 @@
 
 </div>
 <div id="propGrid" data-options="region:'east',width:300,collapsed:false" title="属性"></div>
+
+<div class="wizard" id="myWizard" style="position: fixed; left: 0; right: 0; top:0; bottom: 0; z-index: 999; background: rgba(0,0,0,0.5)">
+    <div class='step'>
+        <h2>Step 1</h2>
+        blablabla
+        <button class="btn btn-primary pull-right" data-action="next">下一步</button>
+        <button class="btn btn-primary pull-right" data-action="close">关闭向导</button>
+    </div>
+    <div class='step'>
+        <h2>Step 2</h2>
+        <button class="btn btn-default" data-action="prev">Back</button>
+        <button class="btn btn-primary pull-right" data-action="next">Next</button>
+    </div>
+    <div class='step'>
+        <h2>Step 3</h2>
+        <button class="btn btn-default" data-action="prev">Back</button>
+        <button class="btn btn-primary pull-right" data-action="cancel">Cancel</button>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        var myWizard = $('#myWizard').wizard();
+        myWizard.style.display="block";
+    });
+</script>
+
 </body>
+
 </html>
