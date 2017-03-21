@@ -7,12 +7,14 @@
     <link rel="stylesheet" type="text/css" href="../scripts/easyui/themes/gray/easyui.css">
     <link rel="stylesheet" type="text/css" href="../scripts/easyui/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="styles/designer.css">
+    <link rel="stylesheet" type="text/css" href="../scripts/jquery/plugins/contextmenu/jquery.contextmenu.css">
 
-    <script src="../scripts/jquery/jquery-1.8.3.min.js"></script>
+    <!--<script src="../scripts/jquery/jquery-1.8.3.min.js"></script>-->
+    <script src="../scripts/jquery/jquery-1.9.1.js"></script>
     <script src="../scripts/jquery/plugins/touchpunch/jquery-touch_punch.js"></script>
     <script src="../scripts/jquery/plugins/autoresize/jquery.autoresize.js"></script>
     <script src="../scripts/jquery/plugins/contextmenu/jquery.contextmenu.js"></script>
-    <link rel="stylesheet" type="text/css" href="../scripts/jquery/plugins/contextmenu/jquery.contextmenu.css">
+
 
     <script src="../scripts/draw2d/lib/shifty.js"></script>
     <script src="../scripts/draw2d/lib/raphael.js"></script>
@@ -216,6 +218,11 @@
             myWizard.style.display="block";
         }
 
+        function addNode(nodeType, id) {
+            var lastTask = app.canvas.getLastTask();
+            app.canvas.appendTask(lastTask, nodeType);
+        }
+
 
     </script>
 
@@ -279,26 +286,49 @@
 
 <div class="wizard" id="myWizard" style="position: fixed; left: 0; right: 0; top:0; bottom: 0; z-index: 999; background: rgba(0,0,0,0.5)">
     <div class='step'>
-        <h2>Step 1</h2>
+        <h2>流程设计器介绍</h2>
         blablabla
         <button class="btn btn-primary pull-right" data-action="next">下一步</button>
         <button class="btn btn-primary pull-right" data-action="close">关闭向导</button>
     </div>
+
     <div class='step'>
-        <h2>Step 2</h2>
+        <h2>添加节点</h2>
+
+        <button class="btn btn-primary pull-right" data-action="goto" step="2">添加一个固定人审批</button><br>
+        <button class="btn btn-primary pull-right" data-action="goto" step="3">添加一个上级领导审批</button><br>
+        <button class="btn btn-primary pull-right" data-action="goto" step="4">根据表单值，添加一个条件分支审批</button><br>
+
         <button class="btn btn-default" data-action="prev">Back</button>
-        <button class="btn btn-primary pull-right" data-action="next">Next</button>
+        <button class="btn btn-primary pull-right" data-action="close">关闭向导</button>
     </div>
+
     <div class='step'>
-        <h2>Step 3</h2>
-        <button class="btn btn-default" data-action="prev">Back</button>
-        <button class="btn btn-primary pull-right" data-action="cancel">Cancel</button>
+        <h2>添加一个固定人审批</h2>
+        <input type="text" placeholder="userId">
+        <button class="btn btn-default pull-right" data-action="ok" step="1" onclick="addNode('UserTask', this.value);">OK</button>
+        <button class="btn btn-primary pull-right" data-action="goto" step="1">Cancel</button>
     </div>
+
+    <div class='step'>
+        <h2>添加一个上级领导审批</h2>
+        <input type="text" placeholder="roleId">
+        <button class="btn btn-default pull-right" data-action="ok" step="1" onclick="addNode('RoleTask', this.value);">OK</button>
+        <button class="btn btn-primary pull-right" data-action="goto" step="1">Cancel</button>
+    </div>
+
+    <div class='step'>
+        <h2>根据表单值，添加一个条件分支审批</h2>
+        <input type="text" placeholder="表单字段">
+        <button class="btn btn-default pull-right" data-action="ok" step="1">OK</button>
+        <button class="btn btn-primary pull-right" data-action="goto" step="1">Cancel</button>
+    </div>
+
+
 </div>
 <script>
     $(document).ready(function(){
         var myWizard = $('#myWizard').wizard();
-        myWizard.style.display="block";
     });
 </script>
 

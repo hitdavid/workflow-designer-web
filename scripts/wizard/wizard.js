@@ -247,6 +247,12 @@ function Wizard( parent ){
         e.preventDefault();
         thisWizard.close();
     });
+    this.parent.on('click', '[data-action=goto]', function(e){
+        e.preventDefault();
+        var stepNumber = e.target.attributes.getNamedItem("step").nodeValue;
+        thisWizard.step(stepNumber);
+        thisWizard.scrollIntoView();
+    });
 }
 
 //adding to jQuery

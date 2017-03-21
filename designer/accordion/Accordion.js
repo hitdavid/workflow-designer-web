@@ -1,7 +1,10 @@
 com.chanjet.gzq.aflow.Accordion = Class.extend({
 	accordionName: "com.chanjet.gzq.aflow.Accordion",
 
+    thisAccordion:null,
+
 	init: function(view){
+        thisAccordion = this;
 		this.view = view;
 		$('.easyui-accordion .easyui-linkbutton').draggable({
 			// 代理
@@ -30,53 +33,81 @@ com.chanjet.gzq.aflow.Accordion = Class.extend({
 			onDragLeave: function(e,source){
 				$(source).draggable('options').cursor = 'not-allowed';
 			},
-			onDrop: function(e,source){
+			onDrop: function(e, source){
 				var nodeType = $(source).attr('nodeType');// 图元类型
-				console.log(nodeType);
-				
+
 				var x = $(source).draggable('proxy').offset().left;
 				var y = $(source).draggable('proxy').offset().top;
-				//console.log("["+x+":"+y+"]");
-				
+
 				var xOffset = view.getAbsoluteX();
 				var yOffset = view.getAbsoluteY();
-				//console.log("["+xOffset+":"+yOffset+"]");
-				
+
 				var scrollLeft = view.getScrollLeft();
 				var scrollTop = view.getScrollTop();
-				//console.log("["+scrollLeft+":"+scrollTop+"]");
-				
-				var shape = eval("new com.chanjet.gzq.aflow."+nodeType+"()");
-				//view.add(shape,x,y);
-                var command = new draw2d.command.CommandAdd(view,shape,x-xOffset+scrollLeft,y-yOffset+scrollTop);
-                view.getCommandStack().execute(command);// 放入堆栈，撤销或者重做
 
-                var count = 0;
-                var sourcePort;
-                if (shape.cssClass != 'Connection') {
-                    app.canvas.figures.data.forEach(function (e, i) {
-                        if (e.cssClass != "Connection" && e.id != shape.id)  {
-                            e.getOutputPorts().each( function (i, p) {
-                                p.setMaxFanOut(1);
-                                if(p.connections.data.length==0) {
-                                    count += 1;
-                                    sourcePort = p;
-                                }
-                            });
+                thisAccordion.addNode(nodeType, x-xOffset+scrollLeft,y-yOffset+scrollTop);
+
+                // var shape = eval("new com.chanjet.gzq.aflow."+nodeType+"()");
+                // //view.add(shape,x,y);
+                // var command = new draw2d.command.CommandAdd(view,shape,x-xOffset+scrollLeft,y-yOffset+scrollTop);
+                // view.getCommandStack().execute(command);// 放入堆栈，撤销或者重做
+                //
+                // var count = 0;
+                // var sourcePort;
+                // if (shape.cssClass != 'Connection') {
+                //     app.canvas.figures.data.forEach(function (e, i) {
+                //         if (e.cssClass != "Connection" && e.id != shape.id)  {
+                //             e.getOutputPorts().each( function (i, p) {
+                //                 p.setMaxFanOut(1);
+                //                 if(p.connections.data.length==0) {
+                //                     count += 1;
+                //                     sourcePort = p;
+                //                 }
+                //             });
+                //         }
+                //     });
+                // }
+                // if(count == 1) {
+                //
+                //     var cmd = new draw2d.command.CommandConnect(view, sourcePort, shape.inputPorts.data[0]);
+                //     view.getCommandStack().execute(cmd);// 放入堆栈，撤销或者重做
+                //     if (sourcePort.parent.cssClass == 'BranchTask') {
+                //         cmd.connection.showExpression();
+                //     }
+                // }
+			}
+		});
+	},
+
+    addNode: function(nodeType, x, y) {
+
+        var shape = eval("new com.chanjet.gzq.aflow."+nodeType+"()");
+        //view.add(shape,x,y);
+        var command = new draw2d.command.CommandAdd(app.canvas, shape, x, y);
+        app.canvas.getCommandStack().execute(command);// 放入堆栈，撤销或者重做
+
+        var count = 0;
+        var sourcePort;
+        if (shape.cssClass != 'Connection') {
+            app.canvas.figures.data.forEach(function (e, i) {
+                if (e.cssClass != "Connection" && e.id != shape.id)  {
+                    e.getOutputPorts().each( function (i, p) {
+                        p.setMaxFanOut(1);
+                        if(p.connections.data.length==0) {
+                            count += 1;
+                            sourcePort = p;
                         }
                     });
                 }
-                if(count == 1) {
+            });
+        }
+        if(count == 1) {
 
-                    var cmd = new draw2d.command.CommandConnect(view, sourcePort, shape.inputPorts.data[0]);
-                    view.getCommandStack().execute(cmd);// 放入堆栈，撤销或者重做
-                    if (sourcePort.parent.cssClass == 'BranchTask') {
-                        cmd.connection.showExpression();
-                    }
-                }
-
-			}
-		});
-
-	}
+            var cmd = new draw2d.command.CommandConnect(app.canvas, sourcePort, shape.inputPorts.data[0]);
+            app.canvas.getCommandStack().execute(cmd);// 放入堆栈，撤销或者重做
+            if (sourcePort.parent.cssClass == 'BranchTask') {
+                cmd.connection.showExpression();
+            }
+        }
+    },
 });

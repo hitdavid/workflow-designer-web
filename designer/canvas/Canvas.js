@@ -41,17 +41,19 @@ com.chanjet.gzq.aflow.Canvas = draw2d.Canvas.extend({
         this.getCommandStack().execute(cmd);
 
         var shape = eval("new com.chanjet.gzq.aflow."+taskType+"()");
-
-        this.add(shape, x, y);
+        var command = new draw2d.command.CommandAdd(this, shape, x, y);
+        this.getCommandStack().execute(command);
 
         var cmd = new draw2d.command.CommandConnect(this, sourcePort, shape.inputPorts.data[0]);
-        cmd.execute();
+        // cmd.execute();
+        this.getCommandStack().execute(cmd);
         if (sourcePort.parent.cssClass == 'BranchTask') {
             connection.showExpression();
         }
 
         cmd = new draw2d.command.CommandConnect(this, shape.outputPorts.data[0], targetPort);
-        cmd.execute();
+        // cmd.execute();
+        this.getCommandStack().execute(cmd);
     },
 
     appendTask: function (thisTask, taskType) {
@@ -71,13 +73,35 @@ com.chanjet.gzq.aflow.Canvas = draw2d.Canvas.extend({
         var y = thisTask.getBoundingBox().getTopLeft().getY();
 
         var shape = eval("new com.chanjet.gzq.aflow."+taskType+"()");
-        this.add(shape, x, y);
+        var command = new draw2d.command.CommandAdd(this, shape, x, y);
+        this.getCommandStack().execute(command);
 
         var cmd = new draw2d.command.CommandConnect(this, emptyPort, shape.inputPorts.data[0]);
-        cmd.execute();
+        // cmd.execute();
+        this.getCommandStack().execute(cmd);
+
         if (thisTask.cssClass == 'BranchTask') {
             cmd.connection.showExpression();
         }
-    }
+    },
+
+    getLastTask: function () {
+
+        var sourcePort;
+
+        app.canvas.figures.data.forEach(function (e, i) {
+            if (e.cssClass != "Connection")  {
+                e.getOutputPorts().each( function (i, p) {
+                    p.setMaxFanOut(1);
+                    if(p.connections.data.length==0) {
+                        sourcePort = p;
+                    }
+                });
+            }
+        });
+
+        return sourcePort.parent;
+
+    },
 
 });
