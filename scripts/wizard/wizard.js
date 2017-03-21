@@ -253,6 +253,47 @@ function Wizard( parent ){
         thisWizard.step(stepNumber);
         thisWizard.scrollIntoView();
     });
+    this.parent.on('click', '[data-action=ok]', function(e){
+        e.preventDefault();
+
+        var v = null;
+        e.target.parentNode.childNodes.forEach(function (element, index) {
+            if(element.attributes != null && element.attributes.getNamedItem("business-meta") != null) {
+                if(element.attributes.getNamedItem("business-meta").nodeValue == 'case') {
+                    if(v != null) {
+                        v.push(element.value);
+                    }
+                    else {
+                        v = [];
+                        v.push(element.value);
+                    }
+                }
+                else {
+                    v = element.value;
+                }
+                return false;
+            }
+        });
+
+        var nodeType = e.target.attributes.getNamedItem("node").nodeValue;
+        var lastTask = app.canvas.getLastTask();
+        var shape = null;
+
+        if(nodeType == 'BranchTask') {
+            app.canvas.appendBranchTaskFromWizard(lastTask, v);
+        }
+        else if(nodeType != 'End'){
+            app.canvas.appendTask(lastTask, nodeType, v);
+        }
+        else {
+            thisWizard.close();
+            return;
+        }
+
+        var stepNumber = e.target.attributes.getNamedItem("step").nodeValue;
+        thisWizard.step(stepNumber);
+        thisWizard.scrollIntoView();
+    });
 }
 
 //adding to jQuery

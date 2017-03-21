@@ -10,7 +10,7 @@ com.chanjet.gzq.aflow.ConnectionTEXT = draw2d.shape.basic.Text.extend({
         this.setText(text);
         this.setFontFamily("微软雅黑");
         this.setStroke(0);
-        this.setWidth(100);
+        // this.setWidth(100);
 
         // this.installEditor(new draw2d.ui.LabelInplaceEditor({
         //     onCommit: $.proxy(function(value){

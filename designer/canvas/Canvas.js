@@ -32,7 +32,7 @@ com.chanjet.gzq.aflow.Canvas = draw2d.Canvas.extend({
 	insertTask: function (connection, taskType) {
 
         var x = connection.getBoundingBox().getTopLeft().getX() + (connection.getBoundingBox().getWidth() / 2) - 48;
-        var y = connection.getBoundingBox().getTopLeft().getY() - 32;
+        var y = thisTask.getBoundingBox().getCenter().getY();
 
         var sourcePort = connection.getSource();
         var targetPort = connection.getTarget();
@@ -56,7 +56,7 @@ com.chanjet.gzq.aflow.Canvas = draw2d.Canvas.extend({
         this.getCommandStack().execute(cmd);
     },
 
-    appendTask: function (thisTask, taskType) {
+    appendTask: function (thisTask, taskType, value, xPos, yPos) {
 
 	    var emptyPort = null;
 	    thisTask.outputPorts.data.forEach(function (e, i) {
@@ -69,11 +69,23 @@ com.chanjet.gzq.aflow.Canvas = draw2d.Canvas.extend({
 	        return;
         }
 
-        var x = thisTask.getBoundingBox().getTopLeft().getX() + 96 + 100;
-        var y = thisTask.getBoundingBox().getTopLeft().getY();
+        var x = xPos != null? xPos : thisTask.getBoundingBox().getTopLeft().getX() + 96 + 100;
+        var y = yPos != null? yPos : thisTask.getBoundingBox().getCenter().getY();
 
         var shape = eval("new com.chanjet.gzq.aflow."+taskType+"()");
-        var command = new draw2d.command.CommandAdd(this, shape, x, y);
+
+        if(taskType == "UserTask") {
+            shape.userData['userIds'] = value;
+        }
+        else if(taskType == "RoleTask") {
+            shape.userData['roleIds'] = value;
+        }
+        else {
+            console.log(value);
+        }
+
+
+        var command = new draw2d.command.CommandAdd(this, shape, x, y - shape.getHeight() / 2);
         this.getCommandStack().execute(command);
 
         var cmd = new draw2d.command.CommandConnect(this, emptyPort, shape.inputPorts.data[0]);
@@ -83,6 +95,110 @@ com.chanjet.gzq.aflow.Canvas = draw2d.Canvas.extend({
         if (thisTask.cssClass == 'BranchTask') {
             cmd.connection.showExpression();
         }
+
+        return shape;
+    },
+
+    convertTaskType: function (thisTask, newTaskType, value) {
+
+        var shape = eval("new com.chanjet.gzq.aflow."+newTaskType+"()");
+
+        if(taskType == "UserTask") {
+            shape.userData['userIds'] = value;
+        }
+        else if(taskType == "RoleTask") {
+            shape.userData['roleIds'] = value;
+        }
+        else {
+            console.log(value);
+        }
+
+        var command = new draw2d.command.CommandAdd(this, shape, thisTask.x, thisTask.y);
+        this.getCommandStack().execute(command);
+
+        command = new draw2d.command.CommandDelete(connection);
+        this.getCommandStack().execute(command);
+
+
+        var emptyPort = null;
+        thisTask.outputPorts.data.forEach(function (e, i) {
+            if(e.connections.data.length == 0) {
+                emptyPort = e;
+            }
+        });
+
+        if(emptyPort == null) {
+            return;
+        }
+
+        var x = thisTask.getBoundingBox().getTopLeft().getX() + 96 + 100;
+        var y = thisTask.getBoundingBox().getTopLeft().getY();
+
+
+
+        var cmd = new draw2d.command.CommandConnect(this, emptyPort, shape.inputPorts.data[0]);
+        // cmd.execute();
+        this.getCommandStack().execute(cmd);
+
+        if (thisTask.cssClass == 'BranchTask') {
+            cmd.connection.showExpression();
+        }
+
+        return shape;
+    },
+
+    appendBranchTaskFromWizard: function (thisTask, value) {
+
+        var padding = 50;
+        var heightOfTaskFigure = 32;
+
+        var shape = new com.chanjet.gzq.aflow.BranchTask();
+        var emptyPort = null;
+        thisTask.outputPorts.data.forEach(function (e, i) {
+            if(e.connections.data.length == 0) {
+                emptyPort = e;
+            }
+        });
+
+        if(emptyPort == null) {
+            return;
+        }
+
+        var x = thisTask.getBoundingBox().getTopLeft().getX() + 96 + 100;
+        var y = thisTask.getBoundingBox().getCenter().getY();
+
+        var command = new draw2d.command.CommandAdd(this, shape, x, y - shape.getHeight()/2);
+        this.getCommandStack().execute(command);
+
+        var cmd = new draw2d.command.CommandConnect(this, emptyPort, shape.inputPorts.data[0]);
+        // cmd.execute();
+        this.getCommandStack().execute(cmd);
+
+        if (thisTask.cssClass == 'BranchTask') {
+            cmd.connection.showExpression();
+        }
+
+        for(var i = value.length - 2; i > 0; i--) {
+            shape.addCase();
+        }
+
+        var totalHeight = (heightOfTaskFigure + padding) * value.length;
+
+        value.forEach(function (element, index) {
+
+            app.canvas.appendTask(shape, 'UserTask', "", shape.getBoundingBox().getTopLeft().getX() + 250,
+                shape.getBoundingBox().getTopLeft().getY() + totalHeight/2 - (heightOfTaskFigure + padding) * index);
+        });
+
+        shape.outputPorts.data.forEach(function (port, index) {
+            port.connections.data.forEach(function (connection, i) {
+                connection.userData['expression'] = value[index];
+                connection.showExpression();
+                return;
+            });
+        });
+
+        return shape;
     },
 
     getLastTask: function () {

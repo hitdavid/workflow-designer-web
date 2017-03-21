@@ -87,7 +87,7 @@
             }).fail(function () {
 
                 var shape = new com.chanjet.gzq.aflow.Start();
-                var command = new draw2d.command.CommandAdd(app.canvas, shape, 100, 100);
+                var command = new draw2d.command.CommandAdd(app.canvas, shape, 100, 300);
                 app.canvas.getCommandStack().execute(command);// 放入堆栈，撤销或者重做
                 json = null;
                 var writer = new draw2d.io.json.Writer();
@@ -218,9 +218,9 @@
             myWizard.style.display="block";
         }
 
-        function addNode(nodeType, id) {
-            var lastTask = app.canvas.getLastTask();
-            app.canvas.appendTask(lastTask, nodeType);
+        function addNode(nodeType) {
+//            var lastTask = app.canvas.getLastTask();
+//            app.canvas.appendTask(lastTask, nodeType);
         }
 
 
@@ -298,6 +298,7 @@
         <button class="btn btn-primary pull-right" data-action="goto" step="2">添加一个固定人审批</button><br>
         <button class="btn btn-primary pull-right" data-action="goto" step="3">添加一个上级领导审批</button><br>
         <button class="btn btn-primary pull-right" data-action="goto" step="4">根据表单值，添加一个条件分支审批</button><br>
+        <button class="btn btn-primary pull-right" data-action="ok" step="2" node="End" business-meta="End">结束流程</button><br>
 
         <button class="btn btn-default" data-action="prev">Back</button>
         <button class="btn btn-primary pull-right" data-action="close">关闭向导</button>
@@ -305,22 +306,23 @@
 
     <div class='step'>
         <h2>添加一个固定人审批</h2>
-        <input type="text" placeholder="userId">
-        <button class="btn btn-default pull-right" data-action="ok" step="1" onclick="addNode('UserTask', this.value);">OK</button>
+        <input type="text" placeholder="userId" business-meta="userId">
+        <button class="btn btn-default pull-right" data-action="ok" step="1" node="UserTask">OK</button>
         <button class="btn btn-primary pull-right" data-action="goto" step="1">Cancel</button>
     </div>
 
     <div class='step'>
         <h2>添加一个上级领导审批</h2>
-        <input type="text" placeholder="roleId">
-        <button class="btn btn-default pull-right" data-action="ok" step="1" onclick="addNode('RoleTask', this.value);">OK</button>
+        <input type="text" placeholder="roleId" business-meta="roleId">
+        <button class="btn btn-default pull-right" data-action="ok" step="1" node="RoleTask">OK</button>
         <button class="btn btn-primary pull-right" data-action="goto" step="1">Cancel</button>
     </div>
 
     <div class='step'>
         <h2>根据表单值，添加一个条件分支审批</h2>
-        <input type="text" placeholder="表单字段">
-        <button class="btn btn-default pull-right" data-action="ok" step="1">OK</button>
+        <input type="text" placeholder="表单字段" business-meta="case"><br />
+        <input type="text" placeholder="表单字段" business-meta="case">
+        <button class="btn btn-default pull-right" data-action="ok" step="1" node="BranchTask">OK</button>
         <button class="btn btn-primary pull-right" data-action="goto" step="1">Cancel</button>
     </div>
 
