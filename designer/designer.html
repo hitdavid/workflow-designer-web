@@ -218,9 +218,8 @@
             myWizard.style.display="block";
         }
 
-        function addNode(nodeType) {
-//            var lastTask = app.canvas.getLastTask();
-//            app.canvas.appendTask(lastTask, nodeType);
+        function addCase() {
+            $("#title").after("<input type='text' placeholder='表单字段' business-meta='case'><br />");
         }
 
 
@@ -319,9 +318,9 @@
     </div>
 
     <div class='step'>
-        <h2>根据表单值，添加一个条件分支审批</h2>
+        <h2 id="title">根据表单值，添加一个条件分支审批</h2>
         <input type="text" placeholder="表单字段" business-meta="case"><br />
-        <input type="text" placeholder="表单字段" business-meta="case">
+        <button class="btn btn-default pull-right" onclick="addCase();">增加条件</button>
         <button class="btn btn-default pull-right" data-action="ok" step="1" node="BranchTask">OK</button>
         <button class="btn btn-primary pull-right" data-action="goto" step="1">Cancel</button>
     </div>
