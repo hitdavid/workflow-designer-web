@@ -284,7 +284,8 @@ function Wizard( parent ){
             app.canvas.appendBranchTaskFromWizard(lastTask, v);
         }
         else if(nodeType != 'End'){
-            app.canvas.appendTask(lastTask, nodeType, v);
+            var element = app.canvas.appendTask(lastTask, nodeType, v);
+            element.setImage("");
         }
         else {
             app.canvas.appendTask(lastTask, nodeType);

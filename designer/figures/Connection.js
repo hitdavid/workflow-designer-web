@@ -11,14 +11,6 @@ com.chanjet.gzq.aflow.ConnectionTEXT = draw2d.shape.basic.Text.extend({
         this.setFontFamily("微软雅黑");
         this.setStroke(0);
         // this.setWidth(100);
-
-        // this.installEditor(new draw2d.ui.LabelInplaceEditor({
-        //     onCommit: $.proxy(function(value){
-        //         this.getParent().userData.name = value;
-        //     },this),
-        //     onCancel: function(){
-        //     }
-        // }));
     }
 });
 
@@ -55,6 +47,14 @@ com.chanjet.gzq.aflow.Connection = draw2d.Connection.extend({
         this.installEditPolicy(new draw2d.policy.line.VertexSelectionFeedbackPolicy());
     },
 
+    onDrag: function (dx, dy, dx2, dy2) {
+        this._super(dx, dy, dx2, dy2);
+    },
+
+    onDragLeave: function (draggedFigure) {
+   	    this.setGlow(false);
+    },
+
     showExpression: function() {
 
         if(this.userData['expression'] != '') {
@@ -73,12 +73,6 @@ com.chanjet.gzq.aflow.Connection = draw2d.Connection.extend({
             }
         })
     },
-
-    // onDoubleClick: function() {
-    //     alert('onDoubleClick');
-    //     this.contextMenu.create('create', {})
-    //     this.onContextMenu(x, y);
-    // },
 
     onRightMouseDown: function (figure, x, y, shiftKey, ctrlKey) {
         //super.onRightMouseDown(figure, x, y, shiftKey, ctrlKey);
@@ -117,17 +111,4 @@ com.chanjet.gzq.aflow.Connection = draw2d.Connection.extend({
                 }
         });
     },
-
-    // setStartPoint: function (x, y) {
-    //     this._super.setStartPoint(x, y);
-    //     var bb = this.getBoundingBox();
-    //     this.setWidth(bb.getWidth());
-    // },
-    //
-    // setEndPoint: function (x, y) {
-    //     this._super.setEndPoint(x, y);
-    //     var bb = this.getBoundingBox();
-    //     this.setWidth(bb.getWidth());
-    // },
-
 });

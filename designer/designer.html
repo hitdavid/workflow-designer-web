@@ -60,18 +60,7 @@
     <script src='properties/jqPropertyGrid.js'></script>
     <link rel='stylesheet' href='styles/jqPropertyGrid.css'/>
 
-    <style>
-        .wizard { border: 1px solid #ddd; padding: 15px; overflow: hidden; display: block; }
-        .wizard .step {border: 1px solid #ddd;
-            background: rgb(255,255,255);
-            margin: 0 auto;
-            width: 700px;
-            height: 300px;
-            position: relative; /*脱离文档流*/
-            top: 50%; /*偏移*/
-            margin-top: -150px;
-        }
-    </style>
+
 
     <script>
 
@@ -233,9 +222,9 @@
             <a href="##" class="easyui-linkbutton" plain="true" iconCls="start-event-icon" nodeType="Start">开始</a><br>
             <a href="##" class="easyui-linkbutton" plain="true" iconCls="end-event-icon" nodeType="End">结束</a><br>
             <a href="#" class="easyui-linkbutton" plain="true" iconCls="user-task-icon" nodeType="UserTask">固定人员审批节点</a><br>
-            <a href="#" class="easyui-linkbutton" plain="true" iconCls="user-task-icon" nodeType="RoleTask">部门主管审批节点</a><br>
+            <a href="#" class="easyui-linkbutton" plain="true" iconCls="role-task-icon" nodeType="RoleTask">部门主管审批节点</a><br>
             <!--<a href="##" class="easyui-linkbutton" plain="true" iconCls="parallel-gateway-icon" nodeType="CountersignTask">会签审批节点</a><br>-->
-            <a href="##" class="easyui-linkbutton" plain="true" iconCls="branch-task-icon" nodeType="BranchTask">条件分支判断节点</a><br>
+            <a href="##" class="easyui-linkbutton" plain="true" iconCls="parallel-gateway-icon" nodeType="BranchTask">条件分支判断节点</a><br>
         </div>
     </div>
 </div>
@@ -264,7 +253,8 @@
 			            height:250px;
 			            border:3px solid gray;
 			            background-color:#dceffd;
-			            opacity:0.8;visibility: hidden;">
+			            opacity:0.8;
+			            visibility: hidden;">
         <img id="preview" style="width:350px; height:auto;"/>
     </div>
 
@@ -278,47 +268,81 @@
 								height:300px;
 								border:3px solid gray;
 								background-color:#dceffd;
-								opacity:0.8;"></pre>
+								opacity:0.8;
+								visibility: hidden;"></pre>
 
 </div>
 <div id="propGrid" data-options="region:'east',width:300,collapsed:false" title="属性"></div>
 
+<style>
+    .wizard {
+        border: 1px solid #ddd;
+        padding: 15px;
+        overflow: hidden;
+        display: block;
+    }
+    .wizard .step {border: 1px solid #ddd;
+        background: rgb(255,255,255);
+        margin: 0 auto;
+        width: 700px;
+        height: 300px;
+        position: relative; /*脱离文档流*/
+        top: 50%; /*偏移*/
+        margin-top: -150px;
+        text-align:right;
+    }
+    .wizard .step .title {
+        text-align:center;
+    }
+    .wizard .step .dialog-content {
+        text-align:left;
+        padding: 15px;
+    }
+    .wizard .step .dialog-button {
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+    .wizard .step .left-icon-btn {
+        text-align:left;
+    }
+</style>
+
 <div class="wizard" id="myWizard" style="position: fixed; left: 0; right: 0; top:0; bottom: 0; z-index: 999; background: rgba(0,0,0,0.5)">
     <div class='step'>
-        <h2>流程设计器介绍</h2>
-        blablabla
-        <button class="btn btn-primary pull-right" data-action="next">下一步</button>
-        <button class="btn btn-primary pull-right" data-action="close">关闭向导</button>
+        <h2 class="title">流程设计器介绍</h2>
+        <div class="dialog-content">blablabla<br /></div>
+        <button class="btn dialog-button" data-action="next">下一步</button>
+        <button class="btn dialog-button" data-action="close">关闭向导</button>
     </div>
 
     <div class='step'>
-        <h2>添加节点</h2>
+        <h2 class="title">添加节点</h2>
 
-        <button class="btn btn-primary pull-right" data-action="goto" step="2">添加一个固定人审批</button><br>
-        <button class="btn btn-primary pull-right" data-action="goto" step="3">添加一个上级领导审批</button><br>
-        <button class="btn btn-primary pull-right" data-action="goto" step="4">根据表单值，添加一个条件分支审批</button><br>
-        <button class="btn btn-primary pull-right" data-action="ok" step="2" node="End" business-meta="End">结束流程</button><br>
+        <button class="btn dialog-button left-icon-btn" iconCls="user-task-icon" data-action="goto" step="2">添加一个固定人审批</button><br>
+        <button class="btn dialog-button left-icon-btn" iconCls="role-task-icon" data-action="goto" step="3">添加一个上级领导审批</button><br>
+        <button class="btn dialog-button left-icon-btn" iconCls="parallel-gateway-icon" data-action="goto" step="4">根据表单值，添加一个条件分支审批</button><br>
+        <button class="btn dialog-button left-icon-btn" iconCls="end-event-icon" data-action="ok" step="2" node="End" business-meta="End">结束流程</button><br>
 
-        <button class="btn btn-default" data-action="prev">Back</button>
-        <button class="btn btn-primary pull-right" data-action="close">关闭向导</button>
+        <button class="btn dialog-button" data-action="prev">后退</button>
+        <button class="btn dialog-button" data-action="close">关闭向导</button>
     </div>
 
     <div class='step'>
-        <h2>添加一个固定人审批</h2>
+        <h2 class="title">添加一个固定人审批</h2>
         <input type="text" placeholder="userId" business-meta="userId">
         <button class="btn btn-default pull-right" data-action="ok" step="1" node="UserTask">OK</button>
         <button class="btn btn-primary pull-right" data-action="goto" step="1">Cancel</button>
     </div>
 
     <div class='step'>
-        <h2>添加一个上级领导审批</h2>
+        <h2 class="title">添加一个上级领导审批</h2>
         <input type="text" placeholder="roleId" business-meta="roleId">
         <button class="btn btn-default pull-right" data-action="ok" step="1" node="RoleTask">OK</button>
         <button class="btn btn-primary pull-right" data-action="goto" step="1">Cancel</button>
     </div>
 
     <div class='step'>
-        <h2 id="title">根据表单值，添加一个条件分支审批</h2>
+        <h2 id="title" class="title">根据表单值，添加一个条件分支审批</h2>
         <input type="text" placeholder="表单字段" business-meta="case"><br />
         <button class="btn btn-default pull-right" onclick="addCase();">增加条件</button>
         <button class="btn btn-default pull-right" data-action="ok" step="1" node="BranchTask">OK</button>

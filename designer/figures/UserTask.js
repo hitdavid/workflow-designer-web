@@ -17,21 +17,38 @@ com.chanjet.gzq.aflow.UserTaskText = draw2d.shape.basic.Text.extend({
 	}
 });
 
+com.chanjet.gzq.aflow.UserTaskImage = draw2d.shape.basic.Image.extend({
+    NAME: "UserTaskImage",
+
+    init: function(path){
+        this._super();
+        this.setPath(path);
+    }
+});
+
 com.chanjet.gzq.aflow.UserTask = draw2d.shape.basic.Rectangle.extend({
 	NAME: "UserTask",
+
+    image:null,
+
 	init: function(){
 		this._super();
 		
 		this.setStroke(1);
-		this.setDimension(96,64);
+		this.setDimension(60,60);
+		// this.setRadius(32);
 		this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
-		this.setRadius(5);
+		this.setRadius(1);
 
         this.setResizeable(false);
 
 		var userTaskText = new com.chanjet.gzq.aflow.UserTaskText("固定人员");
-		var userTaskTextLocation = new draw2d.layout.locator.CenterLocator();
+		var userTaskTextLocation = new draw2d.layout.locator.BottomLocator();
 		this.add(userTaskText, userTaskTextLocation,1);
+
+        image = new com.chanjet.gzq.aflow.UserTaskImage("");
+        var userTaskImageLocation = new draw2d.layout.locator.CenterLocator();
+        this.add(image, userTaskImageLocation,1);
 		
 		var leftLocator = new draw2d.layout.locator.InputPortLocator();
 		this.createPort("input",leftLocator);
@@ -48,6 +65,10 @@ com.chanjet.gzq.aflow.UserTask = draw2d.shape.basic.Rectangle.extend({
             userIds:'',
 		};
 	},
+
+    setImage: function (url) {
+	    image.setPath(url);
+    },
 
 	onDrop: function(dropTarget,x,y,shiftKey,ctrlKey){
 		// Activate a "smart insert" If the user drop this figure on connection
@@ -106,12 +127,3 @@ com.chanjet.gzq.aflow.UserTask = draw2d.shape.basic.Rectangle.extend({
 	},
 	
 });
-
-
-
-
-
-
-
-
-

@@ -17,22 +17,35 @@ com.chanjet.gzq.aflow.RoleTaskText = draw2d.shape.basic.Text.extend({
 	}
 });
 
-com.chanjet.gzq.aflow.RoleTask = draw2d.shape.basic.Rectangle.extend({
+com.chanjet.gzq.aflow.RoleTaskImage = draw2d.shape.basic.Image.extend({
+    NAME: "RoleTaskImage",
+
+    init: function(path){
+        this._super();
+        this.setPath(path);
+    }
+});
+
+com.chanjet.gzq.aflow.RoleTask = draw2d.shape.basic.Circle.extend({
 	NAME: "RoleTask",
 
 	init: function(){
 		this._super();
 		
 		this.setStroke(1);
-		this.setDimension(96,64);
+		// this.setDimension(96,64);
 		this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
-		this.setRadius(5);
+		this.setRadius(32);
 
         this.setResizeable(false);
 		
 		var roleTaskText = new com.chanjet.gzq.aflow.RoleTaskText("管理角色");
-		var roleTaskTextLocation = new draw2d.layout.locator.CenterLocator();
-		this.add(roleTaskText, roleTaskTextLocation,1);
+		var roleTaskTextLocation = new draw2d.layout.locator.BottomLocator();
+		this.add(roleTaskText, roleTaskTextLocation, 1);
+
+        var image = new com.chanjet.gzq.aflow.UserTaskImage("");
+        var userTaskImageLocation = new draw2d.layout.locator.CenterLocator();
+        this.add(image, userTaskImageLocation,1);
 		
 		var leftLocator = new draw2d.layout.locator.InputPortLocator();
 		this.createPort("input",leftLocator);

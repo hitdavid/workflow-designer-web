@@ -43,6 +43,9 @@
 .end-event-icon {
     background: url("icons/type.endevent.none.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
 }
+.role-task-icon {
+    background: url("icons/process.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
 /*任务图标*/
 .user-task-icon {
     background: url("icons/type.user.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);

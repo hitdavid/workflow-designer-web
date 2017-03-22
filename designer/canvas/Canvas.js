@@ -31,8 +31,10 @@ com.chanjet.gzq.aflow.Canvas = draw2d.Canvas.extend({
 
 	insertTask: function (connection, taskType) {
 
+        var shape = eval("new com.chanjet.gzq.aflow."+taskType+"()");
+
         var x = connection.getBoundingBox().getTopLeft().getX() + (connection.getBoundingBox().getWidth() / 2) - 48;
-        var y = thisTask.getBoundingBox().getCenter().getY();
+        var y = connection.getBoundingBox().getCenter().getY() - shape.getHeight() / 2;
 
         var sourcePort = connection.getSource();
         var targetPort = connection.getTarget();
@@ -40,7 +42,7 @@ com.chanjet.gzq.aflow.Canvas = draw2d.Canvas.extend({
         var cmd = new draw2d.command.CommandDelete(connection);
         this.getCommandStack().execute(cmd);
 
-        var shape = eval("new com.chanjet.gzq.aflow."+taskType+"()");
+
         var command = new draw2d.command.CommandAdd(this, shape, x, y);
         this.getCommandStack().execute(command);
 
