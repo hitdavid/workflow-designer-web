@@ -6,8 +6,10 @@
 
     <link rel="stylesheet" type="text/css" href="../scripts/easyui/themes/gray/easyui.css">
     <link rel="stylesheet" type="text/css" href="../scripts/easyui/themes/icon.css">
-    <link rel="stylesheet" type="text/css" href="styles/designer.css">
     <link rel="stylesheet" type="text/css" href="../scripts/jquery/plugins/contextmenu/jquery.contextmenu.css">
+    <link rel="stylesheet" type="text/css" href="styles/designer.css">
+    <link rel="stylesheet" type="text/css" href="styles/wizard.css">
+    <link rel='stylesheet' href='styles/jqPropertyGrid.css'/>
 
     <!--<script src="../scripts/jquery/jquery-1.8.3.min.js"></script>-->
     <script src="../scripts/jquery/jquery-1.9.1.js"></script>
@@ -54,165 +56,12 @@
 
     <script src="figures/Connection.js"></script>
 
-
     <script src='properties/propertiesMeta.js'></script>
 
     <script src='properties/jqPropertyGrid.js'></script>
-    <link rel='stylesheet' href='styles/jqPropertyGrid.css'/>
 
+    <script src='page.js'></script>
 
-
-    <script>
-
-        var app;
-
-        $(window).load(function () {
-            //-- 2. activiti-designer的连接器(全局)
-
-            app = new com.chanjet.gzq.aflow.Application();
-            var json;
-            $.getJSON("http://localhost:8888/", function (result) {
-                json = result;
-            }).fail(function () {
-
-                var shape = new com.chanjet.gzq.aflow.Start();
-                var command = new draw2d.command.CommandAdd(app.canvas, shape, 100, 300);
-                app.canvas.getCommandStack().execute(command);// 放入堆栈，撤销或者重做
-                json = null;
-                var writer = new draw2d.io.json.Writer();
-                writer.marshal(app.canvas, function (json) {
-                    json = JSON.stringify(json, null, 2);
-                });
-
-            }).always(function () {
-
-                if (json != null) {
-                    app.loadFigure(json);
-                }
-                displayJSON(app.canvas);
-                updatePreview(app.canvas);
-            });
-
-            app.canvas.getCommandStack().addEventListener(function (e) {
-                if (e.isPostChangeEvent()) {
-                    updatePreview(app.canvas);
-                    displayJSON(app.canvas);
-                }
-            });
-
-            app.canvas.on("select, click", function (e, i) {
-                console.log("select, click" + i + e);
-
-                if (e.selection.primary == null) {
-                    $('#propGrid').jqPropertyGrid(app.canvas.userData, options);
-                    return;
-                }
-
-                if(e.selection.primary.userData == null) {
-                    e.selection.primary.userData = {};
-                }
-                $('#propGrid').jqPropertyGrid(e.selection.primary.userData, options);
-            });
-
-            $('#propGrid').on("change", function (e) {
-
-                var id = afterDigit(e.target.id);
-
-                if( app.canvas.selection.primary != null) {
-                    //tasks
-                    if( app.canvas.selection.primary.userData != null) {
-                        app.canvas.selection.primary.userData[id] = e.target.value;
-
-                        if (app.canvas.selection.primary.userData['expression'] != null) {
-                            app.canvas.selection.primary.showExpression();
-                        }
-                    }
-                }
-                else {
-                    // canvas
-                    app.canvas.userData[id] = e.target.value;
-                }
-                displayJSON(app.canvas);
-            });
-
-        });
-
-        function afterDigit(str) {
-            for (var i = str.length - 1; i >= 0; i--) {
-                if (isDigit(str[i])) {
-                    return str.substring(i + 1, str.length);
-                }
-            }
-            return str;
-        }
-
-        function isDigit(s)
-        {
-            var patrn = /^[0-9]{1,20}$/;
-            if (!patrn.exec(s))
-                return false;
-            return true;
-        }
-
-        function updatePreview(canvas) {
-
-            //-- convert the canvas into a PNG IMage source string
-
-            var xCoords = [];
-            var yCoords = [];
-            canvas.getFigures().each(function (i, f) {
-                var b = f.getBoundingBox();
-                xCoords.push(b.x, b.x + b.w);
-                yCoords.push(b.y, b.y + b.h);
-            });
-
-            var minX = Math.min.apply(Math, xCoords);
-            var minY = Math.min.apply(Math, yCoords);
-            var width = Math.max.apply(Math, xCoords) - minX;
-            var height = Math.max.apply(Math, yCoords) - minY;
-
-            var writer = new draw2d.io.png.Writer();
-
-            writer.marshal(canvas, function (png) {
-                $("#preview").attr("src", png);
-            }, new draw2d.geo.Rectangle(minX, minY, width, height));
-
-        }
-        function displayJSON(canvas) {
-
-            var writer = new draw2d.io.json.Writer();
-            writer.marshal(canvas, function (json) {
-                var jsonText = JSON.stringify(json, null, 2);
-                $("#jsonOutput").text(jsonText);
-            });
-        }
-
-        function save() {
-            var jsonArgs;
-            var writer = new draw2d.io.json.Writer();
-            writer.marshal(app.canvas, function (json) {
-                jsonArgs = JSON.stringify(json, null, 2);
-            });
-            $.post('http://127.0.0.1:8080/aflow/definition', {
-                orgId:'123',
-                userId:'456',
-                name: app.canvas.userData['name'],
-                json: jsonArgs ,
-            }, function (result) {
-                console.log(result);
-            })
-        }
-
-        function showWizard() {
-            myWizard.style.display="block";
-        }
-
-        function addCase() {
-            $("#title").after("<input type='text' placeholder='表单字段' business-meta='case'><br />");
-        }
-
-
-    </script>
 
 </head>
 <body id="bpm-layout" class="easyui-layout">
@@ -268,44 +117,10 @@
 								height:300px;
 								border:3px solid gray;
 								background-color:#dceffd;
-								opacity:0.8;
-								visibility: hidden;"></pre>
+								opacity:0.8;"></pre>
 
 </div>
 <div id="propGrid" data-options="region:'east',width:300,collapsed:false" title="属性"></div>
-
-<style>
-    .wizard {
-        border: 1px solid #ddd;
-        padding: 15px;
-        overflow: hidden;
-        display: block;
-    }
-    .wizard .step {border: 1px solid #ddd;
-        background: rgb(255,255,255);
-        margin: 0 auto;
-        width: 700px;
-        height: 300px;
-        position: relative; /*脱离文档流*/
-        top: 50%; /*偏移*/
-        margin-top: -150px;
-        text-align:right;
-    }
-    .wizard .step .title {
-        text-align:center;
-    }
-    .wizard .step .dialog-content {
-        text-align:left;
-        padding: 15px;
-    }
-    .wizard .step .dialog-button {
-        margin-right: 10px;
-        margin-bottom: 10px;
-    }
-    .wizard .step .left-icon-btn {
-        text-align:left;
-    }
-</style>
 
 <div class="wizard" id="myWizard" style="position: fixed; left: 0; right: 0; top:0; bottom: 0; z-index: 999; background: rgba(0,0,0,0.5)">
     <div class='step'>

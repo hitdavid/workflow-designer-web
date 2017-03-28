@@ -1,0 +1,30 @@
+.wizard {
+    border: 1px solid #ddd;
+    padding: 15px;
+    overflow: hidden;
+    display: block;
+}
+.wizard .step {border: 1px solid #ddd;
+    background: rgb(255,255,255);
+    margin: 0 auto;
+    width: 700px;
+    height: 300px;
+    position: relative; /*脱离文档流*/
+    top: 50%; /*偏移*/
+    margin-top: -150px;
+    text-align:right;
+}
+.wizard .step .title {
+    text-align:center;
+}
+.wizard .step .dialog-content {
+    text-align:left;
+    padding: 15px;
+}
+.wizard .step .dialog-button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.wizard .step .left-icon-btn {
+    text-align:left;
+}
