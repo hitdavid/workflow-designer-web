@@ -3,16 +3,20 @@
     padding: 15px;
     overflow: hidden;
     display: block;
+    position: relative;
 }
-.wizard .step {border: 1px solid #ddd;
+.wizard .step {
+    border: 1px solid #ddd;
     background: rgb(255,255,255);
-    margin: 0 auto;
-    width: 700px;
-    height: 300px;
-    position: relative; /*脱离文档流*/
-    top: 50%; /*偏移*/
-    margin-top: -150px;
-    text-align:right;
+    width: 400px;
+    height: 400px;
+    /*position: relative; !*脱离文档流*!*/
+    /*top: calc(50%); !*偏移*!*/
+    /*margin: -150px auto 0;*/
+    /*text-align:right;*/
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
 }
 .wizard .step .title {
     text-align:center;
@@ -22,9 +26,14 @@
     padding: 15px;
 }
 .wizard .step .dialog-button {
+    text-align:left;
     margin-right: 10px;
     margin-bottom: 10px;
 }
 .wizard .step .left-icon-btn {
     text-align:left;
+}
+.wizard .step .pull-right {
+    text-align:right;
+    margin-bottom: 10px;
 }

@@ -3,7 +3,7 @@ com.chanjet.gzq.aflow.End = draw2d.shape.basic.Circle.extend({
 	init: function(){
 		this._super();
 		
-		this.setStroke(1);
+		this.setStroke(3);
 		this.setRadius(15);
 		this.setBackgroundColor(new draw2d.util.Color("#FF9999"));
 

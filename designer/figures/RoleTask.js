@@ -23,6 +23,13 @@ com.chanjet.gzq.aflow.RoleTaskImage = draw2d.shape.basic.Image.extend({
     init: function(path){
         this._super();
         this.setPath(path);
+
+        this.setDimension(60,60);
+
+        this.on("contextmenu", function(emitterFunction){
+            var parent = emitterFunction.parent;
+            parent.onContextMenu(emitterFunction.x, emitterFunction.y);
+        });
     }
 });
 

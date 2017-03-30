@@ -8,29 +8,7 @@ $(window).load(function () {
     //-- 2. activiti-designer的连接器(全局)
 
     app = new com.chanjet.gzq.aflow.Application();
-    var json;
-    $.getJSON("http://localhost:8888/", function (result) {
-        json = result;
-    }).fail(function () {
-
-        var shape = new com.chanjet.gzq.aflow.Start();
-        var command = new draw2d.command.CommandAdd(app.canvas, shape, 100, 300);
-        app.canvas.getCommandStack().execute(command);// 放入堆栈，撤销或者重做
-        json = null;
-        var writer = new draw2d.io.json.Writer();
-        writer.marshal(app.canvas, function (json) {
-            json = JSON.stringify(json, null, 2);
-        });
-
-    }).always(function () {
-
-        if (json != null) {
-            app.loadFigure(json);
-        }
-        // displayJSON(app.canvas);
-        updatePreview(app.canvas);
-        displayXML(app.canvas);
-    });
+    load();
 
     app.canvas.getCommandStack().addEventListener(function (e) {
         if (e.isPostChangeEvent()) {
@@ -54,7 +32,7 @@ $(window).load(function () {
         $('#propGrid').jqPropertyGrid(e.selection.primary.userData, options);
     });
 
-    $('#propGrid').on("change", function (e) {
+    $('#propGrid').on("change blur", function (e) {
 
         var id = afterDigit(e.target.id);
 
@@ -77,6 +55,7 @@ $(window).load(function () {
             app.canvas.userData[id] = e.target.value;
         }
         displayJSON(app.canvas);
+        displayXML(app.canvas);
     });
 
 });
@@ -99,8 +78,6 @@ function isDigit(s)
 }
 
 function updatePreview(canvas) {
-
-    //-- convert the canvas into a PNG IMage source string
 
     var xCoords = [];
     var yCoords = [];
@@ -153,6 +130,33 @@ function save() {
     }, function (result) {
         console.log(result);
     })
+}
+
+function load() {
+
+    var json;
+    $.getJSON("http://localhost:8888/", function (result) {
+        json = result;
+    }).fail(function () {
+
+        var shape = new com.chanjet.gzq.aflow.Start();
+        var command = new draw2d.command.CommandAdd(app.canvas, shape, 100, 300);
+        app.canvas.getCommandStack().execute(command);// 放入堆栈，撤销或者重做
+        json = null;
+        var writer = new draw2d.io.json.Writer();
+        writer.marshal(app.canvas, function (json) {
+            json = JSON.stringify(json, null, 2);
+        });
+
+    }).always(function () {
+
+        if (json != null) {
+            app.loadFigure(json);
+        }
+        // displayJSON(app.canvas);
+        updatePreview(app.canvas);
+        displayXML(app.canvas);
+    });
 }
 
 function showWizard() {

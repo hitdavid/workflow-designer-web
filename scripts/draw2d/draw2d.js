@@ -18390,7 +18390,6 @@ draw2d.shape.node.Node = draw2d.Figure.extend({
         });
     },
 
-
     /**
      * @method
      * Return an objects with all important attributes for XML or JSON serialization
@@ -18581,10 +18580,6 @@ draw2d.VectorFigure = draw2d.shape.node.Node.extend({
         this._super(attributes);
 
         return this;
-    },
-
-    setBackgroundImage: function(url) {
-
     },
 
     /**
