@@ -149,7 +149,17 @@ com.chanjet.gzq.aflow.BranchTask = draw2d.shape.basic.Triangle.extend({
                 "DelCase": {name: "DelCase", icon: "delete"},
             }
         });
-    }
+    },
+
+    toProcessElement: function () {
+        return '<exclusiveGateway id="BPMN_'+this.getId()+'" name="'+this.getUserData().name+'"></exclusiveGateway>';
+    },
+
+    toDiagramElement: function () {
+        return '<bpmndi:BPMNShape bpmnElement="BPMN_'+this.getId()+'" id="BPMN_'+this.getId()+'">' +
+            '<omgdc:Bounds height="'+this.getHeight()+'" width="'+this.getWidth()+'" x="'+this.getBoundingBox().getTopLeft().getX()+'" y="'+this.getBoundingBox().getTopLeft().getY()+'"></omgdc:Bounds>' +
+            '</bpmndi:BPMNShape>';
+    },
 
 });
 

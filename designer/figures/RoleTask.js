@@ -142,6 +142,20 @@ com.chanjet.gzq.aflow.RoleTask = draw2d.shape.basic.Rectangle.extend({
             }
         });
 	},
+
+    toProcessElement: function () {
+        return '<userTask id="BPMN_'+this.getId()+'" name="'+this.getUserData().name+'" activiti:assignee="${userService.findManagerForEmployee('+this.getUserData().userIds+')}">' +
+            '<extensionElements>'+
+            '<activiti:taskListener event="create" class="com.chanjet.gongzuoquan.workflow.activiticustom.TaskCustomService"></activiti:taskListener>'+
+            '</extensionElements>' +
+            '</userTask>';
+    },
+
+    toDiagramElement: function () {
+        return '<bpmndi:BPMNShape bpmnElement="BPMN_'+this.getId()+'" id="BPMN_'+this.getId()+'">' +
+            '<omgdc:Bounds height="'+this.getHeight()+'" width="'+this.getWidth()+'" x="'+this.getBoundingBox().getTopLeft().getX()+'" y="'+this.getBoundingBox().getTopLeft().getY()+'"></omgdc:Bounds>' +
+            '</bpmndi:BPMNShape>';
+    },
 	
 });
 

@@ -111,4 +111,24 @@ com.chanjet.gzq.aflow.Connection = draw2d.Connection.extend({
                 }
         });
     },
+
+    toProcessElement: function () {
+        var xml = '<sequenceFlow id="BPMN_'+this.getId()+'" name="'+this.getUserData().name+'" sourceRef="BPMN_'+this.getUserData().from+'" targetRef="BPMN_'+this.getUserData().to+'">';
+        if(this.getSource().parent.cssClass == 'BranchTask') {
+            xml += '<conditionExpression xsi:type="tFormalExpression">'+
+                   '<![CDATA[${'+this.getSource().getParent().getUserData().templateId+'; '+this.getSource().getParent().getUserData().fieldId+'; '+this.userData['expression']+'}]]>'+
+                   '</conditionExpression>';
+        }
+        xml += '</sequenceFlow>';
+
+        return xml;
+    },
+
+    toDiagramElement: function () {
+        return  '<bpmndi:BPMNShape bpmnElement="BPMN_'+this.getId()+'" id="BPMN_'+this.getId()+'">' +
+                '<bpmndi:BPMNLabel>' +
+                '<omgdc:Bounds height="'+this.getHeight()+'" width="'+this.getWidth()+'" x="'+this.getBoundingBox().getTopLeft().getX()+'" y="'+this.getBoundingBox().getTopLeft().getY()+'"></omgdc:Bounds>' +
+                '</bpmndi:BPMNLabel>' +
+                '</bpmndi:BPMNShape>';
+    },
 });

@@ -119,9 +119,13 @@ if (!XML) {
     var convert = function convert(input, indent){
         var type = typeof input;
 
-        if(!indent) indent = '';
+        if(!indent) {
+            indent = '';
+        }
 
-        if(Array.isArray(input)) type = 'array';
+        if(Array.isArray(input))  {
+            type = 'array';
+        }
 
         var path = {
             'string': function(){

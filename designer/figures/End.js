@@ -48,4 +48,14 @@ com.chanjet.gzq.aflow.End = draw2d.shape.basic.Circle.extend({
                 }
         });
     },
+
+    toProcessElement: function () {
+        return '<endEvent id="BPMN_'+this.getId()+'" name="'+this.getUserData().name+'"></endEvent>';
+    },
+
+    toDiagramElement: function () {
+        return '<bpmndi:BPMNShape bpmnElement="BPMN_'+this.getId()+'" id="BPMN_'+this.getId()+'">' +
+            '<omgdc:Bounds height="'+this.getHeight()+'" width="'+this.getWidth()+'" x="'+this.getBoundingBox().getTopLeft().getX()+'" y="'+this.getBoundingBox().getTopLeft().getY()+'"></omgdc:Bounds>' +
+            '</bpmndi:BPMNShape>';
+    },
 });

@@ -32417,24 +32417,54 @@ draw2d.io.xml.Writer = draw2d.io.Writer.extend({
             throw "Writer.marshal method signature has been change from version 2.10.1 to version 3.0.0. Please consult the API documentation about this issue.";
         }
 
-        var obj = {};
-        var result = [];
+        var header = '<?xml version="1.0" encoding="UTF-8"?>';
+
+        var DEF_START = '<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" '+
+                        'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" '+
+                        'xmlns:xsd="http://www.w3.org/2001/XMLSchema" '+
+                        'xmlns:activiti="http://activiti.org/bpmn" '+
+                        'xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" '+
+                        'xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" '+
+                        'xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" '+
+                        'xmlns:xs="http://www.w3.org/2001/XMLSchema" '+
+                        'typeLanguage="http://www.w3.org/2001/XMLSchema" '+
+                        'expressionLanguage="http://www.w3.org/1999/XPath" '+
+                        'targetNamespace="http://www.activiti.org/test" '+
+                        'id="Definitions_1" '+
+                        'exporter="org.eclipse.bpmn2.modeler.core" '+
+                        'exporterVersion="1.2.4.Final-v20160330-1625-B110">';
+        var DEF_END = '</definitions>';
+
+        var PROCESS_START = '<process id="BPMN_'+canvas.userData.id+'" name="'+canvas.userData.name+'" isExecutable="true">';
+        var PROCESS_END = '</process>';
+
+        var DIAGRAM_START = '<bpmndi:BPMNDiagram id="BPMNDiagram_'+canvas.userData.id+'">' +
+            '<bpmndi:BPMNPlane bpmnElement="'+canvas.userData.id+'" id="BPMNPlane_'+canvas.userData.id+'">';
+        var DIAGRAM_END = '</bpmndi:BPMNPlane>'+
+            '</bpmndi:BPMNDiagram>';
+
+
+
+        var process = new Array();
+        var diagram = new Array();
 
         canvas.getFigures().each(function (i, figure) {
-            result.push(figure.getPersistentAttributes());
+            process.push(figure.toProcessElement());
+            diagram.push(figure.toDiagramElement());
         });
 
         canvas.getLines().each(function (i, element) {
-            result.push(element.getPersistentAttributes());
+            process.push(element.toProcessElement());
+            diagram.push(element.toDiagramElement());
         });
 
-        obj['canvas'] = result;
-        obj['userData'] = canvas['userData'];
-
         var writer = new draw2d.io.Writer();
-        var content = writer.formatXml(XML.toXML(obj));
+        var content = header + DEF_START + PROCESS_START +
+                        XML.toXML(process) + PROCESS_END +
+                        DIAGRAM_START + XML.toXML(diagram) + DIAGRAM_END + DEF_END;
+        var document = writer.formatXml(content);
 
-        resultCallback(obj, content);
+        resultCallback(canvas, document);
     }
 });
 
