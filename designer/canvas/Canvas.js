@@ -149,7 +149,7 @@ com.chanjet.gzq.aflow.Canvas = draw2d.Canvas.extend({
             return;
         }
 
-        var x = thisTask.getBoundingBox().getTopLeft().getX() + 96 + 100;
+        var x = thisTask.getBoundingBox().getTopLeft().getX() + 96 + 150;
         var y = thisTask.getBoundingBox().getCenter().getY();
 
         var command = new draw2d.command.CommandAdd(this, shape, x, y - shape.getHeight()/2);

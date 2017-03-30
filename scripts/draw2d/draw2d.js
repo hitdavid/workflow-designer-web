@@ -11,7 +11,8 @@ var draw2d =
         io: {
             json: {},
             png: {},
-            svg: {}
+            svg: {},
+            xml: {},
         },
 
 
@@ -32378,6 +32379,62 @@ draw2d.io.png.Writer = draw2d.io.Writer.extend({
                 }
             }
         });
+    }
+});
+
+/**
+ * @class draw2d.io.xml.Writer
+ *
+ * @author David
+ * @extends draw2d.io.Writer
+ */
+draw2d.io.xml.Writer = draw2d.io.Writer.extend({
+
+    init: function () {
+        this._super();
+    },
+
+    /**
+     * @method
+     * Export the content to the implemented data format. Inherit class implements
+     * content specific writer.
+     * <br>
+     * <br>
+     *
+     * Method signature has been changed from version 2.10.1 to version 3.0.0.<br>
+     * The parameter <b>resultCallback</b> is required and new. The method calls
+     * the callback instead of return the result.
+     *
+     * @param {draw2d.Canvas} canvas
+     * @param {Function} resultCallback the method to call on success. The first argument is the result object, the second the base64 representation of the file content
+     * @param {Object} resultCallback.json  the canvas document as JSON object
+     * @param {String} resultCallback.base64  the canvas document as base encoded JSON
+     */
+    marshal: function (canvas, resultCallback) {
+        // I change the API signature from version 2.10.1 to 3.0.0. Throw an exception
+        // if any application not care about this changes.
+        if (typeof resultCallback !== "function") {
+            throw "Writer.marshal method signature has been change from version 2.10.1 to version 3.0.0. Please consult the API documentation about this issue.";
+        }
+
+        var obj = {};
+        var result = [];
+
+        canvas.getFigures().each(function (i, figure) {
+            result.push(figure.getPersistentAttributes());
+        });
+
+        canvas.getLines().each(function (i, element) {
+            result.push(element.getPersistentAttributes());
+        });
+
+        obj['canvas'] = result;
+        obj['userData'] = canvas['userData'];
+
+        var writer = new draw2d.io.Writer();
+        var content = writer.formatXml(XML.toXML(obj));
+
+        resultCallback(obj, content);
     }
 });
 

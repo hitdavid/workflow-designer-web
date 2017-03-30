@@ -27,9 +27,10 @@ com.chanjet.gzq.aflow.UserTaskImage = draw2d.shape.basic.Image.extend({
 });
 
 com.chanjet.gzq.aflow.UserTask = draw2d.shape.basic.Rectangle.extend({
+
 	NAME: "UserTask",
 
-    image:null,
+    IMAGE: null,
 
 	init: function(){
 		this._super();
@@ -37,7 +38,7 @@ com.chanjet.gzq.aflow.UserTask = draw2d.shape.basic.Rectangle.extend({
 		this.setStroke(1);
 		this.setDimension(60,60);
 		// this.setRadius(32);
-		this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
+		this.setBackgroundColor(new draw2d.util.Color("#ffffff"));
 		this.setRadius(1);
 
         this.setResizeable(false);
@@ -46,9 +47,9 @@ com.chanjet.gzq.aflow.UserTask = draw2d.shape.basic.Rectangle.extend({
 		var userTaskTextLocation = new draw2d.layout.locator.BottomLocator();
 		this.add(userTaskText, userTaskTextLocation,1);
 
-        image = new com.chanjet.gzq.aflow.UserTaskImage("");
+        this.IMAGE = new com.chanjet.gzq.aflow.UserTaskImage("styles/icons/user.png");
         var userTaskImageLocation = new draw2d.layout.locator.CenterLocator();
-        this.add(image, userTaskImageLocation,1);
+        this.add(this.IMAGE, userTaskImageLocation,1);
 		
 		var leftLocator = new draw2d.layout.locator.InputPortLocator();
 		this.createPort("input",leftLocator);
@@ -63,11 +64,12 @@ com.chanjet.gzq.aflow.UserTask = draw2d.shape.basic.Rectangle.extend({
 			type: "UserTask",
             label: userTaskText.getText(),
             userIds:'',
+            avator:'',
 		};
 	},
 
-    setImage: function (url) {
-	    image.setPath(url);
+    setImage: function(url) {
+        this.IMAGE.setPath(url);
     },
 
 	onDrop: function(dropTarget,x,y,shiftKey,ctrlKey){

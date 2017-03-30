@@ -27,14 +27,16 @@ $(window).load(function () {
         if (json != null) {
             app.loadFigure(json);
         }
-        displayJSON(app.canvas);
+        // displayJSON(app.canvas);
         updatePreview(app.canvas);
+        displayXML(app.canvas);
     });
 
     app.canvas.getCommandStack().addEventListener(function (e) {
         if (e.isPostChangeEvent()) {
-            updatePreview(app.canvas);
+            // updatePreview(app.canvas);
             displayJSON(app.canvas);
+            displayXML(app.canvas);
         }
     });
 
@@ -63,6 +65,10 @@ $(window).load(function () {
 
                 if (app.canvas.selection.primary.userData['expression'] != null) {
                     app.canvas.selection.primary.showExpression();
+                }
+
+                if (app.canvas.selection.primary.userData['avator'] != null) {
+                    app.canvas.selection.primary.setImage(e.target.value);
                 }
             }
         }
@@ -122,6 +128,14 @@ function displayJSON(canvas) {
     writer.marshal(canvas, function (json) {
         var jsonText = JSON.stringify(json, null, 2);
         $("#jsonOutput").text(jsonText);
+    });
+}
+
+function displayXML(canvas) {
+    //
+    var writer = new draw2d.io.xml.Writer();
+    writer.marshal(canvas, function (obj, xml) {
+        $("#xmlOutput").text(xml);
     });
 }
 

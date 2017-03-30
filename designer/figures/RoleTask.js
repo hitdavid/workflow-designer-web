@@ -26,16 +26,19 @@ com.chanjet.gzq.aflow.RoleTaskImage = draw2d.shape.basic.Image.extend({
     }
 });
 
-com.chanjet.gzq.aflow.RoleTask = draw2d.shape.basic.Circle.extend({
+com.chanjet.gzq.aflow.RoleTask = draw2d.shape.basic.Rectangle.extend({
+
 	NAME: "RoleTask",
+    IMAGE: null,
 
 	init: function(){
 		this._super();
 		
 		this.setStroke(1);
-		// this.setDimension(96,64);
-		this.setBackgroundColor(new draw2d.util.Color("#ffffcc"));
-		this.setRadius(32);
+		this.setDimension(60,60);
+		this.setBackgroundColor(new draw2d.util.Color("#ffffff"));
+		// this.setRadius(32);
+
 
         this.setResizeable(false);
 		
@@ -43,9 +46,9 @@ com.chanjet.gzq.aflow.RoleTask = draw2d.shape.basic.Circle.extend({
 		var roleTaskTextLocation = new draw2d.layout.locator.BottomLocator();
 		this.add(roleTaskText, roleTaskTextLocation, 1);
 
-        var image = new com.chanjet.gzq.aflow.UserTaskImage("");
+        this.IMAGE = new com.chanjet.gzq.aflow.UserTaskImage("styles/icons/role.png");
         var userTaskImageLocation = new draw2d.layout.locator.CenterLocator();
-        this.add(image, userTaskImageLocation,1);
+        this.add(this.IMAGE, userTaskImageLocation,1);
 		
 		var leftLocator = new draw2d.layout.locator.InputPortLocator();
 		this.createPort("input",leftLocator);
@@ -61,8 +64,13 @@ com.chanjet.gzq.aflow.RoleTask = draw2d.shape.basic.Circle.extend({
             type: "RoleTask",
             label: roleTaskText.getText(),
             roleIds:'',
+            avator:'',
         };
 	},
+
+    setImage: function(url) {
+        this.IMAGE.setPath(url);
+    },
 
     onDoubleClick: function() {},
 	
@@ -134,7 +142,6 @@ com.chanjet.gzq.aflow.RoleTask = draw2d.shape.basic.Circle.extend({
             }
         });
 	},
-
 	
 });
 
