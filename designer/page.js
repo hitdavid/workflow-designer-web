@@ -4,8 +4,17 @@
 
 var app;
 
+paceOptions = {
+    elements: true
+};
+
+$(document).ready(function(){
+    var myWizard = $('#myWizard').wizard();
+});
+
 $(window).load(function () {
     //-- 2. activiti-designer的连接器(全局)
+    Pace.stop();
 
     app = new com.chanjet.gzq.aflow.Application();
     load();

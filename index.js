@@ -64,10 +64,3 @@ document.write(require("./designer/properties/jqPropertyGrid.js"));
 document.write(require("./designer/page.js"));
 
 
-$(window).load(function(){
-    Pace.stop();
-});
-
-paceOptions = {
-    elements: true
-};
