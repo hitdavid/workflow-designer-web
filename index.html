@@ -1,4 +1,4 @@
-<html lang="zh">
+<html>
 	<head>
 		<meta charset="utf-8"/>
 		<title>审批流编辑器</title>
@@ -33,7 +33,7 @@
                 </div>
 
                 <div id="Canvas"
-                     style="position:relative;width:2500px;height:2500px;background-image:url(styles/images/grid.png);"></div>
+                     style="position:relative;width:2500px;height:2500px;background-image:url(./designer/styles/images/grid.png);"></div>
 
                 <div style="border-radius:5px;
 			            overflow:auto;
@@ -120,7 +120,7 @@
                 <div class='step'>
                     <h2 id="title" class="title">根据表单值，添加一个条件分支审批</h2>
                     <input type="text" placeholder="表单字段" business-meta="case"><br />
-                    <button class="btn btn-default pull-right" onclick="addCase();">增加条件</button>
+                    <button class="btn btn-default pull-right" onclick="wizardAddCase();">增加条件</button>
 
                     <div class="pull-right">
                         <button class="btn dialog-button" data-action="ok" step="1" node="BranchTask">OK</button>

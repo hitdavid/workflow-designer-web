@@ -2,19 +2,23 @@
  * Created by David on 2017/3/28.
  */
 
-var app;
+window.app;
+window.myWizard;
 
 paceOptions = {
     elements: true
 };
 
-$(document).ready(function(){
-    var myWizard = $('#myWizard').wizard();
-});
+// $(document).ready(function(){
+//     var myWizard = $('#myWizard').wizard();
+// });
 
 $(window).load(function () {
+
     //-- 2. activiti-designer的连接器(全局)
     Pace.stop();
+
+    myWizard = $('#myWizard').wizard();
 
     app = new com.chanjet.gzq.aflow.Application();
     load();
@@ -172,7 +176,7 @@ function showWizard() {
     myWizard.style.display="block";
 }
 
-function addCase() {
+function wizardAddCase() {
     $("#title").after("<input type='text' placeholder='表单字段' business-meta='case'><br />");
 }
 

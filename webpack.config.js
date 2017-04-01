@@ -11,33 +11,71 @@ module.exports = {
     },
     module: {
         loaders: [
-            // { test: require.resolve("jquery"), loader: "expose?$! expose?jQuery" },
-            { test: /\.css$/, loader: "style-loader!css-loader"},
-            { test: /\.(woff|woff2|eot|ttf|otf)$/i, loader: 'url-loader?limit=81920&name=[name].[ext]'},
-            { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'url-loader?limit=81920&name=[name].[ext]'},
-        ]
+            {
+                test: require.resolve('./scripts/jquery/jquery-1.9.1.js'),
+                loader: 'expose?jQuery!expose?$'
+            }
+        ],
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['env' ,
+                            [ "es2015", { strict: false, loose: true } ],
+                        ]
+                    }
+                }
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    { loader: "style-loader" },
+                    { loader: "css-loader" },
+                ],
+            },
+            {
+                test: /\.useable\.css$/,
+                use: [
+                    { loader: "style-loader/useable"},
+                    { loader: "css-loader" },
+                ],
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                    // { loader: "url-loader?limit=10240"},
+                    { loader: "file-loader" },
+                ],
+            },
+        ],
     },
     node: {
         fs: "empty"
     },
-    // plugins: [
-    // // 把jquery作为全局变量插入到所有的代码中
-    // // 然后就可以直接在页面中使用jQuery了
-    //     new webpack.ProvidePlugin({
-    //         $: 'jquery',
-    //         jQuery: 'jquery',
-    //         'window.jQuery': 'jquery'
-    //     }),
-    // ]
     plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            mangle: {
-                except: ['$super', '$', 'exports', 'require']
-                //以上变量‘$super’, ‘$’, ‘exports’ or ‘require’，不会被混淆
-            },
-            compress: {
-                warnings: false
-            }
-        })
-    ]
+        // new webpack.DefinePlugin({ global: {} }),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+
+        }),
+    ],
+    externals:{
+        'jquery':'window.jQuery'
+    }
+
+    // plugins: [
+    //     new webpack.optimize.UglifyJsPlugin({
+    //         mangle: {
+    //             except: ['$super', '$', 'exports', 'require', 'wizardAddCase', 'eve']
+    //             //以上变量‘$super’, ‘$’, ‘exports’ or ‘require’，不会被混淆
+    //         },
+    //         compress: {
+    //             warnings: false
+    //         }
+    //     })
+    // ]
 };
