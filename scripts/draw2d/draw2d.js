@@ -8885,7 +8885,7 @@ draw2d.policy.canvas.CanvasPolicy = draw2d.policy.EditPolicy.extend({
     createMonochromGif: function (w, h, d, color) {
         color = new draw2d.util.Color(color);
         var r = String.fromCharCode(w % 256) + String.fromCharCode(w / 256) + String.fromCharCode(h % 256) + String.fromCharCode(h / 256);
-        var gif = "GIF89a" + r + "\xf0\0\0\xff\xff\xff" + String.fromCharCode(color.red) + String.fromCharCode(color.green) + String.fromCharCode(color.blue) + "\x21\xf9\4\1\0\0\0\0,\0\0\0\0" + r + "\0\2";
+        var gif = "GIF89a" + r + "\\xf0\\0\\0\\xff\\xff\\xff" + String.fromCharCode(color.red) + String.fromCharCode(color.green) + String.fromCharCode(color.blue) + "\\x21\\xf9\\4\\1\\0\\0\\0\\0,\\0\\0\\0\\0" + r + "\\0\\2";
 
         // help method to generate uncompressed in memory GIF data structur without the usage of a canvas or any other
         // heavy weight stuff.

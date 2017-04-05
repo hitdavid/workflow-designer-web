@@ -1,0 +1,19 @@
+{
+  "name": "workflow-designer-web-master",
+  "version": "1.0.0",
+  "description": "代码修改, 以适应 `审批流程` 编辑,作为审批流程设计器使用.",
+  "main": "index.js",
+  "dependencies": {
+    "babel-preset-es2015": "^6.24.0",
+    "fs": "^0.0.1-security",
+    "pathfinding": "^0.4.18",
+    "jquery": "1.9.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

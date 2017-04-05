@@ -3725,7 +3725,7 @@
     })();
     
     R.ninja = function () {
-        oldRaphael.was ? (g.win.Raphael = oldRaphael.is) : delete Raphael;
+        oldRaphael.was ? (g.win.Raphael = oldRaphael.is) : delete window.Raphael;
         return R;
     };
     
