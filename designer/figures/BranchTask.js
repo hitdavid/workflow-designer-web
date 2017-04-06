@@ -167,7 +167,7 @@ BranchTask = draw2d.shape.basic.Triangle.extend({
 
 
 
-
+module.exports = BranchTask;
 
 
 

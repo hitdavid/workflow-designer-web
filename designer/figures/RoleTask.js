@@ -173,6 +173,6 @@ RoleTask = draw2d.shape.basic.Rectangle.extend({
 
 
 
-
+module.exports = RoleTask;
 
 

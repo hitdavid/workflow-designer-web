@@ -7,10 +7,11 @@
     "Class": "^0.1.3",
     "babel-preset-es2015": "^6.24.0",
     "debug": "^2.6.3",
-    "eve": "^0.5.3",
+    "eve-raphael": "^0.5.0",
     "fs": "^0.0.1-security",
     "jquery": "^2.2.4",
-    "pathfinding": "^0.4.18"
+    "pathfinding": "^0.4.18",
+    "raphael": "^2.2.7"
   },
   "devDependencies": {
     "webpack-dev-server": "^2.4.2"

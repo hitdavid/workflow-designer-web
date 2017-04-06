@@ -134,3 +134,5 @@ Connection = draw2d.Connection.extend({
                 '</bpmndi:BPMNShape>';
     },
 });
+
+module.exports = Connection;

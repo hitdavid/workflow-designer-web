@@ -72,13 +72,23 @@ module.exports = {
         ]
     },
 
+    resolve: {
+        modules: [
+            path.resolve(__dirname),
+            "node_modules",
+        ],
+        extensions: [
+            ".jsx",
+            ".js",
+        ],
+    },
+
     plugins: [
         new webpack.ProvidePlugin({
-            aaaa: "jquery",
             jQuery: 'jquery',
             $: "jquery",
-            draw2d: "/Users/David/Documents/code/workflow-designer-web-master/scripts/draw2d/draw2d.js",
-            RGBColor: "/Users/David/Documents/code/workflow-designer-web-master/scripts/draw2d/lib/rgbcolor.js"
+            draw2d: "scripts/draw2d/draw2d.js",
+            RGBColor: "scripts/draw2d/lib/rgbcolor.js"
         }),
         // new webpack.optimize.UglifyJsPlugin({
         //         mangle: {

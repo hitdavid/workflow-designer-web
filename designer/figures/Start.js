@@ -62,3 +62,5 @@ Start = draw2d.shape.basic.Circle.extend({
             '</bpmndi:BPMNShape>';
     },
 });
+
+module.exports = Start;

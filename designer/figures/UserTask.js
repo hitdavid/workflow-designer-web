@@ -153,3 +153,5 @@ UserTask = draw2d.shape.basic.Rectangle.extend({
     },
 	
 });
+
+module.exports = UserTask;
