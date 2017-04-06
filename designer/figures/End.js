@@ -1,3 +1,5 @@
+draw2d = draw2d.default;
+
 End = draw2d.shape.basic.Circle.extend({
 	NAME: "End",
 	init: function(){

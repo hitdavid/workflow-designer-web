@@ -284,5 +284,7 @@ function RGBColor(color_string)
 
     }
 
-}
+};
+
+module.exports = RGBColor;
 

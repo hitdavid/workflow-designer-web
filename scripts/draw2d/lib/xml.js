@@ -214,3 +214,5 @@ if (!XML) {
 
     return out;
 }}());
+
+module.exports = XML;

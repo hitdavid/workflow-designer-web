@@ -9,8 +9,7 @@ import "./styles/designer.css";
 import "./styles/wizard.css";
 import "./styles/jqPropertyGrid.css";
 
-import $ from "../scripts/jquery/jquery-1.9.1.js";
-window.$ = $;
+
 import "../scripts/easyui/jquery.easyui.min.js";
 import "../scripts/jquery/plugins/touchpunch/jquery-touch_punch.js";
 import "../scripts/jquery/plugins/autoresize/jquery.autoresize.js";
@@ -22,9 +21,12 @@ import "../scripts/draw2d/lib/rgbcolor.js";
 import "../scripts/draw2d/lib/canvg.js";
 import "../scripts/draw2d/lib/Class.js";
 import "../scripts/draw2d/lib/json2.js";
-import "../scripts/draw2d/lib/xml.js";
+
 import "../scripts/draw2d/lib/pathfinding-browser.min.js";
 import "../scripts/draw2d/draw2d.js";
+
+
+
 import "../scripts/easyui/jquery.easyui.min.js";
 import "../scripts/bootstrap/bootstrap.min.js";
 import "../scripts/wizard/wizard.js";

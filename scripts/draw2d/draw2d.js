@@ -13,6 +13,10 @@
 //
 // import 'debug';
 
+import XML from "./lib/xml.js";
+
+// var XML = require("./lib/xml.js");
+
 var draw2d = {
         geo: {},
 
@@ -1357,7 +1361,7 @@ draw2d.util.JSON = {
      */
     diff: function (obj1, obj2) {
         var result = {};
-        for (key in obj1) {
+        for (var key in obj1) {
             var v1 = obj1[key];
             var v2 = obj2[key];
             if (v1 !== v2) {
@@ -15645,7 +15649,7 @@ draw2d.Figure = Class.extend({
             // call of attr as setter method with {name1:val1, name2:val2 }  argument list
             //
             if ($.isPlainObject(name)) {
-                for (key in name) {
+                for (var key in name) {
                     // user can set the "userData" with path notation. In this case we
                     // expand the path to a real JSON object and set the data.
                     // index/brackets are allowed too.
@@ -15696,7 +15700,7 @@ draw2d.Figure = Class.extend({
             // generic getter of all registered attributes
             else if (typeof name === "undefined") {
                 var result = {};
-                for (key in this.getterWhitelist) {
+                for (var key in this.getterWhitelist) {
                     result[key] = this.getterWhitelist[key].call(this);
                 }
                 return result;
@@ -15717,7 +15721,7 @@ draw2d.Figure = Class.extend({
     pick: function (obj, var_keys) {
         var keys = typeof arguments[1] !== 'string' ? arguments[1] : Array.prototype.slice.call(arguments, 1);
         var out = {}, key;
-        for (key in keys) {
+        for (var key in keys) {
             if (typeof obj[key] !== "undefined")
                 out[key] = obj[key];
         }
@@ -16422,7 +16426,7 @@ draw2d.Figure = Class.extend({
         //
         var diff = function (obj1, obj2) {
             var result = {};
-            for (key in obj1) {
+            for (var key in obj1) {
                 if (obj1[key] !== obj2[key]) {
                     result[key] = obj1[key];
                 }
@@ -32342,9 +32346,9 @@ draw2d.io.png.Writer = draw2d.io.Writer.extend({
             svg = svg.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
         }
 
-        canvasDomNode = $('<canvas id="canvas_png_export_for_draw2d" style="display:none"></canvas>');
+        var canvasDomNode = $('<canvas id="canvas_png_export_for_draw2d" style="display:none"></canvas>');
         $('body').append(canvasDomNode);
-        fullSizeCanvas = $("#canvas_png_export_for_draw2d")[0];
+        var fullSizeCanvas = $("#canvas_png_export_for_draw2d")[0];
         fullSizeCanvas.width = canvas.initialWidth;
         fullSizeCanvas.height = canvas.initialHeight;
 
@@ -32361,7 +32365,7 @@ draw2d.io.png.Writer = draw2d.io.Writer.extend({
                         var sourceWidth = cropBoundingBox.w;
                         var sourceHeight = cropBoundingBox.h;
 
-                        croppedCanvas = document.createElement('canvas');
+                        var croppedCanvas = document.createElement('canvas');
                         croppedCanvas.width = sourceWidth;
                         croppedCanvas.height = sourceHeight;
 
@@ -33007,5 +33011,6 @@ draw2d.storage.LocalFileStorage = draw2d.storage.FileStorage.extend({
     }
 });
 
+export default draw2d;
 
-// module.export = draw2d;
+// module.exports = draw2d;

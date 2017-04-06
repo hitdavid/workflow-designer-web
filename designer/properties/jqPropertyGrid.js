@@ -323,4 +323,4 @@
 			this.value = max;
 		}
 	}
-})(window.$);
+})($);

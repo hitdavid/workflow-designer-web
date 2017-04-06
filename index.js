@@ -7,8 +7,9 @@ import './scripts/easyui/themes/gray/easyui.css';
 
 
 import Pace from "./scripts/jquery/plugins/pace/pace.min.js";
-import $ from "./scripts/jquery/jquery-1.9.1.js";
-window.$ = $;
+// import $ from "./scripts/jquery/jquery-1.9.1.js";
+// window.$ = $;
+
 import "./scripts/easyui/jquery.easyui.min.js";
 
 window.paceOptions = {

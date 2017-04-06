@@ -2,6 +2,8 @@
  * Created by David on 2017/2/25.
  */
 
+draw2d = draw2d.default;
+
 ConnectionTEXT = draw2d.shape.basic.Text.extend({
     NAME: "ConnectionTEXT",
 

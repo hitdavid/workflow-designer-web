@@ -2,6 +2,8 @@
  * Created by David on 2017/3/28.
  */
 
+draw2d = draw2d.default;
+
 var app;
 
 $(window).load(function () {

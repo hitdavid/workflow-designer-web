@@ -1,3 +1,5 @@
+draw2d = draw2d.default;
+
 RoleTaskText = draw2d.shape.basic.Text.extend({
 	NAME: "aflowRoleTaskText",
 	

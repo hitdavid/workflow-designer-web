@@ -1,6 +1,9 @@
 // import Class from 'Class';
 // import Class from "../scripts/draw2d/lib/Class.js";
 
+draw2d = draw2d.default;
+
+
 Application = Class.extend({
 
 	appName: "Application",

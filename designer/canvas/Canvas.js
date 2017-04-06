@@ -1,3 +1,5 @@
+draw2d = draw2d.default;
+
 Canvas = draw2d.Canvas.extend({
 	canvasName: "Canvas",
 

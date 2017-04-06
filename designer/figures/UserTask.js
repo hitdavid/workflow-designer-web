@@ -1,3 +1,5 @@
+draw2d = draw2d.default;
+
 UserTaskText = draw2d.shape.basic.Text.extend({
 	NAME: "UserTaskText",
 	

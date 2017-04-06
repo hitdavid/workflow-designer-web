@@ -7,8 +7,7 @@ var webpack = require('webpack');
 
 module.exports = {
 
-    // context: path.resolve(__dirname, './'),
-
+    context: __dirname,
     entry: {
         main: './index.js',
         designer: './designer/index.js'
@@ -49,23 +48,11 @@ module.exports = {
                 test: /\.(png|gif)?$/,
                 use: [
                     {
-                        loader: "file-loader",
-                        //options: {
-                        //  presets: [
-                        //    [
-                        //      "es2015",
-                        //      {
-                        //        "modules": false,
-                        //      },
-                        //    ],
-                        //    "stage-0",
-                        //    "react",
-                        //  ],
-                        //  plugins: [
-                        //    "transform-decorators-legacy",
-                        //    "react-hot-loader/babel",
-                        //  ],
-                        //},
+                        loader: "url-loader",
+                        options: {
+                            name: "[name].[ext]",
+                            limit: 500000
+                        },
                     },
                 ],
             },
@@ -86,6 +73,13 @@ module.exports = {
     },
 
     plugins: [
+        new webpack.ProvidePlugin({
+            aaaa: "jquery",
+            jQuery: 'jquery',
+            $: "jquery",
+            draw2d: "/Users/David/Documents/code/workflow-designer-web-master/scripts/draw2d/draw2d.js",
+            RGBColor: "/Users/David/Documents/code/workflow-designer-web-master/scripts/draw2d/lib/rgbcolor.js"
+        }),
         // new webpack.optimize.UglifyJsPlugin({
         //         mangle: {
         //             except: ['$super', '$', 'exports', 'require', 'module', 'export']
