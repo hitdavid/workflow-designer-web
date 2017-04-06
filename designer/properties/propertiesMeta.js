@@ -106,14 +106,6 @@ var theMeta = {
         type: 'text',
         name: "终点",
     },
-
-    operator: {
-        browsable: false,
-        group: "条件设置",
-        type: 'options',
-        options: theOperators,
-        name: "运算符",
-    },
     expression: {
         browsable: true,
         group: "条件设置",

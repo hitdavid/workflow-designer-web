@@ -128,5 +128,7 @@ n instanceof Ninja && n instanceof Person && n instanceof Class
     return Class; 
   }; 
 })();
+
+module.export = Class;
  
  

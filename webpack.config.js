@@ -86,9 +86,15 @@ module.exports = {
     },
 
     plugins: [
-
+        // new webpack.optimize.UglifyJsPlugin({
+        //         mangle: {
+        //             except: ['$super', '$', 'exports', 'require', 'module', 'export']
+        //             //以上变量‘$super’, ‘$’, ‘exports’ or ‘require’，不会被混淆
+        //         },
+        //         compress: {
+        //             warnings: false
+        //         }
+        //     })
     ]
-
-
 
 };

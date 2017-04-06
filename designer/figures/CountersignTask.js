@@ -1,4 +1,4 @@
-com.chanjet.gzq.aflow.CountersignTEXT = draw2d.shape.basic.Text.extend({
+CountersignTEXT = draw2d.shape.basic.Text.extend({
     NAME: "CountersignTEXT",
 
     init: function(text){
@@ -17,7 +17,7 @@ com.chanjet.gzq.aflow.CountersignTEXT = draw2d.shape.basic.Text.extend({
     }
 });
 
-com.chanjet.gzq.aflow.CountersignTask = draw2d.shape.basic.Diamond.extend({
+CountersignTask = draw2d.shape.basic.Diamond.extend({
 	NAME: "CountersignTask",
 
 	init: function(){
@@ -30,7 +30,7 @@ com.chanjet.gzq.aflow.CountersignTask = draw2d.shape.basic.Diamond.extend({
 
         this.setResizeable(false);
 
-		var CountersignTEXT = new com.chanjet.gzq.aflow.CountersignTEXT("会签");
+		var CountersignTEXT = new CountersignTEXT("会签");
 		var CountersignTEXTLocation = new draw2d.layout.locator.CenterLocator();
 		this.add(CountersignTEXT, CountersignTEXTLocation, 1);
 		

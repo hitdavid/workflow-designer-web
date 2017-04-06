@@ -1,5 +1,5 @@
-com.chanjet.gzq.aflow.Accordion = Class.extend({
-	accordionName: "com.chanjet.gzq.aflow.Accordion",
+Accordion = Class.extend({
+	accordionName: "Accordion",
 
     thisAccordion:null,
 
@@ -52,7 +52,7 @@ com.chanjet.gzq.aflow.Accordion = Class.extend({
 
     addNode: function(nodeType, x, y) {
 
-        var shape = eval("new com.chanjet.gzq.aflow."+nodeType+"()");
+        var shape = eval("new "+nodeType+"()");
         //view.add(shape,x,y);
         var command = new draw2d.command.CommandAdd(app.canvas, shape, x, y);
         app.canvas.getCommandStack().execute(command);// 放入堆栈，撤销或者重做

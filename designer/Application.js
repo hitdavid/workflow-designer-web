@@ -1,11 +1,9 @@
-if(typeof com == "undefined")
-	var com = {};
-com.chanjet = {};
-com.chanjet.gzq = {};
-com.chanjet.gzq.aflow = {};
-com.chanjet.gzq.aflow.Application = Class.extend({
+// import Class from 'Class';
+// import Class from "../scripts/draw2d/lib/Class.js";
 
-	appName: "com.chanjet.gzq.aflow.Application",
+Application = Class.extend({
+
+	appName: "Application",
 
 	/**
 	 * @constructor
@@ -17,17 +15,17 @@ com.chanjet.gzq.aflow.Application = Class.extend({
 
         var uuid = draw2d.util.UUID.create();
 
-		this.canvas = new com.chanjet.gzq.aflow.Canvas('Canvas');
+		this.canvas = new Canvas('Canvas');
 		this.canvas.userData.id = uuid;
 
 		//-- 2. activiti-designer的连接器(全局)
 		draw2d.Connection.createConnection = this.createConnection;
 		
 		//-- 3. activiti-designer的手风琴导航菜单
-		this.accordion = new com.chanjet.gzq.aflow.Accordion(this.canvas);
+		this.accordion = new Accordion(this.canvas);
 		
 		//-- 4. activiti-designer的工具条
-		this.toolbar = new com.chanjet.gzq.aflow.ToolBar(this.canvas);
+		this.toolbar = new ToolBar(this.canvas);
 		
 	},
 	loadFigure: function(json){
@@ -46,7 +44,7 @@ com.chanjet.gzq.aflow.Application = Class.extend({
 
 		json['canvas'].forEach(function (e, i) {
 
-		    var element = eval("new com.chanjet.gzq.aflow."+e.type+"()");
+		    var element = eval("new "+e.type+"()");
 
             var keys = Object.getOwnPropertyNames(e);
             if (e.type == "Connection") {
@@ -125,7 +123,7 @@ com.chanjet.gzq.aflow.Application = Class.extend({
 
 	createConnection: function(sourcePort, targetPort){
 
-		var conn = new com.chanjet.gzq.aflow.Connection();
+		var conn = new Connection();
 
         if(sourcePort != null && sourcePort.parent != null) {
             conn.userData['from'] = sourcePort.parent.id;

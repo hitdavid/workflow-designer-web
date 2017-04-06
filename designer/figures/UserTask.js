@@ -1,4 +1,4 @@
-com.chanjet.gzq.aflow.UserTaskText = draw2d.shape.basic.Text.extend({
+UserTaskText = draw2d.shape.basic.Text.extend({
 	NAME: "UserTaskText",
 	
 	init: function(text){
@@ -17,7 +17,7 @@ com.chanjet.gzq.aflow.UserTaskText = draw2d.shape.basic.Text.extend({
 	}
 });
 
-com.chanjet.gzq.aflow.UserTaskImage = draw2d.shape.basic.Image.extend({
+UserTaskImage = draw2d.shape.basic.Image.extend({
     NAME: "UserTaskImage",
 
     init: function(path){
@@ -34,7 +34,7 @@ com.chanjet.gzq.aflow.UserTaskImage = draw2d.shape.basic.Image.extend({
 
 });
 
-com.chanjet.gzq.aflow.UserTask = draw2d.shape.basic.Rectangle.extend({
+UserTask = draw2d.shape.basic.Rectangle.extend({
 
 	NAME: "UserTask",
 
@@ -51,11 +51,11 @@ com.chanjet.gzq.aflow.UserTask = draw2d.shape.basic.Rectangle.extend({
 
         this.setResizeable(false);
 
-		var userTaskText = new com.chanjet.gzq.aflow.UserTaskText("固定人员");
+		var userTaskText = new UserTaskText("固定人员");
 		var userTaskTextLocation = new draw2d.layout.locator.BottomLocator();
 		this.add(userTaskText, userTaskTextLocation,1);
 
-        this.IMAGE = new com.chanjet.gzq.aflow.UserTaskImage("styles/icons/user.png");
+        this.IMAGE = new UserTaskImage("styles/icons/user.png");
         var userTaskImageLocation = new draw2d.layout.locator.CenterLocator();
         this.add(this.IMAGE, userTaskImageLocation,1);
 		

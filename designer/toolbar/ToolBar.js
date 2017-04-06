@@ -4,8 +4,8 @@
  * @author RanJi (����Ҳ����)
  * @date 2014-12-09
  */
- com.chanjet.gzq.aflow.ToolBar = Class.extend({
-	toolBarName: 'com.chanjet.gzq.aflow.ToolBar',
+ ToolBar = Class.extend({
+	toolBarName: 'ToolBar',
 	/**
 	 * view: ��������Ҫ�����Ļ���
 	 */

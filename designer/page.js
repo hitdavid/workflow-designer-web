@@ -7,7 +7,7 @@ var app;
 $(window).load(function () {
     //-- 2. activiti-designer的连接器(全局)
 
-    app = new com.chanjet.gzq.aflow.Application();
+    app = new Application();
     load();
 
     app.canvas.getCommandStack().addEventListener(function (e) {
@@ -139,7 +139,7 @@ function load() {
         json = result;
     }).fail(function () {
 
-        var shape = new com.chanjet.gzq.aflow.Start();
+        var shape = new Start();
         var command = new draw2d.command.CommandAdd(app.canvas, shape, 100, 300);
         app.canvas.getCommandStack().execute(command);// 放入堆栈，撤销或者重做
         json = null;

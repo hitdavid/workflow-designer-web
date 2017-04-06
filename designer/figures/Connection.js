@@ -2,7 +2,7 @@
  * Created by David on 2017/2/25.
  */
 
-com.chanjet.gzq.aflow.ConnectionTEXT = draw2d.shape.basic.Text.extend({
+ConnectionTEXT = draw2d.shape.basic.Text.extend({
     NAME: "ConnectionTEXT",
 
     init: function(text){
@@ -14,7 +14,7 @@ com.chanjet.gzq.aflow.ConnectionTEXT = draw2d.shape.basic.Text.extend({
     }
 });
 
-com.chanjet.gzq.aflow.Connection = draw2d.Connection.extend({
+Connection = draw2d.Connection.extend({
 
     NAME: "Connection",
 
@@ -27,7 +27,7 @@ com.chanjet.gzq.aflow.Connection = draw2d.Connection.extend({
         targetDecorator.setBackgroundColor("#000000");
         this.setTargetDecorator(targetDecorator);
 
-        var ConnectionTEXT = new com.chanjet.gzq.aflow.ConnectionTEXT("同意");
+        var ConnectionTEXT = new ConnectionTEXT("同意");
         var ConnectionTEXTLocation = new draw2d.layout.locator.ParallelMidpointLocator();
         this.add(ConnectionTEXT, ConnectionTEXTLocation, 1);
 

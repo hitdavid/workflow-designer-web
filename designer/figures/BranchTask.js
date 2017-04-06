@@ -1,4 +1,4 @@
-com.chanjet.gzq.aflow.BranchTaskText = draw2d.shape.basic.Text.extend({
+BranchTaskText = draw2d.shape.basic.Text.extend({
     NAME: "BranchTaskText",
 
     init: function(text){
@@ -17,7 +17,7 @@ com.chanjet.gzq.aflow.BranchTaskText = draw2d.shape.basic.Text.extend({
     }
 });
 
-com.chanjet.gzq.aflow.BranchTask = draw2d.shape.basic.Triangle.extend({
+BranchTask = draw2d.shape.basic.Triangle.extend({
     NAME: "BranchTask",
 
     init: function(){
@@ -30,7 +30,7 @@ com.chanjet.gzq.aflow.BranchTask = draw2d.shape.basic.Triangle.extend({
 
         this.setResizeable(false);
 
-        var BranchTaskText = new com.chanjet.gzq.aflow.BranchTaskText("条件");
+        var BranchTaskText = new BranchTaskText("条件");
         var BranchTaskTextLocation = new draw2d.layout.locator.CenterLocator();
         this.add(BranchTaskText, BranchTaskTextLocation,1);
 

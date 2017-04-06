@@ -1,4 +1,4 @@
-com.chanjet.gzq.aflow.RoleTaskText = draw2d.shape.basic.Text.extend({
+RoleTaskText = draw2d.shape.basic.Text.extend({
 	NAME: "aflowRoleTaskText",
 	
 	init: function(text){
@@ -17,7 +17,7 @@ com.chanjet.gzq.aflow.RoleTaskText = draw2d.shape.basic.Text.extend({
 	}
 });
 
-com.chanjet.gzq.aflow.RoleTaskImage = draw2d.shape.basic.Image.extend({
+RoleTaskImage = draw2d.shape.basic.Image.extend({
     NAME: "RoleTaskImage",
 
     init: function(path){
@@ -33,7 +33,7 @@ com.chanjet.gzq.aflow.RoleTaskImage = draw2d.shape.basic.Image.extend({
     }
 });
 
-com.chanjet.gzq.aflow.RoleTask = draw2d.shape.basic.Rectangle.extend({
+RoleTask = draw2d.shape.basic.Rectangle.extend({
 
 	NAME: "RoleTask",
     IMAGE: null,
@@ -49,11 +49,11 @@ com.chanjet.gzq.aflow.RoleTask = draw2d.shape.basic.Rectangle.extend({
 
         this.setResizeable(false);
 		
-		var roleTaskText = new com.chanjet.gzq.aflow.RoleTaskText("管理角色");
+		var roleTaskText = new RoleTaskText("管理角色");
 		var roleTaskTextLocation = new draw2d.layout.locator.BottomLocator();
 		this.add(roleTaskText, roleTaskTextLocation, 1);
 
-        this.IMAGE = new com.chanjet.gzq.aflow.UserTaskImage("styles/icons/role.png");
+        this.IMAGE = new UserTaskImage("styles/icons/role.png");
         var userTaskImageLocation = new draw2d.layout.locator.CenterLocator();
         this.add(this.IMAGE, userTaskImageLocation,1);
 		

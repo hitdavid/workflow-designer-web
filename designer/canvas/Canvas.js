@@ -1,5 +1,5 @@
-com.chanjet.gzq.aflow.Canvas = draw2d.Canvas.extend({
-	canvasName: "com.chanjet.gzq.aflow.Canvas",
+Canvas = draw2d.Canvas.extend({
+	canvasName: "Canvas",
 
 	init: function(id){
 		this._super(id);
@@ -31,7 +31,7 @@ com.chanjet.gzq.aflow.Canvas = draw2d.Canvas.extend({
 
 	insertTask: function (connection, taskType) {
 
-        var shape = eval("new com.chanjet.gzq.aflow."+taskType+"()");
+        var shape = eval("new "+taskType+"()");
 
         var x = connection.getBoundingBox().getTopLeft().getX() + (connection.getBoundingBox().getWidth() / 2) - 48;
         var y = connection.getBoundingBox().getCenter().getY() - shape.getHeight() / 2;
@@ -74,7 +74,7 @@ com.chanjet.gzq.aflow.Canvas = draw2d.Canvas.extend({
         var x = xPos != null? xPos : thisTask.getBoundingBox().getTopLeft().getX() + 96 + 100;
         var y = yPos != null? yPos : thisTask.getBoundingBox().getCenter().getY();
 
-        var shape = eval("new com.chanjet.gzq.aflow."+taskType+"()");
+        var shape = eval("new "+taskType+"()");
 
         if(taskType == "UserTask") {
             shape.userData['userIds'] = value;
@@ -103,7 +103,7 @@ com.chanjet.gzq.aflow.Canvas = draw2d.Canvas.extend({
 
     convertTaskType: function (thisTask, newTaskType, value) {
 
-        var shape = eval("new com.chanjet.gzq.aflow."+newTaskType+"()");
+        var shape = eval("new "+newTaskType+"()");
 
         if(newTaskType == "UserTask") {
             shape.userData['userIds'] = value;
@@ -137,7 +137,7 @@ com.chanjet.gzq.aflow.Canvas = draw2d.Canvas.extend({
         var padding = 50;
         var heightOfTaskFigure = 32;
 
-        var shape = new com.chanjet.gzq.aflow.BranchTask();
+        var shape = new BranchTask();
         var emptyPort = null;
         thisTask.outputPorts.data.forEach(function (e, i) {
             if(e.connections.data.length == 0) {
