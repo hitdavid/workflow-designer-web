@@ -5,17 +5,10 @@
  * @private
  */
 
-// import $ from "../jquery/jquery-1.9.1.js";
-// import _jQuery from "../jquery/jquery-1.9.1.js";
-// window.$ = $;
-// module.export = $;
-// import "./lib/Class.js";
-//
-// import 'debug';
-
 import XML from "./lib/xml.js";
 
-// var XML = require("./lib/xml.js");
+Class = Class.default;
+
 
 var draw2d = {
         geo: {},
@@ -14903,7 +14896,8 @@ draw2d.Canvas = Class.extend(
             var children = null;
 
             // ResizeHandles first
-            for (i = 0, len = this.resizeHandles.getSize(); i < len; i++) {
+            var len = this.resizeHandles.getSize();
+            for (i = 0; i < len; i++) {
                 testFigure = this.resizeHandles.get(i);
                 if (testFigure.isVisible() === true && testFigure.hitTest(x, y) === true && $.inArray(testFigure, figureToIgnore) === -1) {
                     return testFigure;
@@ -14911,7 +14905,8 @@ draw2d.Canvas = Class.extend(
             }
 
             // Checking ports
-            for (i = 0, len = this.commonPorts.getSize(); i < len; i++) {
+            len = this.resizeHandles.getSize();
+            for (i = 0; i < len; i++) {
                 testFigure = this.commonPorts.get(i);
                 if ($.inArray(testFigure, figureToIgnore) === -1) {
                     if (testFigure.isVisible() === true && testFigure.hitTest(x, y) === true) {
@@ -33012,5 +33007,3 @@ draw2d.storage.LocalFileStorage = draw2d.storage.FileStorage.extend({
 });
 
 export default draw2d;
-
-// module.exports = draw2d;

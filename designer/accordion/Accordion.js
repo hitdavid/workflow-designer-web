@@ -1,4 +1,8 @@
-Accordion = Class.extend({
+draw2d = draw2d.default;
+
+Class = Class.default;
+
+var Accordion = Class.extend({
 	accordionName: "Accordion",
 
     thisAccordion:null,
@@ -81,3 +85,5 @@ Accordion = Class.extend({
         }
     },
 });
+
+export default Accordion;

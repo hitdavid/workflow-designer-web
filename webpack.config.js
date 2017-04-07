@@ -87,8 +87,21 @@ module.exports = {
         new webpack.ProvidePlugin({
             jQuery: 'jquery',
             $: "jquery",
+            Class: "scripts/draw2d/lib/Class.js",
             draw2d: "scripts/draw2d/draw2d.js",
-            RGBColor: "scripts/draw2d/lib/rgbcolor.js"
+            RGBColor: "scripts/draw2d/lib/rgbcolor.js",
+
+            Accordion1: "designer/accordion/Accordion.js",
+            Application: "designer/Application.js",
+            ToolBar1: "designer/toolbar/ToolBar.js",
+            Canvas1: "designer/canvas/Canvas.js",
+            BranchTask: "designer/figures/BranchTask.js",
+            Start: "designer/figures/Start.js",
+            End: "designer/figures/End.js",
+            RoleTask: "designer/figures/RoleTask.js",
+            UserTask: "designer/figures/UserTask.js",
+            Connection: "designer/figures/Connection.js",
+
         }),
         // new webpack.optimize.UglifyJsPlugin({
         //         mangle: {

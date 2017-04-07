@@ -4,7 +4,10 @@
  * @author RanJi (����Ҳ����)
  * @date 2014-12-09
  */
- ToolBar = Class.extend({
+
+Class = Class.default;
+
+var ToolBar = Class.extend({
 	toolBarName: 'ToolBar',
 	/**
 	 * view: ��������Ҫ�����Ļ���
@@ -41,3 +44,5 @@
 		}
 	}
  });
+
+export default ToolBar;

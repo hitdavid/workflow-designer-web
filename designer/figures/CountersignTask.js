@@ -1,6 +1,6 @@
 draw2d = draw2d.default;
 
-CountersignTEXT = draw2d.shape.basic.Text.extend({
+var CountersignTEXT = draw2d.shape.basic.Text.extend({
     NAME: "CountersignTEXT",
 
     init: function(text){
@@ -19,7 +19,7 @@ CountersignTEXT = draw2d.shape.basic.Text.extend({
     }
 });
 
-CountersignTask = draw2d.shape.basic.Diamond.extend({
+var CountersignTask = draw2d.shape.basic.Diamond.extend({
 	NAME: "CountersignTask",
 
 	init: function(){
@@ -119,10 +119,4 @@ CountersignTask = draw2d.shape.basic.Diamond.extend({
 });
 
 
-
-
-
-
-
-
-
+export default CountersignTask;

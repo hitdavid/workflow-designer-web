@@ -1,9 +1,11 @@
 draw2d = draw2d.default;
 
-Canvas = draw2d.Canvas.extend({
+var Canvas = draw2d.Canvas.extend({
+
 	canvasName: "Canvas",
 
 	init: function(id){
+
 		this._super(id);
 		this.setScrollArea("#"+id);
 		this.id = id;
@@ -208,3 +210,5 @@ Canvas = draw2d.Canvas.extend({
     },
 
 });
+
+export {Canvas} ;

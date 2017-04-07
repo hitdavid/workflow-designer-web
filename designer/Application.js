@@ -2,9 +2,15 @@
 // import Class from "../scripts/draw2d/lib/Class.js";
 
 draw2d = draw2d.default;
+Class = Class.default;
+var Canvas = Canvas1.default;
+// var Accordion = Accordion1.default;
+// var ToolBar = ToolBar1.default;
+
+console.log(Canvas1);
 
 
-Application = Class.extend({
+var Application = Class.extend({
 
 	appName: "Application",
 
@@ -19,6 +25,9 @@ Application = Class.extend({
         var uuid = draw2d.util.UUID.create();
 
 		this.canvas = new Canvas('Canvas');
+
+		console.log(this.canvas);
+
 		this.canvas.userData.id = uuid;
 
 		//-- 2. activiti-designer的连接器(全局)
@@ -166,3 +175,5 @@ Application = Class.extend({
 	},
 
 });
+
+export default Application;

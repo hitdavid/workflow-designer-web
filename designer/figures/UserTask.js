@@ -1,6 +1,6 @@
 draw2d = draw2d.default;
 
-UserTaskText = draw2d.shape.basic.Text.extend({
+var UserTaskText = draw2d.shape.basic.Text.extend({
 	NAME: "UserTaskText",
 	
 	init: function(text){
@@ -19,7 +19,7 @@ UserTaskText = draw2d.shape.basic.Text.extend({
 	}
 });
 
-UserTaskImage = draw2d.shape.basic.Image.extend({
+var UserTaskImage = draw2d.shape.basic.Image.extend({
     NAME: "UserTaskImage",
 
     init: function(path){
@@ -36,7 +36,7 @@ UserTaskImage = draw2d.shape.basic.Image.extend({
 
 });
 
-UserTask = draw2d.shape.basic.Rectangle.extend({
+var UserTask = draw2d.shape.basic.Rectangle.extend({
 
 	NAME: "UserTask",
 
@@ -154,4 +154,4 @@ UserTask = draw2d.shape.basic.Rectangle.extend({
 	
 });
 
-module.exports = UserTask;
+export default UserTask;

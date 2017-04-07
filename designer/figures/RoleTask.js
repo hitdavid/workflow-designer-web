@@ -1,6 +1,6 @@
 draw2d = draw2d.default;
 
-RoleTaskText = draw2d.shape.basic.Text.extend({
+var RoleTaskText = draw2d.shape.basic.Text.extend({
 	NAME: "aflowRoleTaskText",
 	
 	init: function(text){
@@ -19,7 +19,7 @@ RoleTaskText = draw2d.shape.basic.Text.extend({
 	}
 });
 
-RoleTaskImage = draw2d.shape.basic.Image.extend({
+var RoleTaskImage = draw2d.shape.basic.Image.extend({
     NAME: "RoleTaskImage",
 
     init: function(path){
@@ -35,7 +35,7 @@ RoleTaskImage = draw2d.shape.basic.Image.extend({
     }
 });
 
-RoleTask = draw2d.shape.basic.Rectangle.extend({
+var RoleTask = draw2d.shape.basic.Rectangle.extend({
 
 	NAME: "RoleTask",
     IMAGE: null,
@@ -173,6 +173,6 @@ RoleTask = draw2d.shape.basic.Rectangle.extend({
 
 
 
-module.exports = RoleTask;
+export default RoleTask;
 
 

@@ -1,6 +1,6 @@
 draw2d = draw2d.default;
 
-BranchTaskText = draw2d.shape.basic.Text.extend({
+var BranchTaskText = draw2d.shape.basic.Text.extend({
     NAME: "BranchTaskText",
 
     init: function(text){
@@ -19,7 +19,7 @@ BranchTaskText = draw2d.shape.basic.Text.extend({
     }
 });
 
-BranchTask = draw2d.shape.basic.Triangle.extend({
+var BranchTask = draw2d.shape.basic.Triangle.extend({
     NAME: "BranchTask",
 
     init: function(){
@@ -167,7 +167,7 @@ BranchTask = draw2d.shape.basic.Triangle.extend({
 
 
 
-module.exports = BranchTask;
+export default BranchTask;
 
 
 

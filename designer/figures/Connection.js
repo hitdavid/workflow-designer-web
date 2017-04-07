@@ -4,7 +4,7 @@
 
 draw2d = draw2d.default;
 
-ConnectionTEXT = draw2d.shape.basic.Text.extend({
+var ConnectionTEXT = draw2d.shape.basic.Text.extend({
     NAME: "ConnectionTEXT",
 
     init: function(text){
@@ -16,7 +16,7 @@ ConnectionTEXT = draw2d.shape.basic.Text.extend({
     }
 });
 
-Connection = draw2d.Connection.extend({
+var Connection = draw2d.Connection.extend({
 
     NAME: "Connection",
 
@@ -135,4 +135,4 @@ Connection = draw2d.Connection.extend({
     },
 });
 
-module.exports = Connection;
+export default Connection;

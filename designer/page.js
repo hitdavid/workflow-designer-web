@@ -2,7 +2,12 @@
  * Created by David on 2017/3/28.
  */
 
+var Application = require('./Application.js');
+
+Application = Application.default;
+
 draw2d = draw2d.default;
+
 
 var app;
 
@@ -10,6 +15,9 @@ $(window).load(function () {
     //-- 2. activiti-designer的连接器(全局)
 
     app = new Application();
+
+    window.app = app;
+
     load();
 
     app.canvas.getCommandStack().addEventListener(function (e) {

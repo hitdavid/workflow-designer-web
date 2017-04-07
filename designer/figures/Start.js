@@ -1,6 +1,6 @@
 draw2d = draw2d.default;
 
-Start = draw2d.shape.basic.Circle.extend({
+var Start = draw2d.shape.basic.Circle.extend({
 	NAME: "Start",
 	init: function(){
 		this._super();
@@ -63,4 +63,4 @@ Start = draw2d.shape.basic.Circle.extend({
     },
 });
 
-module.exports = Start;
+export default Start;

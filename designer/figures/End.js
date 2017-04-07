@@ -1,6 +1,6 @@
 draw2d = draw2d.default;
 
-End = draw2d.shape.basic.Circle.extend({
+var End = draw2d.shape.basic.Circle.extend({
 	NAME: "End",
 	init: function(){
 		this._super();
@@ -62,4 +62,4 @@ End = draw2d.shape.basic.Circle.extend({
     },
 });
 
-module.exports = End;
+export default End;
